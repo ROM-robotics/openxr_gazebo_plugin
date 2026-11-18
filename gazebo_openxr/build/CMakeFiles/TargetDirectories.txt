@@ -1,0 +1,3 @@
+/home/mr_robot/openxr_workspace/gazebo_openxr/build/CMakeFiles/GazeboOpenXR.dir
+/home/mr_robot/openxr_workspace/gazebo_openxr/build/CMakeFiles/edit_cache.dir
+/home/mr_robot/openxr_workspace/gazebo_openxr/build/CMakeFiles/rebuild_cache.dir
