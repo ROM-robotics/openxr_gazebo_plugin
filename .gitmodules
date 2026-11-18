@@ -1,0 +1,3 @@
+[submodule "openxr_sdk_source"]
+	path = openxr_sdk_source
+	url = https://github.com/ROM-robotics/OpenXR-SDK-Source.git
