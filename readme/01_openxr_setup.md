@@ -1,3 +1,10 @@
+# $\color{#00c853}{\text{OpenXR setup မှတ်တမ်း}}$
+
+ဤဖိုင်တွင် setup လုပ်စဉ် အသုံးပြုခဲ့သော command များ၊ output များနှင့် code နမူနာများကို မူရင်းအစဉ်အတိုင်း မှတ်တမ်းတင်ထားသည်။
+
+## $\color{red}{\text{Terminal မှတ်တမ်း}}$
+
+```text
 cat /etc/os-release
 uname -m
 
@@ -1585,6 +1592,7 @@ Error [GENERAL | xrCreateInstance | OpenXR-Loader] : xrCreateInstance failed
 WivRn ဖွင့်ထားပြီး VR နဲ့  connect ဖြစ်နေဖို့လိုအပ်တယ်။
 ####################################
 
+
 echo "$XDG_SESSION_TYPE"
 echo "$DISPLAY"
 
@@ -2814,4 +2822,4 @@ Rectangle {
 
 ####################################
 
-
+```
