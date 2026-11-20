@@ -13,6 +13,7 @@
 #include <iostream>
 #include <sstream>
 #include <vector>
+#include <iomanip>
 
 XRRuntime::~XRRuntime()
 {
@@ -376,6 +377,8 @@ void XRRuntime::DestroySession()
 
     exitRequested_ = false;
     frameCount_ = 0;
+
+    viewConfigurationInspected_ = false;
 }
 
 XrSession XRRuntime::GetSession() const
@@ -657,3 +660,105 @@ bool XRRuntime::RenderFrame()
 
     return true;
 }
+
+bool XRRuntime::InspectViewConfiguration()
+{
+    if (instance_ == XR_NULL_HANDLE ||
+        systemId_ == XR_NULL_SYSTEM_ID ||
+        session_ == XR_NULL_HANDLE)
+        return false;
+
+    if (viewConfigurationInspected_)
+        return true;
+
+    constexpr XrViewConfigurationType viewType =
+        XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO;
+
+    uint32_t count = 0;
+
+    XrResult result = xrEnumerateViewConfigurationViews(
+        instance_, systemId_, viewType,
+        0, &count, nullptr);
+
+    if (XR_FAILED(result) || count == 0)
+    {
+        status_ = "View configuration enumeration failed";
+        return false;
+    }
+
+    std::vector<XrViewConfigurationView> views(count);
+
+    for (auto &view : views)
+        view.type = XR_TYPE_VIEW_CONFIGURATION_VIEW;
+
+    result = xrEnumerateViewConfigurationViews(
+        instance_, systemId_, viewType,
+        count, &count, views.data());
+
+    if (XR_FAILED(result))
+    {
+        status_ = "Unable to read view configurations";
+        return false;
+    }
+
+    std::cout
+        << "[XRRuntime] View count: " << count
+        << std::endl;
+
+    for (uint32_t i = 0; i < count; ++i)
+    {
+        const auto &view = views[i];
+
+        std::cout
+            << "[XRRuntime] Eye " << i
+            << " | Recommended: "
+            << view.recommendedImageRectWidth << "x"
+            << view.recommendedImageRectHeight
+            << " | Maximum: "
+            << view.maxImageRectWidth << "x"
+            << view.maxImageRectHeight
+            << " | Recommended samples: "
+            << view.recommendedSwapchainSampleCount
+            << std::endl;
+    }
+
+    uint32_t formatCount = 0;
+
+    result = xrEnumerateSwapchainFormats(
+        session_, 0, &formatCount, nullptr);
+
+    if (XR_FAILED(result) || formatCount == 0)
+    {
+        status_ = "Swapchain format enumeration failed";
+        return false;
+    }
+
+    std::vector<int64_t> formats(formatCount);
+
+    result = xrEnumerateSwapchainFormats(
+        session_, formatCount,
+        &formatCount, formats.data());
+
+    if (XR_FAILED(result))
+    {
+        status_ = "Unable to read swapchain formats";
+        return false;
+    }
+
+    std::cout
+        << "[XRRuntime] Supported OpenGL formats:"
+        << std::endl;
+
+    for (auto format : formats)
+    {
+        std::cout
+            << "  0x"
+            << std::hex << format << std::dec
+            << std::endl;
+    }
+
+    viewConfigurationInspected_ = true;
+
+    return true;
+}
+

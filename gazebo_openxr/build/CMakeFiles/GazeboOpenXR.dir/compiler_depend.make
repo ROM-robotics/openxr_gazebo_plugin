@@ -382,6 +382,15 @@ CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o: include/moc_GazeboOp
   /usr/include/gz/rendering8/gz/rendering/ShaderType.hh \
   /usr/include/gz/rendering8/gz/rendering/Mesh.hh \
   /usr/include/gz/math7/gz/math/Matrix4.hh \
+  /usr/include/gz/rendering8/gz/rendering/Camera.hh \
+  /usr/include/gz/common5/gz/common/Event.hh \
+  /usr/include/gz/common5/gz/common/config.hh \
+  /usr/include/gz/common5/gz/common/events/Export.hh \
+  /usr/include/gz/common5/gz/common/events/detail/Export.hh \
+  /usr/include/gz/common5/gz/common/events/Types.hh \
+  /usr/include/gz/rendering8/gz/rendering/Image.hh \
+  /usr/include/gz/rendering8/gz/rendering/PixelFormat.hh \
+  /usr/include/gz/rendering8/gz/rendering/PixelBuffer.hh \
   /usr/include/gz/gui8/gz/gui/Plugin.hh \
   /usr/include/tinyxml2.h \
   /usr/include/c++/11/climits \
@@ -1169,6 +1178,15 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: ../src/GazeboOpenXR.cc \
   /usr/include/gz/rendering8/gz/rendering/ShaderType.hh \
   /usr/include/gz/rendering8/gz/rendering/Mesh.hh \
   /usr/include/gz/math7/gz/math/Matrix4.hh \
+  /usr/include/gz/rendering8/gz/rendering/Camera.hh \
+  /usr/include/gz/common5/gz/common/Event.hh \
+  /usr/include/gz/common5/gz/common/config.hh \
+  /usr/include/gz/common5/gz/common/events/Export.hh \
+  /usr/include/gz/common5/gz/common/events/detail/Export.hh \
+  /usr/include/gz/common5/gz/common/events/Types.hh \
+  /usr/include/gz/rendering8/gz/rendering/Image.hh \
+  /usr/include/gz/rendering8/gz/rendering/PixelFormat.hh \
+  /usr/include/gz/rendering8/gz/rendering/PixelBuffer.hh \
   /usr/include/gz/gui8/gz/gui/Plugin.hh \
   /usr/include/tinyxml2.h \
   /usr/include/c++/11/climits \
@@ -1587,8 +1605,6 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: ../src/GazeboOpenXR.cc \
   /usr/include/c++/11/bits/sstream.tcc \
   /usr/include/gz/gui8/gz/gui/GuiEvents.hh \
   /usr/include/gz/common5/gz/common/KeyEvent.hh \
-  /usr/include/gz/common5/gz/common/events/Export.hh \
-  /usr/include/gz/common5/gz/common/events/detail/Export.hh \
   /usr/include/gz/common5/gz/common/MouseEvent.hh \
   /usr/include/gz/msgs10/gz/msgs/world_control.pb.h \
   /usr/include/gz/msgs10/gz/msgs/Export.hh \
@@ -2043,6 +2059,16 @@ CMakeFiles/GazeboOpenXR.dir/src/XRCamera.cc.o: ../src/XRCamera.cc \
   /usr/include/gz/rendering8/gz/rendering/ShaderType.hh \
   /usr/include/gz/rendering8/gz/rendering/Mesh.hh \
   /usr/include/gz/math7/gz/math/Matrix4.hh \
+  /usr/include/gz/rendering8/gz/rendering/Camera.hh \
+  /usr/include/gz/common5/gz/common/Event.hh \
+  /usr/include/gz/common5/gz/common/config.hh \
+  /usr/include/gz/common5/gz/common/events/Export.hh \
+  /usr/include/gz/common5/gz/common/events/detail/Export.hh \
+  /usr/include/gz/common5/gz/common/events/Types.hh \
+  /usr/include/gz/rendering8/gz/rendering/Image.hh \
+  /usr/include/gz/rendering8/gz/rendering/PixelFormat.hh \
+  /usr/include/gz/rendering8/gz/rendering/PixelBuffer.hh \
+  /usr/include/c++/11/cstddef \
   /usr/include/gz/rendering8/gz/rendering/RenderingIface.hh \
   /usr/include/gz/rendering8/gz/rendering/RenderEngine.hh \
   /usr/include/gz/rendering8/gz/rendering/GraphicsAPI.hh
@@ -2391,8 +2417,6 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/gz/common5/gz/common/MouseEvent.hh:
 
-/usr/include/gz/common5/gz/common/events/detail/Export.hh:
-
 /usr/include/gz/common5/gz/common/KeyEvent.hh:
 
 /usr/include/gz/gui8/gz/gui/GuiEvents.hh:
@@ -2523,8 +2547,6 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/x86_64-linux-gnu/qt5/QtQml/qjsvalue.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtQml/qjsengine.h:
-
 /usr/include/x86_64-linux-gnu/qt5/QtQml/qqmlapplicationengine.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtQml/QQmlApplicationEngine:
@@ -2605,13 +2627,27 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qsortfilterproxymodel.h:
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsocketnotifier.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsignaltransition.h:
+
+../src/GazeboOpenXR.cc:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsignalmapper.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsettings.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsequentialanimationgroup.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsemaphore.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qscopeguard.h:
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtQuickControls2/qtquickcontrols2global.h:
 
 /usr/include/c++/11/ctime:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringalgorithms.h:
 
 /usr/include/c++/11/stdexcept:
 
@@ -2699,8 +2735,6 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qfuturewatcher.h:
 
-/usr/include/gz/rendering8/gz/rendering/Geometry.hh:
-
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs_impl.h:
 
 /usr/include/c++/11/bits/locale_classes.h:
@@ -2754,8 +2788,6 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 /usr/include/c++/11/cstddef:
 
 /usr/include/c++/11/bits/ptr_traits.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qsettings.h:
 
 /usr/include/google/protobuf/stubs/macros.h:
 
@@ -3011,6 +3043,12 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qitemselectionmodel.h:
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qscopedvaluerollback.h:
+
+/usr/include/c++/11/cstring:
+
+/usr/include/c++/11/bits/atomic_futex.h:
+
 /usr/include/c++/11/bits/charconv.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
@@ -3030,6 +3068,12 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 /usr/include/c++/11/debug/debug.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedmemory.h:
+
+/usr/include/gz/rendering8/gz/rendering/Storage.hh:
+
+/usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractstate.h:
 
@@ -3054,6 +3098,8 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 /usr/include/c++/11/array:
 
 /usr/include/c++/11/tr1/beta_function.tcc:
+
+/usr/include/gz/common5/gz/common/events/detail/Export.hh:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qcommandlineparser.h:
 
@@ -3181,6 +3227,10 @@ include/moc_GazeboOpenXR.cpp:
 
 /usr/include/c++/11/bits/string_view.tcc:
 
+/usr/include/gz/rendering8/gz/rendering/Geometry.hh:
+
+/usr/include/gz/rendering8/gz/rendering/Camera.hh:
+
 ../include/XRRuntime.hh:
 
 /usr/include/GL/gl.h:
@@ -3208,10 +3258,6 @@ include/moc_GazeboOpenXR.cpp:
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h:
 
 /usr/include/c++/11/bits/stl_algobase.h:
-
-/usr/include/gz/common5/gz/common/events/Export.hh:
-
-/usr/include/gz/rendering8/gz/rendering/Material.hh:
 
 /usr/include/c++/11/bits/uniform_int_dist.h:
 
@@ -3253,8 +3299,6 @@ include/moc_GazeboOpenXR.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qmimedata.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qsemaphore.h:
-
 /usr/include/x86_64-linux-gnu/bits/strings_fortified.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
@@ -3266,10 +3310,6 @@ include/moc_GazeboOpenXR.cpp:
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/FILE.h:
-
-../src/GazeboOpenXR.cc:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qsignalmapper.h:
 
 /usr/include/c++/11/bits/stringfwd.h:
 
@@ -3349,6 +3389,8 @@ include/moc_GazeboOpenXR.cpp:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
+/usr/include/gz/rendering8/gz/rendering/Image.hh:
+
 /usr/include/gz/math7/gz/math/Vector2.hh:
 
 /usr/include/gz/math7/gz/math/MaterialType.hh:
@@ -3362,8 +3404,6 @@ include/moc_GazeboOpenXR.cpp:
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qresource.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h:
-
-/usr/include/c++/11/ratio:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainertools_impl.h:
 
@@ -3393,9 +3433,9 @@ include/moc_GazeboOpenXR.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qfloat16.h:
+/usr/include/gz/common5/gz/common/events/Types.hh:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qsequentialanimationgroup.h:
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfloat16.h:
 
 /usr/include/gz/msgs10/gz/msgs/details/world_control.pb.h:
 
@@ -3653,6 +3693,26 @@ qrc_GazeboOpenXR.cpp:
 
 /usr/include/gz/math7/gz/math/Matrix4.hh:
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringalgorithms.h:
+
+/usr/include/gz/common5/gz/common/Event.hh:
+
+/usr/include/x86_64-linux-gnu/qt5/QtQml/qjsengine.h:
+
+/usr/include/gz/common5/gz/common/config.hh:
+
+/usr/include/gz/rendering8/gz/rendering/Material.hh:
+
+/usr/include/gz/common5/gz/common/events/Export.hh:
+
+/usr/include/gz/common5/gz/common/EnumIface.hh:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonarray.h:
+
+/usr/include/c++/11/ratio:
+
+/usr/include/gz/rendering8/gz/rendering/PixelBuffer.hh:
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qtranslator.h:
 
 /usr/include/x86_64-linux-gnu/bits/local_lim.h:
@@ -3729,8 +3789,6 @@ qrc_GazeboOpenXR.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qbitarray.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qsocketnotifier.h:
-
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qbuffer.h:
 
 /usr/include/endian.h:
@@ -3752,6 +3810,8 @@ qrc_GazeboOpenXR.cpp:
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h:
+
+/usr/include/gz/rendering8/gz/rendering/PixelFormat.hh:
 
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
 
@@ -3839,10 +3899,6 @@ qrc_GazeboOpenXR.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qisenum.h:
 
-/usr/include/gz/common5/gz/common/EnumIface.hh:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonarray.h:
-
 /usr/include/x86_64-linux-gnu/qt5/QtQml/QQmlContext:
 
 /usr/include/c++/11/bits/allocator.h:
@@ -3890,19 +3946,3 @@ qrc_GazeboOpenXR.cpp:
 /usr/include/c++/11/bits/random.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qreadwritelock.h:
-
-/usr/include/c++/11/cstring:
-
-/usr/include/c++/11/bits/atomic_futex.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qscopedvaluerollback.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qscopeguard.h:
-
-/usr/include/gz/rendering8/gz/rendering/Storage.hh:
-
-/usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedmemory.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qsignaltransition.h:

@@ -41,6 +41,8 @@ public:
 
     XrSpace GetLocalSpace() const;
 
+    bool InspectViewConfiguration();
+
 private:
     XrInstance instance_ = XR_NULL_HANDLE;
     XrSystemId systemId_ = XR_NULL_SYSTEM_ID;
@@ -63,5 +65,7 @@ private:
     bool exitRequested_ = false;
 
     uint64_t frameCount_ = 0;
+
+    bool viewConfigurationInspected_ = false;
 };
 

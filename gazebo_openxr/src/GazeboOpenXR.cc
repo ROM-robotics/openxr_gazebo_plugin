@@ -186,6 +186,8 @@ void GazeboOpenXR::OnRender()
             xrCamera_.CreateStereoCameras();
         }
 
+        runtime_.InspectViewConfiguration();
+
         if (!runtime_.RenderFrame())
         {
             PostStatus(QString::fromStdString(
