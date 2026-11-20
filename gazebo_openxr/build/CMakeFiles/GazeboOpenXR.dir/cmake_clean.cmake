@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.o.d"
   "CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o"
   "CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o.d"
+  "CMakeFiles/GazeboOpenXR.dir/src/XRCamera.cc.o"
+  "CMakeFiles/GazeboOpenXR.dir/src/XRCamera.cc.o.d"
   "CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o"
   "CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o.d"
   "include/moc_GazeboOpenXR.cpp"

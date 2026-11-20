@@ -180,6 +180,8 @@ void GazeboOpenXR::OnRender()
         {
             PostStatus("VR Frame Loop Running");
         }
+        // Execute inside Gazebo's render event.
+        xrCamera_.FindScene();
 
         if (!runtime_.RenderFrame())
         {

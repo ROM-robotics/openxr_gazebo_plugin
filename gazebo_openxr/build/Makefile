@@ -201,6 +201,30 @@ src/GazeboOpenXR.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GazeboOpenXR.dir/build.make CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.s
 .PHONY : src/GazeboOpenXR.cc.s
 
+src/XRCamera.o: src/XRCamera.cc.o
+.PHONY : src/XRCamera.o
+
+# target to build an object file
+src/XRCamera.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GazeboOpenXR.dir/build.make CMakeFiles/GazeboOpenXR.dir/src/XRCamera.cc.o
+.PHONY : src/XRCamera.cc.o
+
+src/XRCamera.i: src/XRCamera.cc.i
+.PHONY : src/XRCamera.i
+
+# target to preprocess a source file
+src/XRCamera.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GazeboOpenXR.dir/build.make CMakeFiles/GazeboOpenXR.dir/src/XRCamera.cc.i
+.PHONY : src/XRCamera.cc.i
+
+src/XRCamera.s: src/XRCamera.cc.s
+.PHONY : src/XRCamera.s
+
+# target to generate assembly for a file
+src/XRCamera.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GazeboOpenXR.dir/build.make CMakeFiles/GazeboOpenXR.dir/src/XRCamera.cc.s
+.PHONY : src/XRCamera.cc.s
+
 src/XRRuntime.o: src/XRRuntime.cc.o
 .PHONY : src/XRRuntime.o
 
@@ -243,6 +267,9 @@ help:
 	@echo "... src/GazeboOpenXR.o"
 	@echo "... src/GazeboOpenXR.i"
 	@echo "... src/GazeboOpenXR.s"
+	@echo "... src/XRCamera.o"
+	@echo "... src/XRCamera.i"
+	@echo "... src/XRCamera.s"
 	@echo "... src/XRRuntime.o"
 	@echo "... src/XRRuntime.i"
 	@echo "... src/XRRuntime.s"

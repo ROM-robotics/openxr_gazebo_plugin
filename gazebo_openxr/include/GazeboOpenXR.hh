@@ -3,6 +3,7 @@
 #include <QString>
 #include <QEvent>
 #include <atomic>
+#include "XRCamera.hh"
 
 #include <gz/gui/Plugin.hh>
 
@@ -41,6 +42,7 @@ protected:
 
 private:
     XRRuntime runtime_;
+    XRCamera xrCamera_;
 
     QString status_ = "OpenXR not initialized";
 

@@ -22,6 +22,7 @@ find_package(gz-plugin2 REQUIRED COMPONENTS register)
 find_package(OpenXR REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(X11 REQUIRED)
+find_package(gz-rendering8 REQUIRED)
 
 # Explicit Qt MOC generation
 qt5_wrap_cpp(MOC_SOURCES
@@ -36,6 +37,7 @@ qt5_add_resources(QRC_SOURCES
 add_library(GazeboOpenXR SHARED
     src/GazeboOpenXR.cc
     src/XRRuntime.cc
+    src/XRCamera.cc
     ${MOC_SOURCES}
     ${QRC_SOURCES}
 )
@@ -56,6 +58,7 @@ target_link_libraries(GazeboOpenXR PRIVATE
     OpenGL::GL
     OpenGL::GLX
     X11::X11
+    gz-rendering8::gz-rendering8
 )
 
 target_compile_options(GazeboOpenXR PRIVATE
