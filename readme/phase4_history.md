@@ -273,3 +273,181 @@ Frame Log တွေအရ 120 frames ကို ခန့်မှန်း 2 စ
 ### Step 21: Stereo Camera Creation
 
 ဒီအဆင့်မှာ Camera နှစ်လုံးကို ဖန်တီးပြီး Scene Graph ထဲမှာ Register လုပ်မယ်။ Texture Rendering, Head Tracking, OpenXR Swapchain မပါသေးပါဘူး။ တစ်ဆင့်ချင်း စစ်သွားတာက GPU Rendering ပြဿနာတွေကို ရှာရလွယ်စေပါတယ်။
+
+### 21.2. Update include/XRCamera.hh
+ရှိပြီးသား File ကို အောက်ပါ Code နဲ့ အစားထိုးပါ။
+
+```
+#pragma once
+
+#include <gz/rendering/Scene.hh>
+#include <gz/rendering/Camera.hh>
+#include <gz/rendering/RenderTypes.hh>
+
+class XRCamera
+{
+public:
+    bool FindScene();
+    bool IsReady() const;
+
+    bool CreateStereoCameras();
+
+private:
+    gz::rendering::ScenePtr scene_;
+
+    gz::rendering::CameraPtr leftEye_;
+    gz::rendering::CameraPtr rightEye_;
+
+    bool reported_ = false;
+    bool stereoReported_ = false;
+};
+```
+
+### 21.3. Update src/XRCamera.cc
+
+ရှိပြီးသား FindScene() နဲ့ IsReady() Function တွေကို မဖျက်ပါနဲ့။
+
+File အပေါ်ပိုင်းမှာ Include တွေ ထည့်ပါ။
+
+```
+#include <gz/math/Pose3.hh>
+#include <gz/math/Angle.hh>
+```
+
+ပြီးရင် File အောက်ဆုံးမှာ ဒီ Function ကို ထည့်ပါ။
+
+```
+bool XRCamera::CreateStereoCameras()
+{
+    if (!IsReady())
+        return false;
+
+    if (leftEye_ && rightEye_)
+        return true;
+
+    // Diagnostic resolution only.
+    // Replace with OpenXR recommended sizes later.
+    constexpr unsigned int width = 1024;
+    constexpr unsigned int height = 1024;
+
+    // Temporary diagnostic IPD (64 mm).
+    constexpr double halfIPD = 0.032;
+
+    auto createEye =
+        [&](const std::string &name, double y)
+        -> gz::rendering::CameraPtr
+    {
+        auto camera = scene_->CreateCamera(name);
+
+        if (!camera)
+            return nullptr;
+
+        camera->SetImageWidth(width);
+        camera->SetImageHeight(height);
+        camera->SetAspectRatio(
+            static_cast<double>(width) / height);
+
+        camera->SetHFOV(gz::math::Angle(1.57));
+        camera->SetNearClipPlane(0.05);
+        camera->SetFarClipPlane(1000.0);
+
+        camera->SetLocalPose(
+            gz::math::Pose3d(0, y, 1.6, 0, 0, 0));
+
+        scene_->RootVisual()->AddChild(camera);
+
+        return camera;
+    };
+
+    if (!leftEye_)
+        leftEye_ = createEye("xr_left_eye", halfIPD);
+
+    if (!rightEye_)
+        rightEye_ = createEye("xr_right_eye", -halfIPD);
+
+    if (!leftEye_ || !rightEye_)
+    {
+        std::cerr
+            << "[XRCamera] Stereo camera creation failed"
+            << std::endl;
+
+        return false;
+    }
+
+    if (!stereoReported_)
+    {
+        std::cout
+            << "[XRCamera] Stereo Cameras Created\n"
+            << "Left: " << leftEye_->Name() << "\n"
+            << "Right: " << rightEye_->Name() << "\n"
+            << "Resolution: "
+            << width << " x " << height
+            << " per eye\n"
+            << "Diagnostic IPD: 0.064 m"
+            << std::endl;
+
+        stereoReported_ = true;
+    }
+
+    return true;
+}
+```
+
+Gazebo Rendering 8 မှာ CreateCamera(), SetImageWidth(), SetImageHeight(), SetHFOV() နဲ့ Camera ကို Root Visual မှာ Attach လုပ်နိုင်တဲ့ API တွေ ပါဝင်ပါတယ်။ 
+gazebosim.org+2
+
+
+မှတ်ချက်: 64 mm IPD နဲ့ 1024 × 1024 ဟာ ယာယီ Diagnostic Values တွေဖြစ်ပါတယ်။ Quest ရဲ့ လက်တွေ့ Eye Pose နဲ့ Resolution ကို ကိုယ်စားမပြုပါဘူး။ Camera Pose တွေကိုလည်း Gazebo Coordinate System ထဲမှာ ယာယီ သတ်မှတ်ထားတာပါ။
+
+### 21.4. Update GazeboOpenXR.cc
+OnRender() ထဲက
+
+```
+xrCamera_.FindScene();
+```
+
+ဆိုတဲ့ စာကြောင်းကို အောက်ပါအတိုင်း ပြောင်းပါ။
+
+```
+if (xrCamera_.FindScene())
+{
+    xrCamera_.CreateStereoCameras();
+}
+```
+
+ဒါက Render Event တစ်ခုချင်းစီမှာ Camera ထပ်မဖန်တီးဘဲ ရှိပြီးသား Camera နှစ်လုံးကို Reuse လုပ်ပါမယ်။
+
+Camera တွေကို OpenXR Session ရပ်တိုင်း မဖျက်သေးပါဘူး။ ဒီ Diagnostic Version မှာ Gazebo Scene တစ်ခုတည်းကို အသုံးပြုနေတယ်လို့ ယူဆထားပါတယ်။ World ပြောင်းခြင်းနဲ့ Plugin Unload လုပ်ခြင်းအတွက် Resource Cleanup ကို နောက်အဆင့်မှာ ထည့်ရပါမယ်။
+
+### 21.5. Rebuild
+CMakeLists.txt ကို ထပ်ပြင်ဖို့ မလိုပါဘူး။ XRCamera.cc ကို Step 20 မှာ ထည့်ထားပြီးသား ဖြစ်ပါတယ်။
+
+```
+cd ~/openxr_workspace/gazebo_openxr
+
+cmake -S . -B build \
+  -DCMAKE_BUILD_TYPE=Release
+
+cmake --build build -j8
+```
+
+Dependencies စစ်ပါ။
+
+```
+ldd -r build/libGazeboOpenXR.so 2>&1 | \
+grep -iE 'undefined|not found'
+```
+
+### 21.6. Launch Gazebo
+
+```
+export GZ_GUI_PLUGIN_PATH="$PWD/build"
+
+export XR_RUNTIME_JSON="$(readlink -f \
+"$HOME/.config/openxr/1/active_runtime.json")"
+
+export XR_LOADER_DEBUG=error
+
+gz sim --force-version 8 -v 4 shapes.sdf
+```
+WiVRn နဲ့ Meta Quest 3S ချိတ်ထားပြီး Start VR Session ကို နှိပ်ပါ။

@@ -86,6 +86,7 @@ CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o: include/moc_GazeboOp
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar2.h \
   /usr/include/c++/11/bits/shared_ptr_base.h \
   /usr/include/c++/11/typeinfo \
   /usr/include/c++/11/bits/allocated_ptr.h \
@@ -160,8 +161,11 @@ CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o: include/moc_GazeboOp
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/bits/select.h \
   /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/c++/11/bits/std_abs.h \
   /usr/include/c++/11/bits/algorithmfwd.h \
   /usr/include/c++/11/bits/stl_heap.h \
@@ -198,6 +202,8 @@ CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o: include/moc_GazeboOp
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   /usr/include/c++/11/stdlib.h \
   /usr/include/c++/11/string \
   /usr/include/c++/11/bits/char_traits.h \
@@ -222,6 +228,8 @@ CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o: include/moc_GazeboOp
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/c++/11/cerrno \
   /usr/include/errno.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
@@ -250,6 +258,130 @@ CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o: include/moc_GazeboOp
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs_impl.h \
+  ../include/XRCamera.hh \
+  /usr/include/gz/rendering8/gz/rendering/Scene.hh \
+  /usr/include/c++/11/limits \
+  /usr/include/gz/common5/gz/common/Material.hh \
+  /usr/include/c++/11/iostream \
+  /usr/include/c++/11/ostream \
+  /usr/include/c++/11/ios \
+  /usr/include/c++/11/bits/basic_ios.h \
+  /usr/include/c++/11/bits/locale_facets.h \
+  /usr/include/c++/11/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h \
+  /usr/include/c++/11/bits/locale_facets.tcc \
+  /usr/include/c++/11/bits/basic_ios.tcc \
+  /usr/include/c++/11/bits/ostream.tcc \
+  /usr/include/c++/11/istream \
+  /usr/include/c++/11/bits/istream.tcc \
+  /usr/include/gz/math7/gz/math/Color.hh \
+  /usr/include/gz/math7/gz/math/Helpers.hh \
+  /usr/include/c++/11/chrono \
+  /usr/include/c++/11/ratio \
+  /usr/include/c++/11/ctime \
+  /usr/include/c++/11/bits/parse_numbers.h \
+  /usr/include/c++/11/cmath \
+  /usr/include/math.h \
+  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+  /usr/include/c++/11/bits/specfun.h \
+  /usr/include/c++/11/tr1/gamma.tcc \
+  /usr/include/c++/11/tr1/special_function_util.h \
+  /usr/include/c++/11/tr1/bessel_function.tcc \
+  /usr/include/c++/11/tr1/beta_function.tcc \
+  /usr/include/c++/11/tr1/ell_integral.tcc \
+  /usr/include/c++/11/tr1/exp_integral.tcc \
+  /usr/include/c++/11/tr1/hypergeometric.tcc \
+  /usr/include/c++/11/tr1/legendre_function.tcc \
+  /usr/include/c++/11/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/11/tr1/poly_hermite.tcc \
+  /usr/include/c++/11/tr1/poly_laguerre.tcc \
+  /usr/include/c++/11/tr1/riemann_zeta.tcc \
+  /usr/include/gz/math7/gz/math/config.hh \
+  /usr/include/gz/math7/gz/math/Export.hh \
+  /usr/include/gz/math7/gz/math/detail/Export.hh \
+  /usr/include/gz/math7/gz/math/Vector3.hh \
+  /usr/include/gz/common5/gz/common/graphics/Export.hh \
+  /usr/include/gz/common5/gz/common/graphics/detail/Export.hh \
+  /usr/include/gz/common5/gz/common/EnumIface.hh \
+  /usr/include/gz/common5/gz/common/Export.hh \
+  /usr/include/gz/common5/gz/common/detail/Export.hh \
+  /usr/include/gz/common5/gz/common/Util.hh \
+  /usr/include/c++/11/cassert \
+  /usr/include/c++/11/future \
+  /usr/include/c++/11/mutex \
+  /usr/include/c++/11/bits/std_mutex.h \
+  /usr/include/c++/11/bits/unique_lock.h \
+  /usr/include/c++/11/condition_variable \
+  /usr/include/c++/11/bits/atomic_futex.h \
+  /usr/include/c++/11/bits/std_thread.h \
+  /usr/include/c++/11/thread \
+  /usr/include/c++/11/bits/this_thread_sleep.h \
+  /usr/include/gz/common5/gz/common/Filesystem.hh \
+  /usr/include/gz/utils2/gz/utils/ImplPtr.hh \
+  /usr/include/gz/utils2/gz/utils/detail/DefaultOps.hh \
+  /usr/include/gz/utils2/gz/utils/SuppressWarning.hh \
+  /usr/include/gz/utils2/gz/utils/detail/SuppressWarning.hh \
+  /usr/include/gz/utils2/gz/utils/Export.hh \
+  /usr/include/gz/utils2/gz/utils/detail/Export.hh \
+  /usr/include/gz/utils2/gz/utils/detail/ImplPtr.hh \
+  /usr/include/gz/common5/gz/common/SystemPaths.hh \
+  /usr/include/c++/11/list \
+  /usr/include/c++/11/bits/stl_list.h \
+  /usr/include/c++/11/bits/list.tcc \
+  /usr/include/gz/common5/gz/common/URI.hh \
+  /usr/include/c++/11/optional \
+  /usr/include/gz/common5/gz/common/Image.hh \
+  /usr/include/c++/11/cstring \
+  /usr/include/gz/common5/gz/common/Pbr.hh \
+  /usr/include/gz/common5/gz/common/Mesh.hh \
+  /usr/include/gz/math7/gz/math/Vector2.hh \
+  /usr/include/gz/common5/gz/common/graphics/Types.hh \
+  /usr/include/gz/rendering8/gz/rendering/base/SceneExt.hh \
+  /usr/include/gz/rendering8/gz/rendering/config.hh \
+  /usr/include/gz/rendering8/gz/rendering/RenderTypes.hh \
+  /usr/include/gz/rendering8/gz/rendering/Export.hh \
+  /usr/include/gz/rendering8/gz/rendering/detail/Export.hh \
+  /usr/include/gz/rendering8/gz/rendering/HeightmapDescriptor.hh \
+  /usr/include/gz/common5/gz/common/geospatial/HeightmapData.hh \
+  /usr/include/gz/common5/gz/common/geospatial/Export.hh \
+  /usr/include/gz/common5/gz/common/geospatial/detail/Export.hh \
+  /usr/include/gz/rendering8/gz/rendering/MeshDescriptor.hh \
+  /usr/include/gz/rendering8/gz/rendering/Storage.hh \
+  /usr/include/gz/rendering8/gz/rendering/Node.hh \
+  /usr/include/c++/11/map \
+  /usr/include/c++/11/bits/stl_tree.h \
+  /usr/include/c++/11/bits/stl_map.h \
+  /usr/include/c++/11/bits/stl_multimap.h \
+  /usr/include/c++/11/variant \
+  /usr/include/gz/math7/gz/math/Pose3.hh \
+  /usr/include/gz/math7/gz/math/Quaternion.hh \
+  /usr/include/gz/math7/gz/math/Angle.hh \
+  /usr/include/gz/math7/gz/math/Matrix3.hh \
+  /usr/include/gz/rendering8/gz/rendering/Object.hh \
+  /usr/include/gz/rendering8/gz/rendering/Light.hh \
+  /usr/include/gz/rendering8/gz/rendering/Sensor.hh \
+  /usr/include/gz/rendering8/gz/rendering/Visual.hh \
+  /usr/include/gz/math7/gz/math/AxisAlignedBox.hh \
+  /usr/include/gz/math7/gz/math/Line3.hh \
+  /usr/include/gz/math7/gz/math/MassMatrix3.hh \
+  /usr/include/gz/math7/gz/math/Material.hh \
+  /usr/include/gz/math7/gz/math/MaterialType.hh \
+  /usr/include/gz/rendering8/gz/rendering/Geometry.hh \
+  /usr/include/gz/rendering8/gz/rendering/Material.hh \
+  /usr/include/gz/rendering8/gz/rendering/ShaderType.hh \
+  /usr/include/gz/rendering8/gz/rendering/Mesh.hh \
+  /usr/include/gz/math7/gz/math/Matrix4.hh \
   /usr/include/gz/gui8/gz/gui/Plugin.hh \
   /usr/include/tinyxml2.h \
   /usr/include/c++/11/climits \
@@ -262,7 +394,6 @@ CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o: include/moc_GazeboOp
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
-  /usr/include/c++/11/cstring \
   /usr/include/gz/gui8/gz/gui/qt.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QtCore \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QtCoreDepends \
@@ -280,9 +411,6 @@ CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o: include/moc_GazeboOp
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qvector.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainertools_impl.h \
-  /usr/include/c++/11/list \
-  /usr/include/c++/11/bits/stl_list.h \
-  /usr/include/c++/11/bits/list.tcc \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearraylist.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qregexp.h \
@@ -291,23 +419,13 @@ CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o: include/moc_GazeboOp
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qvarlengtharray.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainerfwd.h \
-  /usr/include/c++/11/map \
-  /usr/include/c++/11/bits/stl_tree.h \
-  /usr/include/c++/11/bits/stl_map.h \
-  /usr/include/c++/11/bits/stl_multimap.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject_impl.h \
-  /usr/include/c++/11/chrono \
-  /usr/include/c++/11/ratio \
-  /usr/include/c++/11/limits \
-  /usr/include/c++/11/ctime \
-  /usr/include/c++/11/bits/parse_numbers.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstracteventdispatcher.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qhash.h \
-  /usr/include/c++/11/variant \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractnativeeventfilter.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractproxymodel.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
@@ -404,9 +522,6 @@ CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o: include/moc_GazeboOp
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmutex.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qexception.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qresultstore.h \
-  /usr/include/c++/11/mutex \
-  /usr/include/c++/11/bits/std_mutex.h \
-  /usr/include/c++/11/bits/unique_lock.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qfutureinterface.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qfuturesynchronizer.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qfuture.h \
@@ -441,30 +556,6 @@ CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o: include/moc_GazeboOp
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmargins.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmath.h \
-  /usr/include/c++/11/cmath \
-  /usr/include/math.h \
-  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
-  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
-  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
-  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
-  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
-  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
-  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
-  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
-  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
-  /usr/include/c++/11/bits/specfun.h \
-  /usr/include/c++/11/tr1/gamma.tcc \
-  /usr/include/c++/11/tr1/special_function_util.h \
-  /usr/include/c++/11/tr1/bessel_function.tcc \
-  /usr/include/c++/11/tr1/beta_function.tcc \
-  /usr/include/c++/11/tr1/ell_integral.tcc \
-  /usr/include/c++/11/tr1/exp_integral.tcc \
-  /usr/include/c++/11/tr1/hypergeometric.tcc \
-  /usr/include/c++/11/tr1/legendre_function.tcc \
-  /usr/include/c++/11/tr1/modified_bessel_func.tcc \
-  /usr/include/c++/11/tr1/poly_hermite.tcc \
-  /usr/include/c++/11/tr1/poly_laguerre.tcc \
-  /usr/include/c++/11/tr1/riemann_zeta.tcc \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmessageauthenticationcode.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcryptographichash.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetaobject.h \
@@ -551,10 +642,6 @@ CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o: include/moc_GazeboOp
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qthread.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qdeadlinetimer.h \
-  /usr/include/c++/11/future \
-  /usr/include/c++/11/condition_variable \
-  /usr/include/c++/11/bits/atomic_futex.h \
-  /usr/include/c++/11/bits/std_thread.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qthreadpool.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qthread.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qthreadstorage.h \
@@ -779,6 +866,7 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: ../src/GazeboOpenXR.cc \
   /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
   /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
@@ -786,7 +874,9 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: ../src/GazeboOpenXR.cc \
   /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
   /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
   /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/c++/11/bits/std_abs.h \
   /usr/include/c++/11/bits/algorithmfwd.h \
   /usr/include/c++/11/bits/stl_heap.h \
@@ -853,6 +943,8 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: ../src/GazeboOpenXR.cc \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   /usr/include/c++/11/stdlib.h \
   /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
   /usr/include/c++/11/string \
@@ -866,6 +958,7 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: ../src/GazeboOpenXR.cc \
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar2.h \
   /usr/include/c++/11/cstdint \
   /usr/include/c++/11/bits/localefwd.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h \
@@ -906,6 +999,8 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: ../src/GazeboOpenXR.cc \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/c++/11/cerrno \
   /usr/include/errno.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
@@ -938,19 +1033,25 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: ../src/GazeboOpenXR.cc \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs_impl.h \
-  /usr/include/gz/gui8/gz/gui/Plugin.hh \
-  /usr/include/tinyxml2.h \
-  /usr/include/c++/11/climits \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
-  /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
-  /usr/include/limits.h \
-  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
-  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
-  /usr/include/linux/limits.h \
-  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
-  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
-  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
-  /usr/include/c++/11/cstring \
+  ../include/XRCamera.hh \
+  /usr/include/gz/rendering8/gz/rendering/Scene.hh \
+  /usr/include/c++/11/limits \
+  /usr/include/gz/common5/gz/common/Material.hh \
+  /usr/include/c++/11/iostream \
+  /usr/include/c++/11/ostream \
+  /usr/include/c++/11/ios \
+  /usr/include/c++/11/bits/basic_ios.h \
+  /usr/include/c++/11/bits/locale_facets.h \
+  /usr/include/c++/11/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h \
+  /usr/include/c++/11/bits/locale_facets.tcc \
+  /usr/include/c++/11/bits/basic_ios.tcc \
+  /usr/include/c++/11/bits/ostream.tcc \
+  /usr/include/c++/11/istream \
+  /usr/include/c++/11/bits/istream.tcc \
   /usr/include/c++/11/memory \
   /usr/include/c++/11/bits/stl_raw_storage_iter.h \
   /usr/include/c++/11/bits/align.h \
@@ -963,6 +1064,123 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: ../src/GazeboOpenXR.cc \
   /usr/include/c++/11/bits/shared_ptr_atomic.h \
   /usr/include/c++/11/backward/auto_ptr.h \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
+  /usr/include/gz/math7/gz/math/Color.hh \
+  /usr/include/gz/math7/gz/math/Helpers.hh \
+  /usr/include/c++/11/chrono \
+  /usr/include/c++/11/ratio \
+  /usr/include/c++/11/ctime \
+  /usr/include/c++/11/bits/parse_numbers.h \
+  /usr/include/c++/11/cmath \
+  /usr/include/math.h \
+  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+  /usr/include/c++/11/bits/specfun.h \
+  /usr/include/c++/11/tr1/gamma.tcc \
+  /usr/include/c++/11/tr1/special_function_util.h \
+  /usr/include/c++/11/tr1/bessel_function.tcc \
+  /usr/include/c++/11/tr1/beta_function.tcc \
+  /usr/include/c++/11/tr1/ell_integral.tcc \
+  /usr/include/c++/11/tr1/exp_integral.tcc \
+  /usr/include/c++/11/tr1/hypergeometric.tcc \
+  /usr/include/c++/11/tr1/legendre_function.tcc \
+  /usr/include/c++/11/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/11/tr1/poly_hermite.tcc \
+  /usr/include/c++/11/tr1/poly_laguerre.tcc \
+  /usr/include/c++/11/tr1/riemann_zeta.tcc \
+  /usr/include/gz/math7/gz/math/config.hh \
+  /usr/include/gz/math7/gz/math/Export.hh \
+  /usr/include/gz/math7/gz/math/detail/Export.hh \
+  /usr/include/gz/math7/gz/math/Vector3.hh \
+  /usr/include/gz/common5/gz/common/graphics/Export.hh \
+  /usr/include/gz/common5/gz/common/graphics/detail/Export.hh \
+  /usr/include/gz/common5/gz/common/EnumIface.hh \
+  /usr/include/gz/common5/gz/common/Export.hh \
+  /usr/include/gz/common5/gz/common/detail/Export.hh \
+  /usr/include/gz/common5/gz/common/Util.hh \
+  /usr/include/c++/11/cassert \
+  /usr/include/c++/11/future \
+  /usr/include/c++/11/mutex \
+  /usr/include/c++/11/bits/std_mutex.h \
+  /usr/include/c++/11/bits/unique_lock.h \
+  /usr/include/c++/11/condition_variable \
+  /usr/include/c++/11/bits/atomic_futex.h \
+  /usr/include/c++/11/bits/std_thread.h \
+  /usr/include/c++/11/thread \
+  /usr/include/c++/11/bits/this_thread_sleep.h \
+  /usr/include/gz/common5/gz/common/Filesystem.hh \
+  /usr/include/gz/utils2/gz/utils/ImplPtr.hh \
+  /usr/include/gz/utils2/gz/utils/detail/DefaultOps.hh \
+  /usr/include/gz/utils2/gz/utils/SuppressWarning.hh \
+  /usr/include/gz/utils2/gz/utils/detail/SuppressWarning.hh \
+  /usr/include/gz/utils2/gz/utils/Export.hh \
+  /usr/include/gz/utils2/gz/utils/detail/Export.hh \
+  /usr/include/gz/utils2/gz/utils/detail/ImplPtr.hh \
+  /usr/include/gz/common5/gz/common/SystemPaths.hh \
+  /usr/include/c++/11/list \
+  /usr/include/c++/11/bits/stl_list.h \
+  /usr/include/c++/11/bits/list.tcc \
+  /usr/include/gz/common5/gz/common/URI.hh \
+  /usr/include/c++/11/optional \
+  /usr/include/gz/common5/gz/common/Image.hh \
+  /usr/include/c++/11/cstring \
+  /usr/include/gz/common5/gz/common/Pbr.hh \
+  /usr/include/gz/common5/gz/common/Mesh.hh \
+  /usr/include/gz/math7/gz/math/Vector2.hh \
+  /usr/include/gz/common5/gz/common/graphics/Types.hh \
+  /usr/include/gz/rendering8/gz/rendering/base/SceneExt.hh \
+  /usr/include/gz/rendering8/gz/rendering/config.hh \
+  /usr/include/gz/rendering8/gz/rendering/RenderTypes.hh \
+  /usr/include/gz/rendering8/gz/rendering/Export.hh \
+  /usr/include/gz/rendering8/gz/rendering/detail/Export.hh \
+  /usr/include/gz/rendering8/gz/rendering/HeightmapDescriptor.hh \
+  /usr/include/gz/common5/gz/common/geospatial/HeightmapData.hh \
+  /usr/include/gz/common5/gz/common/geospatial/Export.hh \
+  /usr/include/gz/common5/gz/common/geospatial/detail/Export.hh \
+  /usr/include/gz/rendering8/gz/rendering/MeshDescriptor.hh \
+  /usr/include/gz/rendering8/gz/rendering/Storage.hh \
+  /usr/include/gz/rendering8/gz/rendering/Node.hh \
+  /usr/include/c++/11/map \
+  /usr/include/c++/11/bits/stl_tree.h \
+  /usr/include/c++/11/bits/stl_map.h \
+  /usr/include/c++/11/bits/stl_multimap.h \
+  /usr/include/c++/11/variant \
+  /usr/include/gz/math7/gz/math/Pose3.hh \
+  /usr/include/gz/math7/gz/math/Quaternion.hh \
+  /usr/include/gz/math7/gz/math/Angle.hh \
+  /usr/include/gz/math7/gz/math/Matrix3.hh \
+  /usr/include/gz/rendering8/gz/rendering/Object.hh \
+  /usr/include/gz/rendering8/gz/rendering/Light.hh \
+  /usr/include/gz/rendering8/gz/rendering/Sensor.hh \
+  /usr/include/gz/rendering8/gz/rendering/Visual.hh \
+  /usr/include/gz/math7/gz/math/AxisAlignedBox.hh \
+  /usr/include/gz/math7/gz/math/Line3.hh \
+  /usr/include/gz/math7/gz/math/MassMatrix3.hh \
+  /usr/include/gz/math7/gz/math/Material.hh \
+  /usr/include/gz/math7/gz/math/MaterialType.hh \
+  /usr/include/gz/rendering8/gz/rendering/Geometry.hh \
+  /usr/include/gz/rendering8/gz/rendering/Material.hh \
+  /usr/include/gz/rendering8/gz/rendering/ShaderType.hh \
+  /usr/include/gz/rendering8/gz/rendering/Mesh.hh \
+  /usr/include/gz/math7/gz/math/Matrix4.hh \
+  /usr/include/gz/gui8/gz/gui/Plugin.hh \
+  /usr/include/tinyxml2.h \
+  /usr/include/c++/11/climits \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h \
+  /usr/include/limits.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+  /usr/include/linux/limits.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/gz/gui8/gz/gui/qt.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QtCore \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QtCoreDepends \
@@ -980,9 +1198,6 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: ../src/GazeboOpenXR.cc \
   /usr/include/c++/11/pstl/glue_numeric_defs.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qvector.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainertools_impl.h \
-  /usr/include/c++/11/list \
-  /usr/include/c++/11/bits/stl_list.h \
-  /usr/include/c++/11/bits/list.tcc \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearraylist.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qregexp.h \
@@ -991,23 +1206,13 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: ../src/GazeboOpenXR.cc \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qvarlengtharray.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainerfwd.h \
-  /usr/include/c++/11/map \
-  /usr/include/c++/11/bits/stl_tree.h \
-  /usr/include/c++/11/bits/stl_map.h \
-  /usr/include/c++/11/bits/stl_multimap.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject_impl.h \
-  /usr/include/c++/11/chrono \
-  /usr/include/c++/11/ratio \
-  /usr/include/c++/11/limits \
-  /usr/include/c++/11/ctime \
-  /usr/include/c++/11/bits/parse_numbers.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstracteventdispatcher.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qhash.h \
-  /usr/include/c++/11/variant \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractnativeeventfilter.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractproxymodel.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h \
@@ -1104,9 +1309,6 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: ../src/GazeboOpenXR.cc \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmutex.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qexception.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qresultstore.h \
-  /usr/include/c++/11/mutex \
-  /usr/include/c++/11/bits/std_mutex.h \
-  /usr/include/c++/11/bits/unique_lock.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qfutureinterface.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qfuturesynchronizer.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qfuture.h \
@@ -1141,30 +1343,6 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: ../src/GazeboOpenXR.cc \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmargins.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmath.h \
-  /usr/include/c++/11/cmath \
-  /usr/include/math.h \
-  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
-  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
-  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
-  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
-  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
-  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
-  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
-  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
-  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
-  /usr/include/c++/11/bits/specfun.h \
-  /usr/include/c++/11/tr1/gamma.tcc \
-  /usr/include/c++/11/tr1/special_function_util.h \
-  /usr/include/c++/11/tr1/bessel_function.tcc \
-  /usr/include/c++/11/tr1/beta_function.tcc \
-  /usr/include/c++/11/tr1/ell_integral.tcc \
-  /usr/include/c++/11/tr1/exp_integral.tcc \
-  /usr/include/c++/11/tr1/hypergeometric.tcc \
-  /usr/include/c++/11/tr1/legendre_function.tcc \
-  /usr/include/c++/11/tr1/modified_bessel_func.tcc \
-  /usr/include/c++/11/tr1/poly_hermite.tcc \
-  /usr/include/c++/11/tr1/poly_laguerre.tcc \
-  /usr/include/c++/11/tr1/riemann_zeta.tcc \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmessageauthenticationcode.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qcryptographichash.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetaobject.h \
@@ -1251,10 +1429,6 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: ../src/GazeboOpenXR.cc \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qthread.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qdeadlinetimer.h \
-  /usr/include/c++/11/future \
-  /usr/include/c++/11/condition_variable \
-  /usr/include/c++/11/bits/atomic_futex.h \
-  /usr/include/c++/11/bits/std_thread.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qthreadpool.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qthread.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qthreadstorage.h \
@@ -1397,21 +1571,6 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: ../src/GazeboOpenXR.cc \
   ../include/XRRuntime.hh \
   /usr/include/openxr/openxr.h \
   /usr/include/openxr/openxr_platform_defines.h \
-  /usr/include/c++/11/iostream \
-  /usr/include/c++/11/ostream \
-  /usr/include/c++/11/ios \
-  /usr/include/c++/11/bits/basic_ios.h \
-  /usr/include/c++/11/bits/locale_facets.h \
-  /usr/include/c++/11/cwctype \
-  /usr/include/wctype.h \
-  /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
-  /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h \
-  /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h \
-  /usr/include/c++/11/bits/locale_facets.tcc \
-  /usr/include/c++/11/bits/basic_ios.tcc \
-  /usr/include/c++/11/bits/ostream.tcc \
-  /usr/include/c++/11/istream \
-  /usr/include/c++/11/bits/istream.tcc \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/QMetaObject \
   /usr/include/gz/gui8/gz/gui/Application.hh \
   /usr/include/gz/gui8/gz/gui/MainWindow.hh \
@@ -1426,34 +1585,11 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: ../src/GazeboOpenXR.cc \
   /usr/include/c++/11/bits/fstream.tcc \
   /usr/include/c++/11/sstream \
   /usr/include/c++/11/bits/sstream.tcc \
-  /usr/include/gz/common5/gz/common/Export.hh \
-  /usr/include/gz/common5/gz/common/detail/Export.hh \
-  /usr/include/gz/utils2/gz/utils/SuppressWarning.hh \
-  /usr/include/gz/utils2/gz/utils/detail/SuppressWarning.hh \
-  /usr/include/gz/common5/gz/common/Util.hh \
-  /usr/include/c++/11/cassert \
-  /usr/include/c++/11/thread \
-  /usr/include/c++/11/bits/this_thread_sleep.h \
-  /usr/include/gz/common5/gz/common/Filesystem.hh \
-  /usr/include/gz/utils2/gz/utils/ImplPtr.hh \
-  /usr/include/gz/utils2/gz/utils/detail/DefaultOps.hh \
-  /usr/include/gz/utils2/gz/utils/Export.hh \
-  /usr/include/gz/utils2/gz/utils/detail/Export.hh \
-  /usr/include/gz/utils2/gz/utils/detail/ImplPtr.hh \
-  /usr/include/gz/common5/gz/common/SystemPaths.hh \
-  /usr/include/gz/common5/gz/common/URI.hh \
-  /usr/include/c++/11/optional \
   /usr/include/gz/gui8/gz/gui/GuiEvents.hh \
   /usr/include/gz/common5/gz/common/KeyEvent.hh \
   /usr/include/gz/common5/gz/common/events/Export.hh \
   /usr/include/gz/common5/gz/common/events/detail/Export.hh \
   /usr/include/gz/common5/gz/common/MouseEvent.hh \
-  /usr/include/gz/math7/gz/math/Vector2.hh \
-  /usr/include/gz/math7/gz/math/Helpers.hh \
-  /usr/include/gz/math7/gz/math/config.hh \
-  /usr/include/gz/math7/gz/math/Export.hh \
-  /usr/include/gz/math7/gz/math/detail/Export.hh \
-  /usr/include/gz/math7/gz/math/Vector3.hh \
   /usr/include/gz/msgs10/gz/msgs/world_control.pb.h \
   /usr/include/gz/msgs10/gz/msgs/Export.hh \
   /usr/include/gz/msgs10/gz/msgs/detail/Export.hh \
@@ -1486,6 +1622,7 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: ../src/GazeboOpenXR.cc \
   /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd.h \
   /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/linux/close_range.h \
   /usr/include/x86_64-linux-gnu/bits/ss_flags.h \
@@ -1561,6 +1698,355 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: ../src/GazeboOpenXR.cc \
   /usr/include/gz/plugin2/gz/plugin/utility.hh \
   /usr/include/gz/plugin2/gz/plugin/detail/utility.hh
 
+CMakeFiles/GazeboOpenXR.dir/src/XRCamera.cc.o: ../src/XRCamera.cc \
+  /usr/include/stdc-predef.h \
+  ../include/XRCamera.hh \
+  /usr/include/gz/rendering8/gz/rendering/Scene.hh \
+  /usr/include/c++/11/array \
+  /usr/include/c++/11/utility \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h \
+  /usr/include/features.h \
+  /usr/include/features-time64.h \
+  /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/timesize.h \
+  /usr/include/x86_64-linux-gnu/sys/cdefs.h \
+  /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h \
+  /usr/include/c++/11/pstl/pstl_config.h \
+  /usr/include/c++/11/bits/stl_relops.h \
+  /usr/include/c++/11/bits/stl_pair.h \
+  /usr/include/c++/11/bits/move.h \
+  /usr/include/c++/11/type_traits \
+  /usr/include/c++/11/initializer_list \
+  /usr/include/c++/11/bits/functexcept.h \
+  /usr/include/c++/11/bits/exception_defines.h \
+  /usr/include/c++/11/bits/stl_algobase.h \
+  /usr/include/c++/11/bits/cpp_type_traits.h \
+  /usr/include/c++/11/ext/type_traits.h \
+  /usr/include/c++/11/ext/numeric_traits.h \
+  /usr/include/c++/11/bits/stl_iterator_base_types.h \
+  /usr/include/c++/11/bits/stl_iterator_base_funcs.h \
+  /usr/include/c++/11/bits/concept_check.h \
+  /usr/include/c++/11/debug/assertions.h \
+  /usr/include/c++/11/bits/stl_iterator.h \
+  /usr/include/c++/11/bits/ptr_traits.h \
+  /usr/include/c++/11/debug/debug.h \
+  /usr/include/c++/11/bits/predefined_ops.h \
+  /usr/include/c++/11/bits/range_access.h \
+  /usr/include/c++/11/string \
+  /usr/include/c++/11/bits/stringfwd.h \
+  /usr/include/c++/11/bits/memoryfwd.h \
+  /usr/include/c++/11/bits/char_traits.h \
+  /usr/include/c++/11/bits/postypes.h \
+  /usr/include/c++/11/cwchar \
+  /usr/include/wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar.h \
+  /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar2.h \
+  /usr/include/c++/11/cstdint \
+  /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h \
+  /usr/include/stdint.h \
+  /usr/include/x86_64-linux-gnu/bits/types.h \
+  /usr/include/x86_64-linux-gnu/bits/typesizes.h \
+  /usr/include/x86_64-linux-gnu/bits/time64.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-intn.h \
+  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
+  /usr/include/c++/11/bits/allocator.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h \
+  /usr/include/c++/11/ext/new_allocator.h \
+  /usr/include/c++/11/new \
+  /usr/include/c++/11/bits/exception.h \
+  /usr/include/c++/11/bits/localefwd.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h \
+  /usr/include/c++/11/clocale \
+  /usr/include/locale.h \
+  /usr/include/x86_64-linux-gnu/bits/locale.h \
+  /usr/include/c++/11/iosfwd \
+  /usr/include/c++/11/cctype \
+  /usr/include/ctype.h \
+  /usr/include/x86_64-linux-gnu/bits/endian.h \
+  /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/c++/11/bits/ostream_insert.h \
+  /usr/include/c++/11/bits/cxxabi_forced.h \
+  /usr/include/c++/11/bits/stl_function.h \
+  /usr/include/c++/11/backward/binders.h \
+  /usr/include/c++/11/bits/basic_string.h \
+  /usr/include/c++/11/ext/atomicity.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/gthr-default.h \
+  /usr/include/pthread.h \
+  /usr/include/sched.h \
+  /usr/include/x86_64-linux-gnu/bits/types/time_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h \
+  /usr/include/x86_64-linux-gnu/bits/sched.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
+  /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
+  /usr/include/time.h \
+  /usr/include/x86_64-linux-gnu/bits/time.h \
+  /usr/include/x86_64-linux-gnu/bits/timex.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clock_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+  /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/timer_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
+  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
+  /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h \
+  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
+  /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_mutex.h \
+  /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h \
+  /usr/include/x86_64-linux-gnu/bits/setjmp.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
+  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/atomic_word.h \
+  /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/c++/11/ext/alloc_traits.h \
+  /usr/include/c++/11/bits/alloc_traits.h \
+  /usr/include/c++/11/bits/stl_construct.h \
+  /usr/include/c++/11/string_view \
+  /usr/include/c++/11/bits/functional_hash.h \
+  /usr/include/c++/11/bits/hash_bytes.h \
+  /usr/include/c++/11/bits/string_view.tcc \
+  /usr/include/c++/11/ext/string_conversions.h \
+  /usr/include/c++/11/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+  /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/sys/select.h \
+  /usr/include/x86_64-linux-gnu/bits/select.h \
+  /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
+  /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
+  /usr/include/c++/11/bits/std_abs.h \
+  /usr/include/c++/11/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
+  /usr/include/c++/11/cerrno \
+  /usr/include/errno.h \
+  /usr/include/x86_64-linux-gnu/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
+  /usr/include/c++/11/bits/charconv.h \
+  /usr/include/c++/11/bits/basic_string.tcc \
+  /usr/include/c++/11/limits \
+  /usr/include/gz/common5/gz/common/Material.hh \
+  /usr/include/c++/11/iostream \
+  /usr/include/c++/11/ostream \
+  /usr/include/c++/11/ios \
+  /usr/include/c++/11/exception \
+  /usr/include/c++/11/bits/exception_ptr.h \
+  /usr/include/c++/11/bits/cxxabi_init_exception.h \
+  /usr/include/c++/11/typeinfo \
+  /usr/include/c++/11/bits/nested_exception.h \
+  /usr/include/c++/11/bits/ios_base.h \
+  /usr/include/c++/11/bits/locale_classes.h \
+  /usr/include/c++/11/bits/locale_classes.tcc \
+  /usr/include/c++/11/system_error \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h \
+  /usr/include/c++/11/stdexcept \
+  /usr/include/c++/11/streambuf \
+  /usr/include/c++/11/bits/streambuf.tcc \
+  /usr/include/c++/11/bits/basic_ios.h \
+  /usr/include/c++/11/bits/locale_facets.h \
+  /usr/include/c++/11/cwctype \
+  /usr/include/wctype.h \
+  /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h \
+  /usr/include/c++/11/bits/streambuf_iterator.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h \
+  /usr/include/c++/11/bits/locale_facets.tcc \
+  /usr/include/c++/11/bits/basic_ios.tcc \
+  /usr/include/c++/11/bits/ostream.tcc \
+  /usr/include/c++/11/istream \
+  /usr/include/c++/11/bits/istream.tcc \
+  /usr/include/c++/11/memory \
+  /usr/include/c++/11/bits/stl_uninitialized.h \
+  /usr/include/c++/11/bits/stl_tempbuf.h \
+  /usr/include/c++/11/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/11/bits/align.h \
+  /usr/include/c++/11/bit \
+  /usr/include/c++/11/bits/uses_allocator.h \
+  /usr/include/c++/11/bits/unique_ptr.h \
+  /usr/include/c++/11/tuple \
+  /usr/include/c++/11/bits/invoke.h \
+  /usr/include/c++/11/bits/shared_ptr.h \
+  /usr/include/c++/11/bits/shared_ptr_base.h \
+  /usr/include/c++/11/bits/allocated_ptr.h \
+  /usr/include/c++/11/bits/refwrap.h \
+  /usr/include/c++/11/ext/aligned_buffer.h \
+  /usr/include/c++/11/ext/concurrence.h \
+  /usr/include/c++/11/bits/shared_ptr_atomic.h \
+  /usr/include/c++/11/bits/atomic_base.h \
+  /usr/include/c++/11/bits/atomic_lockfree_defines.h \
+  /usr/include/c++/11/backward/auto_ptr.h \
+  /usr/include/c++/11/pstl/glue_memory_defs.h \
+  /usr/include/c++/11/pstl/execution_defs.h \
+  /usr/include/gz/math7/gz/math/Color.hh \
+  /usr/include/gz/math7/gz/math/Helpers.hh \
+  /usr/include/c++/11/algorithm \
+  /usr/include/c++/11/bits/stl_algo.h \
+  /usr/include/c++/11/bits/algorithmfwd.h \
+  /usr/include/c++/11/bits/stl_heap.h \
+  /usr/include/c++/11/bits/uniform_int_dist.h \
+  /usr/include/c++/11/pstl/glue_algorithm_defs.h \
+  /usr/include/c++/11/functional \
+  /usr/include/c++/11/bits/std_function.h \
+  /usr/include/c++/11/unordered_map \
+  /usr/include/c++/11/bits/hashtable.h \
+  /usr/include/c++/11/bits/hashtable_policy.h \
+  /usr/include/c++/11/bits/enable_special_members.h \
+  /usr/include/c++/11/bits/node_handle.h \
+  /usr/include/c++/11/bits/unordered_map.h \
+  /usr/include/c++/11/bits/erase_if.h \
+  /usr/include/c++/11/vector \
+  /usr/include/c++/11/bits/stl_vector.h \
+  /usr/include/c++/11/bits/stl_bvector.h \
+  /usr/include/c++/11/bits/vector.tcc \
+  /usr/include/c++/11/chrono \
+  /usr/include/c++/11/ratio \
+  /usr/include/c++/11/ctime \
+  /usr/include/c++/11/bits/parse_numbers.h \
+  /usr/include/c++/11/cmath \
+  /usr/include/math.h \
+  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
+  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
+  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
+  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
+  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
+  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
+  /usr/include/c++/11/bits/specfun.h \
+  /usr/include/c++/11/tr1/gamma.tcc \
+  /usr/include/c++/11/tr1/special_function_util.h \
+  /usr/include/c++/11/tr1/bessel_function.tcc \
+  /usr/include/c++/11/tr1/beta_function.tcc \
+  /usr/include/c++/11/tr1/ell_integral.tcc \
+  /usr/include/c++/11/tr1/exp_integral.tcc \
+  /usr/include/c++/11/tr1/hypergeometric.tcc \
+  /usr/include/c++/11/tr1/legendre_function.tcc \
+  /usr/include/c++/11/tr1/modified_bessel_func.tcc \
+  /usr/include/c++/11/tr1/poly_hermite.tcc \
+  /usr/include/c++/11/tr1/poly_laguerre.tcc \
+  /usr/include/c++/11/tr1/riemann_zeta.tcc \
+  /usr/include/gz/math7/gz/math/config.hh \
+  /usr/include/gz/math7/gz/math/Export.hh \
+  /usr/include/gz/math7/gz/math/detail/Export.hh \
+  /usr/include/gz/math7/gz/math/Vector3.hh \
+  /usr/include/gz/common5/gz/common/graphics/Export.hh \
+  /usr/include/gz/common5/gz/common/graphics/detail/Export.hh \
+  /usr/include/gz/common5/gz/common/EnumIface.hh \
+  /usr/include/gz/common5/gz/common/Export.hh \
+  /usr/include/gz/common5/gz/common/detail/Export.hh \
+  /usr/include/gz/common5/gz/common/Util.hh \
+  /usr/include/c++/11/cassert \
+  /usr/include/assert.h \
+  /usr/include/c++/11/future \
+  /usr/include/c++/11/mutex \
+  /usr/include/c++/11/bits/std_mutex.h \
+  /usr/include/c++/11/bits/unique_lock.h \
+  /usr/include/c++/11/condition_variable \
+  /usr/include/c++/11/atomic \
+  /usr/include/c++/11/bits/atomic_futex.h \
+  /usr/include/c++/11/bits/std_thread.h \
+  /usr/include/c++/11/thread \
+  /usr/include/c++/11/bits/this_thread_sleep.h \
+  /usr/include/gz/common5/gz/common/Filesystem.hh \
+  /usr/include/gz/utils2/gz/utils/ImplPtr.hh \
+  /usr/include/gz/utils2/gz/utils/detail/DefaultOps.hh \
+  /usr/include/gz/utils2/gz/utils/SuppressWarning.hh \
+  /usr/include/gz/utils2/gz/utils/detail/SuppressWarning.hh \
+  /usr/include/gz/utils2/gz/utils/Export.hh \
+  /usr/include/gz/utils2/gz/utils/detail/Export.hh \
+  /usr/include/gz/utils2/gz/utils/detail/ImplPtr.hh \
+  /usr/include/gz/common5/gz/common/SystemPaths.hh \
+  /usr/include/c++/11/list \
+  /usr/include/c++/11/bits/stl_list.h \
+  /usr/include/c++/11/bits/list.tcc \
+  /usr/include/gz/common5/gz/common/URI.hh \
+  /usr/include/c++/11/optional \
+  /usr/include/gz/common5/gz/common/Image.hh \
+  /usr/include/c++/11/cstring \
+  /usr/include/string.h \
+  /usr/include/strings.h \
+  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
+  /usr/include/gz/common5/gz/common/Pbr.hh \
+  /usr/include/gz/common5/gz/common/Mesh.hh \
+  /usr/include/gz/math7/gz/math/Vector2.hh \
+  /usr/include/gz/common5/gz/common/graphics/Types.hh \
+  /usr/include/gz/rendering8/gz/rendering/base/SceneExt.hh \
+  /usr/include/gz/rendering8/gz/rendering/config.hh \
+  /usr/include/gz/rendering8/gz/rendering/RenderTypes.hh \
+  /usr/include/gz/rendering8/gz/rendering/Export.hh \
+  /usr/include/gz/rendering8/gz/rendering/detail/Export.hh \
+  /usr/include/gz/rendering8/gz/rendering/HeightmapDescriptor.hh \
+  /usr/include/gz/common5/gz/common/geospatial/HeightmapData.hh \
+  /usr/include/gz/common5/gz/common/geospatial/Export.hh \
+  /usr/include/gz/common5/gz/common/geospatial/detail/Export.hh \
+  /usr/include/gz/rendering8/gz/rendering/MeshDescriptor.hh \
+  /usr/include/gz/rendering8/gz/rendering/Storage.hh \
+  /usr/include/gz/rendering8/gz/rendering/Node.hh \
+  /usr/include/c++/11/map \
+  /usr/include/c++/11/bits/stl_tree.h \
+  /usr/include/c++/11/bits/stl_map.h \
+  /usr/include/c++/11/bits/stl_multimap.h \
+  /usr/include/c++/11/variant \
+  /usr/include/gz/math7/gz/math/Pose3.hh \
+  /usr/include/gz/math7/gz/math/Quaternion.hh \
+  /usr/include/gz/math7/gz/math/Angle.hh \
+  /usr/include/gz/math7/gz/math/Matrix3.hh \
+  /usr/include/gz/rendering8/gz/rendering/Object.hh \
+  /usr/include/gz/rendering8/gz/rendering/Light.hh \
+  /usr/include/gz/rendering8/gz/rendering/Sensor.hh \
+  /usr/include/gz/rendering8/gz/rendering/Visual.hh \
+  /usr/include/gz/math7/gz/math/AxisAlignedBox.hh \
+  /usr/include/gz/math7/gz/math/Line3.hh \
+  /usr/include/gz/math7/gz/math/MassMatrix3.hh \
+  /usr/include/gz/math7/gz/math/Material.hh \
+  /usr/include/gz/math7/gz/math/MaterialType.hh \
+  /usr/include/gz/rendering8/gz/rendering/Geometry.hh \
+  /usr/include/gz/rendering8/gz/rendering/Material.hh \
+  /usr/include/gz/rendering8/gz/rendering/ShaderType.hh \
+  /usr/include/gz/rendering8/gz/rendering/Mesh.hh \
+  /usr/include/gz/math7/gz/math/Matrix4.hh \
+  /usr/include/gz/rendering8/gz/rendering/RenderingIface.hh \
+  /usr/include/gz/rendering8/gz/rendering/RenderEngine.hh \
+  /usr/include/gz/rendering8/gz/rendering/GraphicsAPI.hh
+
 CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
   /usr/include/stdc-predef.h \
   ../include/XRRuntime.hh \
@@ -1622,6 +2108,7 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/wchar2.h \
   /usr/include/c++/11/cstdint \
   /usr/include/c++/11/bits/allocator.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h \
@@ -1695,8 +2182,11 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/bits/select.h \
   /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/x86_64-linux-gnu/bits/select2.h \
   /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h \
   /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib.h \
   /usr/include/c++/11/bits/std_abs.h \
   /usr/include/c++/11/cstdio \
   /usr/include/stdio.h \
@@ -1705,6 +2195,8 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
   /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
   /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio2.h \
   /usr/include/c++/11/cerrno \
   /usr/include/errno.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
@@ -1733,6 +2225,8 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
   /usr/include/c++/11/cstring \
   /usr/include/string.h \
   /usr/include/strings.h \
+  /usr/include/x86_64-linux-gnu/bits/strings_fortified.h \
+  /usr/include/x86_64-linux-gnu/bits/string_fortified.h \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
   /usr/include/c++/11/ios \
@@ -1783,6 +2277,8 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 ../src/XRRuntime.cc:
 
+/usr/include/gz/rendering8/gz/rendering/RenderingIface.hh:
+
 /usr/include/gz/plugin2/gz/plugin/detail/utility.hh:
 
 /usr/include/gz/plugin2/gz/plugin/utility.hh:
@@ -1802,8 +2298,6 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 /usr/include/gz/msgs10/gz/msgs/time.pb.h:
 
 /usr/include/gz/msgs10/gz/msgs/header.pb.h:
-
-/usr/include/google/protobuf/extension_set.h:
 
 /usr/include/google/protobuf/stubs/callback.h:
 
@@ -1857,6 +2351,8 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
 
+/usr/include/x86_64-linux-gnu/bits/unistd.h:
+
 /usr/include/google/protobuf/stubs/stl_util.h:
 
 /usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
@@ -1893,55 +2389,19 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/gz/msgs10/gz/msgs/detail/Export.hh:
 
-/usr/include/gz/math7/gz/math/detail/Export.hh:
-
-/usr/include/gz/math7/gz/math/Export.hh:
-
-/usr/include/gz/math7/gz/math/config.hh:
-
-/usr/include/gz/math7/gz/math/Vector2.hh:
-
 /usr/include/gz/common5/gz/common/MouseEvent.hh:
 
 /usr/include/gz/common5/gz/common/events/detail/Export.hh:
-
-/usr/include/gz/common5/gz/common/events/Export.hh:
 
 /usr/include/gz/common5/gz/common/KeyEvent.hh:
 
 /usr/include/gz/gui8/gz/gui/GuiEvents.hh:
 
-/usr/include/google/protobuf/arenastring.h:
-
-/usr/include/gz/common5/gz/common/SystemPaths.hh:
-
-/usr/include/gz/utils2/gz/utils/detail/ImplPtr.hh:
-
-/usr/include/gz/utils2/gz/utils/detail/DefaultOps.hh:
-
-/usr/include/gz/utils2/gz/utils/ImplPtr.hh:
-
-/usr/include/gz/common5/gz/common/Filesystem.hh:
-
-/usr/include/gz/msgs10/gz/msgs/details/world_reset.pb.h:
-
-/usr/include/c++/11/bits/this_thread_sleep.h:
-
-/usr/include/c++/11/cassert:
-
-/usr/include/gz/common5/gz/common/Util.hh:
-
-/usr/include/gz/utils2/gz/utils/detail/SuppressWarning.hh:
-
-/usr/include/gz/utils2/gz/utils/SuppressWarning.hh:
-
-/usr/include/gz/common5/gz/common/detail/Export.hh:
-
-/usr/include/gz/common5/gz/common/Export.hh:
-
 /usr/include/c++/11/bits/sstream.tcc:
 
 /usr/include/c++/11/sstream:
+
+/usr/include/gz/rendering8/gz/rendering/GraphicsAPI.hh:
 
 /usr/include/c++/11/bits/fstream.tcc:
 
@@ -1951,41 +2411,11 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/c++/11/fstream:
 
-/usr/include/gz/common5/gz/common/URI.hh:
-
-/usr/include/c++/11/bits/stl_multiset.h:
-
 /usr/include/c++/11/bits/stl_set.h:
 
 /usr/include/gz/gui8/gz/gui/MainWindow.hh:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QMetaObject:
-
-/usr/include/c++/11/bits/istream.tcc:
-
-/usr/include/c++/11/istream:
-
-/usr/include/c++/11/bits/ostream.tcc:
-
-/usr/include/c++/11/bits/locale_facets.tcc:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h:
-
-/usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
-
-/usr/include/wctype.h:
-
-/usr/include/c++/11/cwctype:
-
-/usr/include/c++/11/bits/locale_facets.h:
-
-/usr/include/c++/11/bits/basic_ios.h:
-
-/usr/include/c++/11/ios:
-
-/usr/include/c++/11/ostream:
 
 /usr/include/openxr/openxr_platform_defines.h:
 
@@ -2011,10 +2441,6 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qpolygon.h:
 
-/usr/include/gz/utils2/gz/utils/detail/Export.hh:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qtransform.h:
-
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixelformat.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qpixmap.h:
@@ -2029,15 +2455,7 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qwindow.h:
 
-/usr/include/google/protobuf/stubs/macros.h:
-
-/usr/include/c++/11/bits/basic_ios.tcc:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qgenericmatrix.h:
-
 /usr/include/x86_64-linux-gnu/qt5/QtGui/QMatrix4x4:
-
-/usr/include/x86_64-linux-gnu/qt5/QtQuick/qsggeometry.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtQuick/qsgnode.h:
 
@@ -2053,23 +2471,139 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qrgb.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qglobal.h:
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qcolor.h:
 
-/usr/include/limits.h:
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qaccessible.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h:
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qvector2d.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h:
+/usr/include/gz/plugin2/gz/plugin/Info.hh:
 
-/usr/include/c++/11/ratio:
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h:
 
-/usr/include/x86_64-linux-gnu/bits/sigstksz.h:
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qregion.h:
 
-/usr/include/c++/11/optional:
+/usr/include/google/protobuf/stubs/once.h:
 
-/usr/include/c++/11/condition_variable:
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qevent.h:
 
-/usr/include/gz/gui8/gz/gui/Plugin.hh:
+/usr/include/google/protobuf/descriptor.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QList:
+
+/usr/include/x86_64-linux-gnu/qt5/QtQuick/qtquickglobal.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtQuick/QQuickItem:
+
+/usr/include/x86_64-linux-gnu/qt5/QtQml/qqmlcontext.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtQml/qqmlcomponent.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtQml/QQmlComponent:
+
+/usr/include/x86_64-linux-gnu/qt5/QtQml/qqmlpropertyvaluesource.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtQuick/qsgmaterialshader.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtQml/qqmllist.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtQml/qqmlparserstatus.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtQml/qqmlprivate.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtQml/qqml.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qtnetworkglobal.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtQml/qtqml-config.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtQml/qtqmlglobal.h:
+
+/usr/include/KHR/khrplatform.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtQml/qjsvalue.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtQml/qjsengine.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtQml/qqmlapplicationengine.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtQml/QQmlApplicationEngine:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QSurfaceFormat:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QScopedPointer:
+
+/usr/include/X11/X.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglcontext.h:
+
+/usr/include/inttypes.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglext.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglfunctions.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QOpenGLFunctions:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qsurfaceformat.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QOffscreenSurface:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qcursor.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgets-config.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qinputmethod.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtgui-config.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtguiglobal.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qguiapplication.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtcoreversion.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qwaitcondition.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/float.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qurlquery.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtransposeproxymodel.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtimeline.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qvector4d.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qthreadstorage.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qthread.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtextcodec.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtemporarydir.h:
+
+/usr/include/GL/glx.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsystemsemaphore.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringbuilder.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstatemachine.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstate.h:
+
+/usr/include/gz/common5/gz/common/Console.hh:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstandardpaths.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstack.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qsortfilterproxymodel.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h:
 
@@ -2086,6 +2620,14 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 /usr/include/gz/msgs10/gz/msgs/world_reset.pb.h:
 
 /usr/include/c++/11/utility:
+
+/usr/include/c++/11/ios:
+
+/usr/include/gz/rendering8/gz/rendering/Visual.hh:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qxmlstream.h:
+
+/usr/include/c++/11/bits/ios_base.h:
 
 /usr/include/c++/11/bits/basic_string.tcc:
 
@@ -2105,11 +2647,23 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/c++/11/cerrno:
 
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qsurface.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qpair.h:
+
 /usr/include/stdio.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractanimation.h:
 
 /usr/include/c++/11/cstdio:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qfont.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qoffscreensurface.h:
+
+/usr/include/c++/11/bits/ostream_insert.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
 
@@ -2119,9 +2673,7 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/ctype.h:
 
-/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
-
-/usr/include/x86_64-linux-gnu/bits/locale.h:
+/usr/include/gz/common5/gz/common/detail/Export.hh:
 
 /usr/include/c++/11/pstl/glue_numeric_defs.h:
 
@@ -2130,6 +2682,12 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 /usr/include/gz/plugin2/gz/plugin/Register.hh:
 
 /usr/include/x86_64-linux-gnu/bits/waitstatus.h:
+
+/usr/include/byteswap.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_cxx11.h:
+
+/usr/include/c++/11/string:
 
 /usr/include/x86_64-linux-gnu/bits/uio_lim.h:
 
@@ -2141,11 +2699,17 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qfuturewatcher.h:
 
+/usr/include/gz/rendering8/gz/rendering/Geometry.hh:
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs_impl.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/QSurfaceFormat:
-
 /usr/include/c++/11/bits/locale_classes.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qrefcount.h:
+
+/usr/include/gz/math7/gz/math/Material.hh:
 
 /usr/include/c++/11/bits/basic_string.h:
 
@@ -2156,10 +2720,6 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearray.h:
 
 /usr/include/c++/11/bits/stl_iterator_base_types.h:
-
-/usr/include/google/protobuf/descriptor.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QList:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qgenericatomic.h:
 
@@ -2193,31 +2753,35 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/c++/11/cstddef:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglfunctions.h:
-
 /usr/include/c++/11/bits/ptr_traits.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qsettings.h:
+
+/usr/include/google/protobuf/stubs/macros.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qgenericmatrix.h:
+
+/usr/include/c++/11/bits/basic_ios.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/environments.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/opt_random.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qtemporarydir.h:
+/usr/include/x86_64-linux-gnu/qt5/QtQml/qqmlerror.h:
+
+/usr/include/c++/11/bits/hashtable_policy.h:
 
 /usr/include/c++/11/bits/hashtable.h:
 
 /usr/include/c++/11/cctype:
 
-/usr/include/gz/math7/gz/math/Helpers.hh:
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QDeadlineTimer:
 
-/usr/include/c++/11/unordered_map:
+/usr/include/c++/11/functional:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h:
 
 /usr/include/linux/errno.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglext.h:
 
 /usr/include/c++/11/bits/stl_heap.h:
 
@@ -2230,6 +2794,10 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qmutex.h:
 
 /usr/include/alloca.h:
+
+/usr/include/x86_64-linux-gnu/bits/select2.h:
+
+/usr/include/c++/11/cwchar:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
 
@@ -2257,6 +2825,10 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qiterator.h:
 
+/usr/include/x86_64-linux-gnu/qt5/QtQml/qqmlengine.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/error_t.h:
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QRectF:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qprocessordetection.h:
@@ -2277,23 +2849,37 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/c++/11/clocale:
 
+/usr/include/gz/rendering8/gz/rendering/MeshDescriptor.hh:
+
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qcache.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qglobal.h:
+
+/usr/include/x86_64-linux-gnu/bits/locale.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
 
 /usr/include/c++/11/pstl/execution_defs.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qiodevice.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qchar.h:
-
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QString:
 
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
+/usr/include/c++/11/unordered_map:
+
+/usr/include/gz/math7/gz/math/Helpers.hh:
+
 ../include/GazeboOpenXR.hh:
 
-/usr/include/x86_64-linux-gnu/qt5/QtQml/qtqml-config.h:
-
 /usr/include/c++/11/bits/atomic_lockfree_defines.h:
+
+/usr/include/asm-generic/param.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qopengl.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic.h:
 
 /usr/include/c++/11/bits/shared_ptr_atomic.h:
 
@@ -2311,8 +2897,6 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qfile.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qfilesystemwatcher.h:
-
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
 
 /usr/include/c++/11/vector:
@@ -2322,8 +2906,6 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 /usr/include/c++/11/bits/align.h:
 
 /usr/include/c++/11/typeinfo:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qregion.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qvector3d.h:
 
@@ -2337,15 +2919,9 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/c++/11/bits/std_thread.h:
 
-/usr/include/gz/math7/gz/math/Vector3.hh:
-
-/usr/include/c++/11/bits/stl_relops.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qcompilerdetection.h:
-
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qvector.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qlibrary.h:
+/usr/include/c++/11/bits/locale_facets.h:
 
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
@@ -2355,17 +2931,11 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/c++/11/bits/cxxabi_forced.h:
 
-/usr/include/x86_64-linux-gnu/bits/local_lim.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qtranslator.h:
-
-/usr/include/X11/X.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglcontext.h:
-
 /usr/include/c++/11/ext/alloc_traits.h:
 
 /usr/include/x86_64-linux-gnu/bits/sched.h:
+
+/usr/include/gz/rendering8/gz/rendering/Sensor.hh:
 
 /usr/include/c++/11/bits/stl_tempbuf.h:
 
@@ -2385,23 +2955,19 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtQml/qjsengine.h:
-
 /usr/include/features.h:
 
-/usr/include/c++/11/bits/random.tcc:
-
-/usr/include/c++/11/bits/atomic_base.h:
+/usr/include/gz/math7/gz/math/AxisAlignedBox.hh:
 
 /usr/include/x86_64-linux-gnu/bits/sigstack.h:
 
 /usr/include/c++/11/ext/numeric_traits.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h:
+/usr/include/gz/rendering8/gz/rendering/RenderTypes.hh:
 
-/usr/include/c++/11/debug/debug.h:
+/usr/include/limits.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtQml/qtqmlglobal.h:
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h:
 
 /usr/include/c++/11/bits/unique_ptr.h:
 
@@ -2414,6 +2980,8 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 /usr/include/stdc-predef.h:
 
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+/usr/include/gz/math7/gz/math/Angle.hh:
 
 /usr/include/x86_64-linux-gnu/asm/errno.h:
 
@@ -2453,21 +3021,23 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/c++/11/bits/exception_ptr.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qsurface.h:
-
 /usr/include/x86_64-linux-gnu/c++/11/bits/cpu_defines.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qpluginloader.h:
 
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtQuick/qtquickglobal.h:
+/usr/include/c++/11/debug/debug.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/syslimits.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractstate.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtQuick/qtquick-config.h:
+
+/usr/include/c++/11/tr1/legendre_function.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
 
@@ -2476,16 +3046,6 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 /usr/include/x86_64-linux-gnu/qt5/QtGui/QGuiApplication:
 
 /usr/include/c++/11/initializer_list:
-
-/usr/include/byteswap.h:
-
-/usr/include/c++/11/string:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic_cxx11.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qpair.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtQuick/QQuickItem:
 
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
 
@@ -2499,11 +3059,23 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/x86_64-linux-gnu/bits/getopt_core.h:
 
+/usr/include/x86_64-linux-gnu/bits/stdlib.h:
+
 /usr/include/c++/11/bits/functexcept.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio2.h:
+
+/usr/include/gz/math7/gz/math/Line3.hh:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qdatetime.h:
 
 /usr/include/c++/11/bits/stl_raw_storage_iter.h:
+
+/usr/include/x86_64-linux-gnu/bits/string_fortified.h:
+
+/usr/include/c++/11/memory:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/QtCoreDepends:
 
 /usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h:
 
@@ -2515,25 +3087,25 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/x86_64-linux-gnu/sys/single_threaded.h:
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qchar.h:
+
+/usr/include/gz/math7/gz/math/Matrix3.hh:
+
 /usr/include/c++/11/bits/uses_allocator.h:
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qwineventnotifier.h:
+
+/usr/include/c++/11/bits/unique_lock.h:
+
 /usr/include/x86_64-linux-gnu/sys/select.h:
+
+/usr/include/gz/rendering8/gz/rendering/Mesh.hh:
 
 /usr/include/c++/11/bits/stl_iterator.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
-
-/usr/include/c++/11/memory:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QtCoreDepends:
-
-/usr/include/c++/11/thread:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainertools_impl.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qstack.h:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
@@ -2563,10 +3135,6 @@ include/moc_GazeboOpenXR.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
-/usr/include/c++/11/bits/hashtable_policy.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtQml/qqmlerror.h:
-
 /usr/include/c++/11/bits/shared_ptr.h:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stddef.h:
@@ -2585,11 +3153,9 @@ include/moc_GazeboOpenXR.cpp:
 
 /usr/include/c++/11/bits/exception_defines.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtQml/qqmlparserstatus.h:
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qthreadpool.h:
 
 /usr/include/x86_64-linux-gnu/c++/11/bits/os_defines.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qthreadpool.h:
 
 /usr/include/google/protobuf/parse_context.h:
 
@@ -2597,21 +3163,41 @@ include/moc_GazeboOpenXR.cpp:
 
 /usr/include/c++/11/bits/stl_function.h:
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstorageinfo.h:
+
+/usr/include/c++/11/bits/memoryfwd.h:
+
 /usr/include/c++/11/algorithm:
 
+../include/XRCamera.hh:
+
 /usr/include/c++/11/backward/binders.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar2.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qabstracteventdispatcher.h:
 
 /usr/include/c++/11/bits/functional_hash.h:
 
 /usr/include/c++/11/bits/string_view.tcc:
 
+../include/XRRuntime.hh:
+
+/usr/include/GL/gl.h:
+
+/usr/include/c++/11/bits/postypes.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-bsearch.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
+
 /usr/include/x86_64-linux-gnu/qt5/QtQml/QQmlEngine:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qlibraryinfo.h:
 
-/usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
-
 /usr/include/c++/11/bits/invoke.h:
+
+../src/XRCamera.cc:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qfuture.h:
 
@@ -2623,13 +3209,27 @@ include/moc_GazeboOpenXR.cpp:
 
 /usr/include/c++/11/bits/stl_algobase.h:
 
-/usr/include/c++/11/cwchar:
+/usr/include/gz/common5/gz/common/events/Export.hh:
+
+/usr/include/gz/rendering8/gz/rendering/Material.hh:
+
+/usr/include/c++/11/bits/uniform_int_dist.h:
+
+/usr/include/c++/11/bits/basic_ios.h:
+
+/usr/include/google/protobuf/map_type_handler.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtQuickControls2/qquickstyle.h:
+
+/usr/include/c++/11/bits/cxxabi_init_exception.h:
+
+/usr/include/google/protobuf/stubs/strutil.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+
+/usr/include/wchar.h:
 
 /usr/include/locale.h:
-
-/usr/include/c++/11/bits/memoryfwd.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qstorageinfo.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
 
@@ -2637,15 +3237,13 @@ include/moc_GazeboOpenXR.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qglobalstatic.h:
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtypetraits.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qbasictimer.h:
+
 /usr/include/google/protobuf/generated_message_util.h:
 
 /usr/include/x86_64-linux-gnu/bits/floatn-common.h:
-
-../include/XRRuntime.hh:
-
-/usr/include/c++/11/bits/postypes.h:
-
-/usr/include/GL/gl.h:
 
 /usr/include/signal.h:
 
@@ -2656,6 +3254,8 @@ include/moc_GazeboOpenXR.cpp:
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qmimedata.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qsemaphore.h:
+
+/usr/include/x86_64-linux-gnu/bits/strings_fortified.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
@@ -2673,7 +3273,17 @@ include/moc_GazeboOpenXR.cpp:
 
 /usr/include/c++/11/bits/stringfwd.h:
 
+/usr/include/gz/utils2/gz/utils/detail/ImplPtr.hh:
+
 /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio.h:
+
+/usr/include/c++/11/bits/locale_facets.tcc:
+
+/usr/include/gz/msgs10/gz/msgs/details/world_reset.pb.h:
+
+/usr/include/c++/11/bits/this_thread_sleep.h:
 
 /usr/include/c++/11/cstdint:
 
@@ -2711,11 +3321,25 @@ include/moc_GazeboOpenXR.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qsystemdetection.h:
 
+/usr/include/c++/11/istream:
+
+/usr/include/gz/utils2/gz/utils/detail/SuppressWarning.hh:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qdeadlinetimer.h:
+
+/usr/include/c++/11/bits/refwrap.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlistmodel.h:
+
+/usr/include/strings.h:
+
 /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
 
 /usr/include/pthread.h:
 
 /usr/include/sched.h:
+
+/usr/include/wctype.h:
 
 /usr/include/c++/11/climits:
 
@@ -2725,35 +3349,27 @@ include/moc_GazeboOpenXR.cpp:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
+/usr/include/gz/math7/gz/math/Vector2.hh:
+
+/usr/include/gz/math7/gz/math/MaterialType.hh:
+
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qmargins.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgets-config.h:
 
 /usr/include/c++/11/bits/unordered_map.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qresource.h:
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h:
+
+/usr/include/c++/11/ratio:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainertools_impl.h:
+
+/usr/include/c++/11/thread:
+
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
-
-/usr/include/c++/11/bits/uniform_int_dist.h:
-
-/usr/include/google/protobuf/stubs/strutil.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
-
-/usr/include/wchar.h:
-
-/usr/include/google/protobuf/map_type_handler.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtQuickControls2/qquickstyle.h:
-
-/usr/include/c++/11/bits/cxxabi_init_exception.h:
-
-/usr/include/c++/11/bits/refwrap.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qdeadlinetimer.h:
 
 /usr/include/time.h:
 
@@ -2767,9 +3383,15 @@ include/moc_GazeboOpenXR.cpp:
 
 /usr/include/c++/11/ext/atomicity.h:
 
+/usr/include/gz/rendering8/gz/rendering/detail/Export.hh:
+
 /usr/include/c++/11/bits/std_function.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qfloat16.h:
 
@@ -2793,25 +3415,261 @@ include/moc_GazeboOpenXR.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qrefcount.h:
+/usr/include/c++/11/limits:
 
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/QApplication:
+/usr/include/gz/common5/gz/common/Material.hh:
+
+/usr/include/gz/common5/gz/common/Export.hh:
+
+/usr/include/gz/msgs10/gz/msgs/world_control.pb.h:
+
+/usr/include/x86_64-linux-gnu/bits/fp-logb.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qmimetype.h:
+
+/usr/include/c++/11/ostream:
+
+/usr/include/gz/common5/gz/common/graphics/Types.hh:
+
+/usr/include/c++/11/cwctype:
+
+/usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
+
+/usr/include/gz/math7/gz/math/config.hh:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/ctype_base.h:
+
+/usr/include/gz/utils2/gz/utils/ImplPtr.hh:
+
+/usr/include/gz/rendering8/gz/rendering/Object.hh:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/ctype_inline.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringmatcher.h:
+
+/usr/include/c++/11/bits/ostream.tcc:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonobject.h:
+
+/usr/include/gz/rendering8/gz/rendering/RenderEngine.hh:
+
+/usr/include/c++/11/bits/istream.tcc:
+
+/usr/include/gz/gui8/gz/gui/Plugin.hh:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfileinfo.h:
+
+/usr/include/c++/11/bits/parse_numbers.h:
+
+/usr/include/x86_64-linux-gnu/bits/math-vector.h:
+
+/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
+
+/usr/include/x86_64-linux-gnu/bits/endian.h:
+
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
+
+/usr/include/c++/11/bits/exception.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qabstracttransition.h:
+
+/usr/include/c++/11/ext/string_conversions.h:
+
+/usr/include/x86_64-linux-gnu/bits/iscanonical.h:
+
+/usr/include/c++/11/bits/stl_list.h:
+
+/usr/include/c++/11/bits/specfun.h:
+
+/usr/include/c++/11/tr1/special_function_util.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtextboundaryfinder.h:
+
+/usr/include/gz/common5/gz/common/Pbr.hh:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qnamespace.h:
+
+/usr/include/c++/11/tr1/bessel_function.tcc:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h:
+
+/usr/include/c++/11/tr1/ell_integral.tcc:
+
+/usr/include/c++/11/tr1/hypergeometric.tcc:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfuturesynchronizer.h:
+
+/usr/include/c++/11/tr1/modified_bessel_func.tcc:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qrect.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtQml/qqmldebug.h:
+
+/usr/include/c++/11/tr1/poly_hermite.tcc:
+
+/usr/include/c++/11/tr1/poly_laguerre.tcc:
+
+/usr/include/c++/11/bits/std_mutex.h:
+
+/usr/include/x86_64-linux-gnu/bits/param.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/QStandardItemModel:
+
+/usr/include/gz/gui8/gz/gui/qt.h:
+
+/usr/include/c++/11/tr1/riemann_zeta.tcc:
+
+/usr/include/gz/math7/gz/math/Export.hh:
+
+/usr/include/gz/math7/gz/math/detail/Export.hh:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcompilerdetection.h:
+
+/usr/include/c++/11/bits/stl_relops.h:
+
+/usr/include/gz/math7/gz/math/Vector3.hh:
+
+/usr/include/gz/common5/gz/common/graphics/Export.hh:
+
+/usr/include/gz/common5/gz/common/geospatial/detail/Export.hh:
+
+/usr/include/gz/common5/gz/common/graphics/detail/Export.hh:
+
+/usr/include/gz/common5/gz/common/Util.hh:
+
+/usr/include/c++/11/bits/enable_special_members.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qshareddata.h:
+
+/usr/include/c++/11/cassert:
+
+/usr/include/c++/11/mutex:
+
+/usr/include/gz/common5/gz/common/Filesystem.hh:
+
+/usr/include/gz/utils2/gz/utils/detail/DefaultOps.hh:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qanimationgroup.h:
+
+/usr/include/gz/utils2/gz/utils/SuppressWarning.hh:
+
+/usr/include/x86_64-linux-gnu/qt5/QtGui/qtransform.h:
+
+/usr/include/gz/utils2/gz/utils/detail/Export.hh:
+
+/usr/include/google/protobuf/arenastring.h:
+
+/usr/include/gz/common5/gz/common/SystemPaths.hh:
+
+/usr/include/c++/11/list:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h:
+
+/usr/include/c++/11/bits/list.tcc:
+
+/usr/include/c++/11/bits/stl_multiset.h:
+
+/usr/include/gz/common5/gz/common/URI.hh:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearraymatcher.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigstksz.h:
+
+/usr/include/c++/11/condition_variable:
+
+/usr/include/c++/11/optional:
+
+qrc_GazeboOpenXR.cpp:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qjsondocument.h:
+
+/usr/include/gz/math7/gz/math/Color.hh:
+
+/usr/include/c++/11/tr1/exp_integral.tcc:
+
+/usr/include/gz/common5/gz/common/Image.hh:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qidentityproxymodel.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtemporaryfile.h:
+
+/usr/include/gz/common5/gz/common/Mesh.hh:
+
+/usr/include/google/protobuf/extension_set.h:
+
+/usr/include/gz/rendering8/gz/rendering/config.hh:
+
+/usr/include/gz/rendering8/gz/rendering/HeightmapDescriptor.hh:
+
+/usr/include/gz/common5/gz/common/geospatial/HeightmapData.hh:
+
+/usr/include/x86_64-linux-gnu/qt5/QtQuick/qsggeometry.h:
+
+/usr/include/gz/common5/gz/common/geospatial/Export.hh:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtimezone.h:
+
+/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
+
+/usr/include/c++/11/iostream:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcborarray.h:
+
+/usr/include/gz/rendering8/gz/rendering/Node.hh:
+
+/usr/include/c++/11/map:
+
+/usr/include/c++/11/bits/stl_tree.h:
+
+/usr/include/tinyxml2.h:
+
+/usr/include/c++/11/bits/stl_map.h:
+
+/usr/include/c++/11/bits/stl_multimap.h:
+
+/usr/include/c++/11/variant:
+
+/usr/include/c++/11/bits/random.tcc:
+
+/usr/include/c++/11/bits/atomic_base.h:
+
+/usr/include/gz/math7/gz/math/Pose3.hh:
+
+/usr/include/gz/math7/gz/math/Quaternion.hh:
+
+/usr/include/gz/rendering8/gz/rendering/Light.hh:
+
+/usr/include/gz/math7/gz/math/MassMatrix3.hh:
+
+/usr/include/gz/rendering8/gz/rendering/ShaderType.hh:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfilesystemwatcher.h:
+
+/usr/include/gz/math7/gz/math/Matrix4.hh:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtranslator.h:
+
+/usr/include/x86_64-linux-gnu/bits/local_lim.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qlibrary.h:
 
 /usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qbasictimer.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qtypetraits.h:
-
 /usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
-
-/usr/include/c++/11/tr1/hypergeometric.tcc:
 
 /usr/include/x86_64-linux-gnu/qt5/QtQuick/qsgtexturematerial.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonvalue.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject.h:
+
+/usr/include/gz/rendering8/gz/rendering/base/SceneExt.hh:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qalgorithms.h:
 
@@ -2825,31 +3683,15 @@ include/moc_GazeboOpenXR.cpp:
 
 /usr/include/c++/11/bits/stl_numeric.h:
 
-/usr/include/c++/11/list:
-
-/usr/include/c++/11/bits/stl_list.h:
-
-/usr/include/c++/11/ext/string_conversions.h:
-
-/usr/include/x86_64-linux-gnu/bits/iscanonical.h:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/gthr.h:
-
-/usr/include/c++/11/bits/list.tcc:
-
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearraylist.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlist.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qregexp.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringmatcher.h:
-
 /usr/include/c++/11/bits/streambuf_iterator.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreapplication.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qvector2d.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qvarlengtharray.h:
 
@@ -2857,57 +3699,23 @@ include/moc_GazeboOpenXR.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainerfwd.h:
 
-/usr/include/c++/11/map:
-
-/usr/include/c++/11/bits/stl_tree.h:
-
-/usr/include/tinyxml2.h:
-
-/usr/include/c++/11/bits/stl_map.h:
-
-/usr/include/c++/11/bits/stl_multimap.h:
-
 /usr/include/gz/utils2/gz/utils/Export.hh:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qobject_impl.h:
-
-/usr/include/c++/11/limits:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qtguiglobal.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qfileinfo.h:
-
-/usr/include/c++/11/bits/parse_numbers.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qabstracteventdispatcher.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qhistorystate.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractitemmodel.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h:
+/usr/include/gz/rendering8/gz/rendering/Scene.hh:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qtemporaryfile.h:
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qvariant.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qmap.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qlogging.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qhash.h:
-
-/usr/include/c++/11/variant:
-
-/usr/include/c++/11/bits/exception.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qabstracttransition.h:
-
-/usr/include/x86_64-linux-gnu/bits/endian.h:
-
-/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qinputmethod.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qanimationgroup.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer_impl.h:
 
@@ -2925,27 +3733,23 @@ include/moc_GazeboOpenXR.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qbuffer.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qbytearraymatcher.h:
-
 /usr/include/endian.h:
 
 /usr/include/c++/11/bits/cpp_type_traits.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qlocale.h:
 
-/usr/include/c++/11/bits/enable_special_members.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qshareddata.h:
+/usr/include/gz/rendering8/gz/rendering/Export.hh:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qstring.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qcborvalue.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h:
+/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qtnetwork-config.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qstatemachine.h:
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcborcommon.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qtextstream.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qset.h:
 
@@ -2956,8 +3760,6 @@ include/moc_GazeboOpenXR.cpp:
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qeventloop.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qcontiguouscache.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtQml/qqml.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qopenglversionfunctions.h:
 
@@ -2970,8 +3772,6 @@ include/moc_GazeboOpenXR.cpp:
 /usr/include/c++/11/bits/erase_if.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qurl.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qthread.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/quuid.h:
 
@@ -2987,21 +3787,11 @@ include/moc_GazeboOpenXR.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qcborstreamreader.h:
 
-/usr/include/c++/11/tr1/legendre_function.tcc:
-
-/usr/include/x86_64-linux-gnu/qt5/QtQuick/qtquick-config.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/QOffscreenSurface:
-
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qcommandlineoption.h:
 
 /usr/include/gz/msgs10/gz/msgs/Export.hh:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qconcatenatetablesproxymodel.h:
-
-/usr/include/KHR/khrplatform.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtQml/qjsvalue.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qelapsedtimer.h:
 
@@ -3020,10 +3810,6 @@ include/moc_GazeboOpenXR.cpp:
 /usr/include/gz/plugin2/gz/plugin/detail/Export.hh:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qendian.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qguiapplication.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QScopedPointer:
 
 /usr/include/c++/11/streambuf:
 
@@ -3051,75 +3837,31 @@ include/moc_GazeboOpenXR.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qresultstore.h:
 
-/usr/include/c++/11/mutex:
-
-/usr/include/c++/11/bits/std_mutex.h:
-
-/usr/include/c++/11/tr1/poly_laguerre.tcc:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qidentityproxymodel.h:
-
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qisenum.h:
+
+/usr/include/gz/common5/gz/common/EnumIface.hh:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonarray.h:
 
-qrc_GazeboOpenXR.cpp:
+/usr/include/x86_64-linux-gnu/qt5/QtQml/QQmlContext:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qjsondocument.h:
+/usr/include/c++/11/bits/allocator.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qscopedpointer.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qjsonobject.h:
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qline.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtQml/qqmlapplicationengine.h:
+/usr/include/x86_64-linux-gnu/qt5/QtQuick/qquickitem.h:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectcleanuphandler.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qlinkedlist.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qtextcodec.h:
 
 /usr/include/gz/plugin2/gz/plugin/EnablePluginFromThis.hh:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qloggingcategory.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qplugin.h:
-
-/usr/include/x86_64-linux-gnu/bits/math-vector.h:
-
-/usr/include/gz/plugin2/gz/plugin/Info.hh:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qkeysequence.h:
-
-/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
-
-/usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
-
-/usr/include/c++/11/bits/specfun.h:
-
-/usr/include/c++/11/tr1/special_function_util.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qnamespace.h:
-
-/usr/include/c++/11/tr1/bessel_function.tcc:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h:
-
-/usr/include/c++/11/tr1/ell_integral.tcc:
-
-/usr/include/c++/11/tr1/exp_integral.tcc:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qfuturesynchronizer.h:
-
-/usr/include/c++/11/tr1/modified_bessel_func.tcc:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qrect.h:
-
-/usr/include/x86_64-linux-gnu/bits/param.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/QStandardItemModel:
-
-/usr/include/gz/gui8/gz/gui/qt.h:
-
-/usr/include/c++/11/tr1/riemann_zeta.tcc:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qpaintdevice.h:
 
@@ -3129,29 +3871,9 @@ qrc_GazeboOpenXR.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetaobject.h:
 
-/usr/include/gz/msgs10/gz/msgs/world_control.pb.h:
-
-/usr/include/x86_64-linux-gnu/bits/fp-logb.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qmimetype.h:
-
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qoperatingsystemversion.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qcursor.h:
-
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qparallelanimationgroup.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qvector4d.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qthreadstorage.h:
-
-/usr/include/c++/11/iostream:
-
-/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qcborarray.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qtimezone.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qpauseanimation.h:
 
@@ -3169,138 +3891,18 @@ qrc_GazeboOpenXR.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qreadwritelock.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qcolor.h:
-
 /usr/include/c++/11/cstring:
 
 /usr/include/c++/11/bits/atomic_futex.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qscopedvaluerollback.h:
 
-/usr/include/google/protobuf/stubs/once.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qevent.h:
-
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qscopeguard.h:
+
+/usr/include/gz/rendering8/gz/rendering/Storage.hh:
 
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedmemory.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qsignaltransition.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qsortfilterproxymodel.h:
-
-/usr/include/gz/common5/gz/common/Console.hh:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qstandardpaths.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qstate.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringbuilder.h:
-
-/usr/include/strings.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qstringlistmodel.h:
-
-/usr/include/GL/glx.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qsystemsemaphore.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qtextboundaryfinder.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qtimeline.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qtransposeproxymodel.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/float.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qtwidgetsglobal.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qurlquery.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qwaitcondition.h:
-
-/usr/include/c++/11/functional:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/QDeadlineTimer:
-
-/usr/include/c++/11/bits/unique_lock.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qwineventnotifier.h:
-
-/usr/include/c++/11/bits/ios_base.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qxmlstream.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qtcoreversion.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qtgui-config.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qversiontagging.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qwindowdefs.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtWidgets/qapplication.h:
-
-/usr/include/c++/11/bits/ostream_insert.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qfont.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qoffscreensurface.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qsurfaceformat.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/QOpenGLFunctions:
-
-/usr/include/asm-generic/param.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qatomic.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qopengl.h:
-
-/usr/include/inttypes.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtQml/QQmlApplicationEngine:
-
-/usr/include/x86_64-linux-gnu/bits/types/error_t.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtQml/qqmlengine.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qtnetworkglobal.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qcborcommon.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtNetwork/qtnetwork-config.h:
-
-/usr/include/c++/11/tr1/poly_hermite.tcc:
-
-/usr/include/x86_64-linux-gnu/qt5/QtQml/qqmldebug.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtQml/qqmlprivate.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtQuick/qsgmaterialshader.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtQml/qqmllist.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtQml/qqmlpropertyvaluesource.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtQml/QQmlComponent:
-
-/usr/include/x86_64-linux-gnu/qt5/QtQml/qqmlcomponent.h:
-
-/usr/include/c++/11/bits/allocator.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qscopedpointer.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qline.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtQml/QQmlContext:
-
-/usr/include/x86_64-linux-gnu/qt5/QtQml/qqmlcontext.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectcleanuphandler.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtQuick/qquickitem.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtGui/qaccessible.h:

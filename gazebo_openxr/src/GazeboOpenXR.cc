@@ -181,7 +181,10 @@ void GazeboOpenXR::OnRender()
             PostStatus("VR Frame Loop Running");
         }
         // Execute inside Gazebo's render event.
-        xrCamera_.FindScene();
+        if (xrCamera_.FindScene())
+        {
+            xrCamera_.CreateStereoCameras();
+        }
 
         if (!runtime_.RenderFrame())
         {

@@ -318,6 +318,15 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: \
  /usr/include/gz/rendering8/gz/rendering/ShaderType.hh \
  /usr/include/gz/rendering8/gz/rendering/Mesh.hh \
  /usr/include/gz/math7/gz/math/Matrix4.hh \
+ /usr/include/gz/rendering8/gz/rendering/Camera.hh \
+ /usr/include/gz/common5/gz/common/Event.hh \
+ /usr/include/gz/common5/gz/common/config.hh \
+ /usr/include/gz/common5/gz/common/events/Export.hh \
+ /usr/include/gz/common5/gz/common/events/detail/Export.hh \
+ /usr/include/gz/common5/gz/common/events/Types.hh \
+ /usr/include/gz/rendering8/gz/rendering/Image.hh \
+ /usr/include/gz/rendering8/gz/rendering/PixelFormat.hh \
+ /usr/include/gz/rendering8/gz/rendering/PixelBuffer.hh \
  /usr/include/gz/gui8/gz/gui/Plugin.hh /usr/include/tinyxml2.h \
  /usr/include/c++/11/climits \
  /usr/lib/gcc/x86_64-linux-gnu/11/include/limits.h \
@@ -728,8 +737,6 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: \
  /usr/include/c++/11/bits/sstream.tcc \
  /usr/include/gz/gui8/gz/gui/GuiEvents.hh \
  /usr/include/gz/common5/gz/common/KeyEvent.hh \
- /usr/include/gz/common5/gz/common/events/Export.hh \
- /usr/include/gz/common5/gz/common/events/detail/Export.hh \
  /usr/include/gz/common5/gz/common/MouseEvent.hh \
  /usr/include/gz/msgs10/gz/msgs/world_control.pb.h \
  /usr/include/gz/msgs10/gz/msgs/Export.hh \
