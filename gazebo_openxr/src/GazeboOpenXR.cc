@@ -97,13 +97,15 @@ void GazeboOpenXR::OnRender()
     {
         startRequested_.store(false);
 
-        runtime_.DestroySession();
-
-        sessionCreated_.store(false);
-
-        PostStatus("OpenXR Session Stopped");
-
-        return;
+        if (runtime_.RequestStop())
+        {
+            PostStatus("Stopping OpenXR Session...");
+        }
+        else
+        {
+            PostStatus(QString::fromStdString(
+                runtime_.GetStatus()));
+        }
     }
 
     if (checkRequested_.exchange(false))
@@ -117,45 +119,79 @@ void GazeboOpenXR::OnRender()
 
     if (startRequested_.exchange(false))
     {
-        if (sessionCreated_.load())
-            return;
-
-        std::cout
-            << "[GazeboOpenXR] Start VR request received"
-            << std::endl;
-
-        if (!runtime_.Initialize())
+        if (!sessionCreated_.load())
         {
-            PostStatus(
-                QString::fromStdString(
+            if (!runtime_.Initialize())
+            {
+                PostStatus(QString::fromStdString(
                     runtime_.GetStatus()));
 
-            return;
-        }
+                return;
+            }
 
-        if (!runtime_.ProbeGraphicsContext())
-        {
-            PostStatus(
-                "No current GLX context in render event");
-
-            return;
-        }
-
-        if (!runtime_.CreateSessionFromCurrentContext())
-        {
-            PostStatus(
-                QString::fromStdString(
+            if (!runtime_.CreateSessionFromCurrentContext())
+            {
+                PostStatus(QString::fromStdString(
                     runtime_.GetStatus()));
 
-            return;
+                return;
+            }
+
+            sessionCreated_.store(true);
+
+            PostStatus(
+                "OpenXR Session Created");
+        }
+    }
+
+    if (!sessionCreated_.load())
+        return;
+
+    if (runtime_.GetSession() == XR_NULL_HANDLE)
+    {
+        sessionCreated_.store(false);
+        PostStatus("OpenXR Session Stopped");
+        return;
+    }
+
+    bool wasRunning =
+        runtime_.IsSessionRunning();
+
+    if (!runtime_.PollEvents())
+    {
+        PostStatus(QString::fromStdString(
+            runtime_.GetStatus()));
+
+        runtime_.DestroySession();
+        sessionCreated_.store(false);
+        return;
+    }
+
+    if (runtime_.GetSession() == XR_NULL_HANDLE)
+    {
+        sessionCreated_.store(false);
+        PostStatus("OpenXR Session Stopped");
+        return;
+    }
+
+    if (runtime_.IsSessionRunning())
+    {
+        if (!wasRunning)
+        {
+            PostStatus("VR Frame Loop Running");
         }
 
-        sessionCreated_.store(true);
+        if (!runtime_.RenderFrame())
+        {
+            PostStatus(QString::fromStdString(
+                runtime_.GetStatus()));
 
-        PostStatus(
-            "OpenXR Session Created Successfully");
+            runtime_.DestroySession();
+            sessionCreated_.store(false);
+        }
     }
 }
+
 
 GZ_ADD_PLUGIN(
     GazeboOpenXR,

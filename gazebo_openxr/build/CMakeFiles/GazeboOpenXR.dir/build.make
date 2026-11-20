@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/mr_robot/openxr_workspace/gazebo_openxr
+CMAKE_SOURCE_DIR = /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/mr_robot/openxr_workspace/gazebo_openxr/build
+CMAKE_BINARY_DIR = /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/build
 
 # Include any dependencies generated for this target.
 include CMakeFiles/GazeboOpenXR.dir/depend.make
@@ -70,70 +70,70 @@ include CMakeFiles/GazeboOpenXR.dir/progress.make
 include CMakeFiles/GazeboOpenXR.dir/flags.make
 
 include/moc_GazeboOpenXR.cpp: ../include/GazeboOpenXR.hh
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mr_robot/openxr_workspace/gazebo_openxr/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating include/moc_GazeboOpenXR.cpp"
-	cd /home/mr_robot/openxr_workspace/gazebo_openxr/build/include && /usr/lib/qt5/bin/moc @/home/mr_robot/openxr_workspace/gazebo_openxr/build/include/moc_GazeboOpenXR.cpp_parameters
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating include/moc_GazeboOpenXR.cpp"
+	cd /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/build/include && /usr/lib/qt5/bin/moc @/home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/build/include/moc_GazeboOpenXR.cpp_parameters
 
 qrc_GazeboOpenXR.cpp: ../qml/GazeboOpenXR.qml
 qrc_GazeboOpenXR.cpp: GazeboOpenXR.qrc.depends
 qrc_GazeboOpenXR.cpp: ../GazeboOpenXR.qrc
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mr_robot/openxr_workspace/gazebo_openxr/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating qrc_GazeboOpenXR.cpp"
-	/usr/lib/qt5/bin/rcc --name GazeboOpenXR --output /home/mr_robot/openxr_workspace/gazebo_openxr/build/qrc_GazeboOpenXR.cpp /home/mr_robot/openxr_workspace/gazebo_openxr/GazeboOpenXR.qrc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Generating qrc_GazeboOpenXR.cpp"
+	/usr/lib/qt5/bin/rcc --name GazeboOpenXR --output /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/build/qrc_GazeboOpenXR.cpp /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/GazeboOpenXR.qrc
 
 CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: CMakeFiles/GazeboOpenXR.dir/flags.make
 CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: ../src/GazeboOpenXR.cc
 CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: CMakeFiles/GazeboOpenXR.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mr_robot/openxr_workspace/gazebo_openxr/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o -MF CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o.d -o CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o -c /home/mr_robot/openxr_workspace/gazebo_openxr/src/GazeboOpenXR.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o -MF CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o.d -o CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o -c /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/src/GazeboOpenXR.cc
 
 CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mr_robot/openxr_workspace/gazebo_openxr/src/GazeboOpenXR.cc > CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/src/GazeboOpenXR.cc > CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.i
 
 CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mr_robot/openxr_workspace/gazebo_openxr/src/GazeboOpenXR.cc -o CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/src/GazeboOpenXR.cc -o CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.s
 
 CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: CMakeFiles/GazeboOpenXR.dir/flags.make
 CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc
 CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: CMakeFiles/GazeboOpenXR.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mr_robot/openxr_workspace/gazebo_openxr/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o -MF CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o.d -o CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o -c /home/mr_robot/openxr_workspace/gazebo_openxr/src/XRRuntime.cc
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o -MF CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o.d -o CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o -c /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/src/XRRuntime.cc
 
 CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mr_robot/openxr_workspace/gazebo_openxr/src/XRRuntime.cc > CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/src/XRRuntime.cc > CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.i
 
 CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mr_robot/openxr_workspace/gazebo_openxr/src/XRRuntime.cc -o CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/src/XRRuntime.cc -o CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.s
 
 CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o: CMakeFiles/GazeboOpenXR.dir/flags.make
 CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o: include/moc_GazeboOpenXR.cpp
 CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o: CMakeFiles/GazeboOpenXR.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mr_robot/openxr_workspace/gazebo_openxr/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o -MF CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o.d -o CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o -c /home/mr_robot/openxr_workspace/gazebo_openxr/build/include/moc_GazeboOpenXR.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o -MF CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o.d -o CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o -c /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/build/include/moc_GazeboOpenXR.cpp
 
 CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mr_robot/openxr_workspace/gazebo_openxr/build/include/moc_GazeboOpenXR.cpp > CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/build/include/moc_GazeboOpenXR.cpp > CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.i
 
 CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mr_robot/openxr_workspace/gazebo_openxr/build/include/moc_GazeboOpenXR.cpp -o CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/build/include/moc_GazeboOpenXR.cpp -o CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.s
 
 CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.o: CMakeFiles/GazeboOpenXR.dir/flags.make
 CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.o: qrc_GazeboOpenXR.cpp
 CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.o: CMakeFiles/GazeboOpenXR.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mr_robot/openxr_workspace/gazebo_openxr/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.o -MF CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.o.d -o CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.o -c /home/mr_robot/openxr_workspace/gazebo_openxr/build/qrc_GazeboOpenXR.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.o -MF CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.o.d -o CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.o -c /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/build/qrc_GazeboOpenXR.cpp
 
 CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mr_robot/openxr_workspace/gazebo_openxr/build/qrc_GazeboOpenXR.cpp > CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/build/qrc_GazeboOpenXR.cpp > CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.i
 
 CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mr_robot/openxr_workspace/gazebo_openxr/build/qrc_GazeboOpenXR.cpp -o CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/build/qrc_GazeboOpenXR.cpp -o CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.s
 
 # Object files for target GazeboOpenXR
 GazeboOpenXR_OBJECTS = \
@@ -177,7 +177,7 @@ libGazeboOpenXR.so: /usr/lib/x86_64-linux-gnu/libgz-plugin2.so.2.0.4
 libGazeboOpenXR.so: /usr/lib/x86_64-linux-gnu/libgz-utils2.so.2.2.1
 libGazeboOpenXR.so: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 libGazeboOpenXR.so: CMakeFiles/GazeboOpenXR.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mr_robot/openxr_workspace/gazebo_openxr/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX shared library libGazeboOpenXR.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX shared library libGazeboOpenXR.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/GazeboOpenXR.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -190,6 +190,6 @@ CMakeFiles/GazeboOpenXR.dir/clean:
 
 CMakeFiles/GazeboOpenXR.dir/depend: include/moc_GazeboOpenXR.cpp
 CMakeFiles/GazeboOpenXR.dir/depend: qrc_GazeboOpenXR.cpp
-	cd /home/mr_robot/openxr_workspace/gazebo_openxr/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mr_robot/openxr_workspace/gazebo_openxr /home/mr_robot/openxr_workspace/gazebo_openxr /home/mr_robot/openxr_workspace/gazebo_openxr/build /home/mr_robot/openxr_workspace/gazebo_openxr/build /home/mr_robot/openxr_workspace/gazebo_openxr/build/CMakeFiles/GazeboOpenXR.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/build && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/build /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/build /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/build/CMakeFiles/GazeboOpenXR.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/GazeboOpenXR.dir/depend
 

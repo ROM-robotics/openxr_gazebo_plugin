@@ -2165,7 +2165,7 @@ grep -iE 'undefined|not found'
 
 ####################################
 
-if [ -S "$XDG_RUNTIME_DIR/wivrn/comp_ipc" ]; then
+if [ -S "$XDG_RUNTIME_DIR/wivrn/comp_ipc" ]; then (17.8)
     echo "WiVRn IPC: READY"
 else
     echo "WiVRn IPC: NOT READY"
@@ -2173,7 +2173,7 @@ fi
 
 ####################################
 
-cd ~/openxr_workspace/gazebo_openxr
+cd ~/openxr_workspace/gazebo_openxr (17.9)
 
 export GZ_GUI_PLUGIN_PATH="$PWD/build"
 
@@ -2184,6 +2184,485 @@ export XR_LOADER_DEBUG=all
 gz sim --force-version 8 -v 4 shapes.sdf
 
 ####################################
+
+18.3 
+vim include/XRRuntime.hh
+
+public: အောက်မှာ ထပ်ထည့်ပါ။
+
+bool PollEvents();
+
+bool RequestStop();
+
+bool IsSessionRunning() const;
+
+bool RenderFrame();
+
+XrSpace GetLocalSpace() const;
+
+private: အောက်မှာ ထပ်ထည့်ပါ။
+XrSessionState sessionState_ =
+    XR_SESSION_STATE_UNKNOWN;
+
+bool sessionRunning_ = false;
+
+bool exitRequested_ = false;
+
+uint64_t frameCount_ = 0;
+
+Header File အပေါ်ဆုံးမှာလည်း ထည့်ပါ။
+#include <cstdint>
+
+####################################
+
+18.4
+
+vim src/XRRuntime.cc
+
+bool XRRuntime::PollEvents()
+{
+    if (instance_ == XR_NULL_HANDLE)
+        return false;
+
+    XrEventDataBuffer event{
+        XR_TYPE_EVENT_DATA_BUFFER
+    };
+
+    while (true)
+    {
+        event = {};
+        event.type = XR_TYPE_EVENT_DATA_BUFFER;
+
+        XrResult result =
+            xrPollEvent(instance_, &event);
+
+        if (result == XR_EVENT_UNAVAILABLE)
+            break;
+
+        if (XR_FAILED(result))
+        {
+            status_ = "xrPollEvent failed: " +
+                std::to_string(static_cast<int>(result));
+
+            return false;
+        }
+
+        if (event.type ==
+            XR_TYPE_EVENT_DATA_INSTANCE_LOSS_PENDING)
+        {
+            status_ = "OpenXR instance loss pending";
+            Shutdown();
+            return false;
+        }
+
+        if (event.type !=
+            XR_TYPE_EVENT_DATA_SESSION_STATE_CHANGED)
+        {
+            continue;
+        }
+
+        const auto* stateEvent =
+            reinterpret_cast<
+                const XrEventDataSessionStateChanged*
+            >(&event);
+
+        if (stateEvent->session != session_)
+            continue;
+
+        sessionState_ = stateEvent->state;
+
+        char stateName[XR_MAX_STRUCTURE_NAME_SIZE]{};
+
+        xrStructureTypeToString(
+            instance_,
+            event.type,
+            stateName);
+
+        std::cout
+            << "[XRRuntime] Session state: "
+            << static_cast<int>(sessionState_)
+            << std::endl;
+
+        switch (sessionState_)
+        {
+            case XR_SESSION_STATE_READY:
+            {
+                XrSessionBeginInfo beginInfo{
+                    XR_TYPE_SESSION_BEGIN_INFO
+                };
+
+                beginInfo.primaryViewConfigurationType =
+                    XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO;
+
+                result = xrBeginSession(
+                    session_, &beginInfo);
+
+                if (XR_FAILED(result))
+                {
+                    status_ = "xrBeginSession failed: " +
+                        std::to_string(static_cast<int>(result));
+
+                    return false;
+                }
+
+                sessionRunning_ = true;
+                frameCount_ = 0;
+
+                std::cout
+                    << "[XRRuntime] Session started"
+                    << std::endl;
+
+                break;
+            }
+
+            case XR_SESSION_STATE_STOPPING:
+            {
+                if (sessionRunning_)
+                {
+                    result = xrEndSession(session_);
+
+                    if (XR_FAILED(result))
+                    {
+                        status_ = "xrEndSession failed: " +
+                            std::to_string(static_cast<int>(result));
+
+                        return false;
+                    }
+                }
+
+                sessionRunning_ = false;
+
+                std::cout
+                    << "[XRRuntime] Session ended"
+                    << std::endl;
+
+                break;
+            }
+
+            case XR_SESSION_STATE_EXITING:
+            case XR_SESSION_STATE_LOSS_PENDING:
+            {
+                sessionRunning_ = false;
+                DestroySession();
+
+                status_ = "OpenXR session closed";
+                return true;
+            }
+
+            default:
+                break;
+        }
+    }
+
+    if (exitRequested_ &&
+        sessionState_ == XR_SESSION_STATE_IDLE &&
+        !sessionRunning_)
+    {
+        DestroySession();
+        status_ = "OpenXR Session Stopped";
+    }
+
+    return true;
+}
+
+
+##################################
+18.5
+bool XRRuntime::RequestStop()
+{
+    if (session_ == XR_NULL_HANDLE)
+        return true;
+
+    if (exitRequested_)
+        return true;
+
+    if (!sessionRunning_)
+    {
+        DestroySession();
+        return true;
+    }
+
+    XrResult result =
+        xrRequestExitSession(session_);
+
+    if (XR_FAILED(result))
+    {
+        status_ = "xrRequestExitSession failed: " +
+            std::to_string(static_cast<int>(result));
+
+        return false;
+    }
+
+    exitRequested_ = true;
+
+    return true;
+}
+
+bool XRRuntime::IsSessionRunning() const
+{
+    return sessionRunning_;
+}
+
+XrSpace XRRuntime::GetLocalSpace() const
+{
+    return localSpace_;
+}
+
+####################################################
+
+ရှိပြီးသား DestroySession() Function ကိုလည်း အောက်ပါအတိုင်း အစားထိုးပါ။
+void XRRuntime::DestroySession()
+{
+    if (localSpace_ != XR_NULL_HANDLE)
+    {
+        xrDestroySpace(localSpace_);
+        localSpace_ = XR_NULL_HANDLE;
+    }
+
+    if (session_ != XR_NULL_HANDLE)
+    {
+        xrDestroySession(session_);
+        session_ = XR_NULL_HANDLE;
+    }
+
+    sessionRunning_ = false;
+    sessionState_ = XR_SESSION_STATE_UNKNOWN;
+
+    exitRequested_ = false;
+    frameCount_ = 0;
+}
+
+#######################################################
+
+19.1
+19.1. Frame Loop Implementation
+src/XRRuntime.cc ထဲမှာ အောက်ပါ Function ကို ဆက်ထည့်ပါ။
+bool XRRuntime::RenderFrame()
+{
+    if (!sessionRunning_ ||
+        session_ == XR_NULL_HANDLE)
+    {
+        return false;
+    }
+
+    XrFrameWaitInfo waitInfo{
+        XR_TYPE_FRAME_WAIT_INFO
+    };
+
+    XrFrameState frameState{
+        XR_TYPE_FRAME_STATE
+    };
+
+    XrResult result = xrWaitFrame(
+        session_,
+        &waitInfo,
+        &frameState);
+
+    if (XR_FAILED(result))
+    {
+        status_ = "xrWaitFrame failed: " +
+            std::to_string(static_cast<int>(result));
+
+        return false;
+    }
+
+    XrFrameBeginInfo beginInfo{
+        XR_TYPE_FRAME_BEGIN_INFO
+    };
+
+    result = xrBeginFrame(
+        session_, &beginInfo);
+
+    if (XR_FAILED(result))
+    {
+        status_ = "xrBeginFrame failed: " +
+            std::to_string(static_cast<int>(result));
+
+        return false;
+    }
+
+    XrFrameEndInfo endInfo{
+        XR_TYPE_FRAME_END_INFO
+    };
+
+    endInfo.displayTime =
+        frameState.predictedDisplayTime;
+
+    endInfo.environmentBlendMode =
+        XR_ENVIRONMENT_BLEND_MODE_OPAQUE;
+
+    // Diagnostic frame without composition layers
+    endInfo.layerCount = 0;
+    endInfo.layers = nullptr;
+
+    result = xrEndFrame(
+        session_, &endInfo);
+
+    if (XR_FAILED(result))
+    {
+        status_ = "xrEndFrame failed: " +
+            std::to_string(static_cast<int>(result));
+
+        return false;
+    }
+
+    ++frameCount_;
+
+    if (frameCount_ % 120 == 0)
+    {
+        std::cout
+            << "[XRRuntime] Frame: "
+            << frameCount_
+            << " | shouldRender: "
+            << frameState.shouldRender
+            << " | predictedDisplayTime: "
+            << frameState.predictedDisplayTime
+            << std::endl;
+    }
+
+    return true;
+}
+
+#########################################33
+
+19.2
+
+vim src/GazeboOpenXR.cc
+
+void GazeboOpenXR::OnRender()
+{
+    if (stopRequested_.exchange(false))
+    {
+        startRequested_.store(false);
+
+        if (runtime_.RequestStop())
+        {
+            PostStatus("Stopping OpenXR Session...");
+        }
+        else
+        {
+            PostStatus(QString::fromStdString(
+                runtime_.GetStatus()));
+        }
+    }
+
+    if (checkRequested_.exchange(false))
+    {
+        runtime_.Initialize();
+
+        PostStatus(
+            QString::fromStdString(
+                runtime_.GetStatus()));
+    }
+
+    if (startRequested_.exchange(false))
+    {
+        if (!sessionCreated_.load())
+        {
+            if (!runtime_.Initialize())
+            {
+                PostStatus(QString::fromStdString(
+                    runtime_.GetStatus()));
+
+                return;
+            }
+
+            if (!runtime_.CreateSessionFromCurrentContext())
+            {
+                PostStatus(QString::fromStdString(
+                    runtime_.GetStatus()));
+
+                return;
+            }
+
+            sessionCreated_.store(true);
+
+            PostStatus(
+                "OpenXR Session Created");
+        }
+    }
+
+    if (!sessionCreated_.load())
+        return;
+
+    if (runtime_.GetSession() == XR_NULL_HANDLE)
+    {
+        sessionCreated_.store(false);
+        PostStatus("OpenXR Session Stopped");
+        return;
+    }
+
+    bool wasRunning =
+        runtime_.IsSessionRunning();
+
+    if (!runtime_.PollEvents())
+    {
+        PostStatus(QString::fromStdString(
+            runtime_.GetStatus()));
+
+        runtime_.DestroySession();
+        sessionCreated_.store(false);
+        return;
+    }
+
+    if (runtime_.GetSession() == XR_NULL_HANDLE)
+    {
+        sessionCreated_.store(false);
+        PostStatus("OpenXR Session Stopped");
+        return;
+    }
+
+    if (runtime_.IsSessionRunning())
+    {
+        if (!wasRunning)
+        {
+            PostStatus("VR Frame Loop Running");
+        }
+
+        if (!runtime_.RenderFrame())
+        {
+            PostStatus(QString::fromStdString(
+                runtime_.GetStatus()));
+
+            runtime_.DestroySession();
+            sessionCreated_.store(false);
+        }
+    }
+}
+
+###########################################################
+
+19.4. Rebuild Plugin
+
+cd ~/openxr_workspace/gazebo_openxr
+
+cmake -S . -B build \
+    -DCMAKE_BUILD_TYPE=Release
+
+cmake --build build -j8
+
+###########################################################
+
+ldd -r build/libGazeboOpenXR.so 2>&1 | \
+grep -iE 'undefined|not found'
+
+#############################################################
+
+19.5. Launch Gazebo
+mr_robot@desktop:~/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr
+
+
+export GZ_GUI_PLUGIN_PATH="$PWD/build"
+
+export XR_RUNTIME_JSON="$(readlink -f "$HOME/.config/openxr/1/active_runtime.json")"
+
+export XR_LOADER_DEBUG=error
+
+gz sim --force-version 8 -v 4 shapes.sdf
+
+
+#####################################################
+
 
 vim include/GazeboOpenXR.hh
 
@@ -2822,4 +3301,5 @@ Rectangle {
 
 ####################################
 
+```
 ```

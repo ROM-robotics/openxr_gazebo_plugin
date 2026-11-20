@@ -370,6 +370,12 @@ void XRRuntime::DestroySession()
         xrDestroySession(session_);
         session_ = XR_NULL_HANDLE;
     }
+
+    sessionRunning_ = false;
+    sessionState_ = XR_SESSION_STATE_UNKNOWN;
+
+    exitRequested_ = false;
+    frameCount_ = 0;
 }
 
 XrSession XRRuntime::GetSession() const
@@ -378,3 +384,276 @@ XrSession XRRuntime::GetSession() const
 }
 
 
+bool XRRuntime::PollEvents()
+{
+    if (instance_ == XR_NULL_HANDLE)
+        return false;
+
+    XrEventDataBuffer event{
+        XR_TYPE_EVENT_DATA_BUFFER
+    };
+
+    while (true)
+    {
+        event = {};
+        event.type = XR_TYPE_EVENT_DATA_BUFFER;
+
+        XrResult result =
+            xrPollEvent(instance_, &event);
+
+        if (result == XR_EVENT_UNAVAILABLE)
+            break;
+
+        if (XR_FAILED(result))
+        {
+            status_ = "xrPollEvent failed: " +
+                std::to_string(static_cast<int>(result));
+
+            return false;
+        }
+
+        if (event.type ==
+            XR_TYPE_EVENT_DATA_INSTANCE_LOSS_PENDING)
+        {
+            status_ = "OpenXR instance loss pending";
+            Shutdown();
+            return false;
+        }
+
+        if (event.type !=
+            XR_TYPE_EVENT_DATA_SESSION_STATE_CHANGED)
+        {
+            continue;
+        }
+
+        const auto* stateEvent =
+            reinterpret_cast<
+                const XrEventDataSessionStateChanged*
+            >(&event);
+
+        if (stateEvent->session != session_)
+            continue;
+
+        sessionState_ = stateEvent->state;
+
+        char stateName[XR_MAX_STRUCTURE_NAME_SIZE]{};
+
+        xrStructureTypeToString(
+            instance_,
+            event.type,
+            stateName);
+
+        std::cout
+            << "[XRRuntime] Session state: "
+            << static_cast<int>(sessionState_)
+            << std::endl;
+
+        switch (sessionState_)
+        {
+            case XR_SESSION_STATE_READY:
+            {
+                XrSessionBeginInfo beginInfo{
+                    XR_TYPE_SESSION_BEGIN_INFO
+                };
+
+                beginInfo.primaryViewConfigurationType =
+                    XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO;
+
+                result = xrBeginSession(
+                    session_, &beginInfo);
+
+                if (XR_FAILED(result))
+                {
+                    status_ = "xrBeginSession failed: " +
+                        std::to_string(static_cast<int>(result));
+
+                    return false;
+                }
+
+                sessionRunning_ = true;
+                frameCount_ = 0;
+
+                std::cout
+                    << "[XRRuntime] Session started"
+                    << std::endl;
+
+                break;
+            }
+
+            case XR_SESSION_STATE_STOPPING:
+            {
+                if (sessionRunning_)
+                {
+                    result = xrEndSession(session_);
+
+                    if (XR_FAILED(result))
+                    {
+                        status_ = "xrEndSession failed: " +
+                            std::to_string(static_cast<int>(result));
+
+                        return false;
+                    }
+                }
+
+                sessionRunning_ = false;
+
+                std::cout
+                    << "[XRRuntime] Session ended"
+                    << std::endl;
+
+                break;
+            }
+
+            case XR_SESSION_STATE_EXITING:
+            case XR_SESSION_STATE_LOSS_PENDING:
+            {
+                sessionRunning_ = false;
+                DestroySession();
+
+                status_ = "OpenXR session closed";
+                return true;
+            }
+
+            default:
+                break;
+        }
+    }
+
+    if (exitRequested_ &&
+        sessionState_ == XR_SESSION_STATE_IDLE &&
+        !sessionRunning_)
+    {
+        DestroySession();
+        status_ = "OpenXR Session Stopped";
+    }
+
+    return true;
+
+    
+}
+
+bool XRRuntime::RequestStop()
+{
+    if (session_ == XR_NULL_HANDLE)
+        return true;
+
+    if (exitRequested_)
+        return true;
+
+    if (!sessionRunning_)
+    {
+        DestroySession();
+        return true;
+    }
+
+    XrResult result =
+        xrRequestExitSession(session_);
+
+    if (XR_FAILED(result))
+    {
+        status_ = "xrRequestExitSession failed: " +
+            std::to_string(static_cast<int>(result));
+
+        return false;
+    }
+
+    exitRequested_ = true;
+
+    return true;
+}
+
+bool XRRuntime::IsSessionRunning() const
+{
+    return sessionRunning_;
+}
+
+XrSpace XRRuntime::GetLocalSpace() const
+{
+    return localSpace_;
+}
+
+bool XRRuntime::RenderFrame()
+{
+    if (!sessionRunning_ ||
+        session_ == XR_NULL_HANDLE)
+    {
+        return false;
+    }
+
+    XrFrameWaitInfo waitInfo{
+        XR_TYPE_FRAME_WAIT_INFO
+    };
+
+    XrFrameState frameState{
+        XR_TYPE_FRAME_STATE
+    };
+
+    XrResult result = xrWaitFrame(
+        session_,
+        &waitInfo,
+        &frameState);
+
+    if (XR_FAILED(result))
+    {
+        status_ = "xrWaitFrame failed: " +
+            std::to_string(static_cast<int>(result));
+
+        return false;
+    }
+
+    XrFrameBeginInfo beginInfo{
+        XR_TYPE_FRAME_BEGIN_INFO
+    };
+
+    result = xrBeginFrame(
+        session_, &beginInfo);
+
+    if (XR_FAILED(result))
+    {
+        status_ = "xrBeginFrame failed: " +
+            std::to_string(static_cast<int>(result));
+
+        return false;
+    }
+
+    XrFrameEndInfo endInfo{
+        XR_TYPE_FRAME_END_INFO
+    };
+
+    endInfo.displayTime =
+        frameState.predictedDisplayTime;
+
+    endInfo.environmentBlendMode =
+        XR_ENVIRONMENT_BLEND_MODE_OPAQUE;
+
+    // Diagnostic frame without composition layers
+    endInfo.layerCount = 0;
+    endInfo.layers = nullptr;
+
+    result = xrEndFrame(
+        session_, &endInfo);
+
+    if (XR_FAILED(result))
+    {
+        status_ = "xrEndFrame failed: " +
+            std::to_string(static_cast<int>(result));
+
+        return false;
+    }
+
+    ++frameCount_;
+
+    if (frameCount_ % 120 == 0)
+    {
+        std::cout
+            << "[XRRuntime] Frame: "
+            << frameCount_
+            << " | shouldRender: "
+            << frameState.shouldRender
+            << " | predictedDisplayTime: "
+            << frameState.predictedDisplayTime
+            << std::endl;
+    }
+
+    return true;
+}

@@ -2,6 +2,7 @@
 
 #include <openxr/openxr.h>
 #include <string>
+#include <cstdint>
 
 class XRRuntime
 {
@@ -30,6 +31,16 @@ public:
 
     XrSession GetSession() const;
 
+    bool PollEvents();
+
+    bool RequestStop();
+
+    bool IsSessionRunning() const;
+
+    bool RenderFrame();
+
+    XrSpace GetLocalSpace() const;
+
 private:
     XrInstance instance_ = XR_NULL_HANDLE;
     XrSystemId systemId_ = XR_NULL_SYSTEM_ID;
@@ -43,5 +54,14 @@ private:
 
     bool Fail(const std::string& message,
               XrResult result);
+
+    XrSessionState sessionState_ =
+    XR_SESSION_STATE_UNKNOWN;
+
+    bool sessionRunning_ = false;
+
+    bool exitRequested_ = false;
+
+    uint64_t frameCount_ = 0;
 };
 
