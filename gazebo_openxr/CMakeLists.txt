@@ -46,6 +46,11 @@ target_include_directories(GazeboOpenXR PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
+target_compile_definitions(GazeboOpenXR PRIVATE
+    XR_USE_PLATFORM_XLIB
+    XR_USE_GRAPHICS_API_OPENGL
+)
+
 target_link_libraries(GazeboOpenXR PRIVATE
     gz-gui8::gz-gui8
     gz-plugin2::register

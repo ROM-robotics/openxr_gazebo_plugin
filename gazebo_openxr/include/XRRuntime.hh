@@ -1,8 +1,28 @@
 #pragma once
 
+#include <GL/gl.h>
+#include <GL/glx.h>
+#include <X11/Xlib.h>
+
 #include <openxr/openxr.h>
-#include <string>
+
 #include <cstdint>
+#include <string>
+#include <vector>
+
+#ifndef XR_USE_PLATFORM_XLIB
+#define XR_USE_PLATFORM_XLIB
+#endif
+
+#ifndef XR_USE_GRAPHICS_API_OPENGL
+#define XR_USE_GRAPHICS_API_OPENGL
+#endif
+
+#include <openxr/openxr_platform.h>
+
+#ifdef Status
+#undef Status
+#endif
 
 class XRRuntime
 {
@@ -43,6 +63,12 @@ public:
 
     bool InspectViewConfiguration();
 
+    bool CreateColorSwapchains();
+
+    void DestroyColorSwapchains();
+
+    bool AreColorSwapchainsReady() const;
+
 private:
     XrInstance instance_ = XR_NULL_HANDLE;
     XrSystemId systemId_ = XR_NULL_SYSTEM_ID;
@@ -67,5 +93,19 @@ private:
     uint64_t frameCount_ = 0;
 
     bool viewConfigurationInspected_ = false;
+
+    struct EyeSwapchain
+    {
+        XrSwapchain handle = XR_NULL_HANDLE;
+
+        uint32_t width = 0;
+        uint32_t height = 0;
+
+        std::vector<XrSwapchainImageOpenGLKHR> images;
+    };
+
+    std::vector<EyeSwapchain> eyeSwapchains_;
+
+    bool swapchainsReady_ = false;
 };
 

@@ -722,8 +722,13 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: \
  /usr/include/gz/gui8/gz/gui/Export.hh \
  /usr/include/gz/gui8/gz/gui/detail/Export.hh \
  /home/mr_robot/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr/include/XRRuntime.hh \
+ /usr/include/GL/glx.h /usr/include/X11/Xlib.h /usr/include/X11/X.h \
+ /usr/include/X11/Xfuncproto.h /usr/include/X11/Xosdefs.h \
+ /usr/include/X11/Xutil.h /usr/include/X11/keysym.h \
+ /usr/include/X11/keysymdef.h /usr/include/GL/glxext.h \
  /usr/include/openxr/openxr.h \
  /usr/include/openxr/openxr_platform_defines.h \
+ /usr/include/openxr/openxr_platform.h /usr/include/openxr/openxr.h \
  /usr/include/x86_64-linux-gnu/qt5/QtCore/QMetaObject \
  /usr/include/gz/gui8/gz/gui/Application.hh \
  /usr/include/gz/gui8/gz/gui/MainWindow.hh /usr/include/c++/11/set \

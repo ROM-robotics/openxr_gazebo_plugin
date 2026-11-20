@@ -1,19 +1,15 @@
 #include "XRRuntime.hh"
 
-#include <GL/gl.h>
-#include <GL/glx.h>
-#include <X11/Xlib.h>
-
-#define XR_USE_PLATFORM_XLIB
-#define XR_USE_GRAPHICS_API_OPENGL
-
-#include <openxr/openxr_platform.h>
-
 #include <cstring>
 #include <iostream>
 #include <sstream>
 #include <vector>
 #include <iomanip>
+
+#include <algorithm>
+#include <cstdint>
+
+
 
 XRRuntime::~XRRuntime()
 {
@@ -359,7 +355,9 @@ bool XRRuntime::CreateSessionFromCurrentContext()
 }
 
 void XRRuntime::DestroySession()
-{
+{   
+    DestroyColorSwapchains();
+    
     if (localSpace_ != XR_NULL_HANDLE)
     {
         xrDestroySpace(localSpace_);
@@ -762,3 +760,244 @@ bool XRRuntime::InspectViewConfiguration()
     return true;
 }
 
+bool XRRuntime::CreateColorSwapchains()
+{
+    if (swapchainsReady_)
+        return true;
+
+    if (session_ == XR_NULL_HANDLE ||
+        instance_ == XR_NULL_HANDLE)
+        return false;
+
+    constexpr auto viewType =
+        XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO;
+
+    uint32_t viewCount = 0;
+
+    XrResult result =
+        xrEnumerateViewConfigurationViews(
+            instance_,
+            systemId_,
+            viewType,
+            0,
+            &viewCount,
+            nullptr);
+
+    if (XR_FAILED(result) || viewCount != 2)
+    {
+        status_ = "Expected two stereo views";
+        return false;
+    }
+
+    std::vector<XrViewConfigurationView> views(viewCount);
+
+    for (auto &view : views)
+    {
+        view.type = XR_TYPE_VIEW_CONFIGURATION_VIEW;
+        view.next = nullptr;
+    }
+
+    result = xrEnumerateViewConfigurationViews(
+        instance_,
+        systemId_,
+        viewType,
+        viewCount,
+        &viewCount,
+        views.data());
+
+    if (XR_FAILED(result))
+    {
+        status_ = "View configuration failed";
+        return false;
+    }
+
+    uint32_t formatCount = 0;
+
+    result = xrEnumerateSwapchainFormats(
+        session_, 0, &formatCount, nullptr);
+
+    if (XR_FAILED(result) || formatCount == 0)
+    {
+        status_ = "No swapchain formats available";
+        return false;
+    }
+
+    std::vector<int64_t> formats(formatCount);
+
+    result = xrEnumerateSwapchainFormats(
+        session_, formatCount,
+        &formatCount, formats.data());
+
+    if (XR_FAILED(result))
+    {
+        status_ = "Swapchain format query failed";
+        return false;
+    }
+
+    // OpenGL internal format values.
+    constexpr int64_t SRGB8_ALPHA8 = 0x8C43;
+    constexpr int64_t RGBA8 = 0x8058;
+
+    auto supported = [&](int64_t format)
+    {
+        return std::find(
+            formats.begin(),
+            formats.end(),
+            format) != formats.end();
+    };
+
+    int64_t selectedFormat = 0;
+
+    if (supported(SRGB8_ALPHA8))
+        selectedFormat = SRGB8_ALPHA8;
+    else if (supported(RGBA8))
+        selectedFormat = RGBA8;
+    else
+    {
+        status_ = "No compatible RGBA format";
+        return false;
+    }
+
+    std::cout
+        << "[XRRuntime] Creating stereo swapchains"
+        << std::endl;
+
+    for (uint32_t eye = 0; eye < viewCount; ++eye)
+    {
+        EyeSwapchain swapchain;
+
+        swapchain.width =
+            views[eye].recommendedImageRectWidth;
+
+        swapchain.height =
+            views[eye].recommendedImageRectHeight;
+
+        XrSwapchainCreateInfo createInfo{
+            XR_TYPE_SWAPCHAIN_CREATE_INFO
+        };
+
+        createInfo.createFlags = 0;
+
+        createInfo.usageFlags =
+            XR_SWAPCHAIN_USAGE_COLOR_ATTACHMENT_BIT;
+
+        createInfo.format = selectedFormat;
+
+        createInfo.sampleCount =
+            views[eye].recommendedSwapchainSampleCount;
+
+        createInfo.width = swapchain.width;
+        createInfo.height = swapchain.height;
+
+        createInfo.faceCount = 1;
+        createInfo.arraySize = 1;
+        createInfo.mipCount = 1;
+
+        result = xrCreateSwapchain(
+            session_,
+            &createInfo,
+            &swapchain.handle);
+
+        if (XR_FAILED(result))
+        {
+            status_ = "xrCreateSwapchain failed: " +
+                std::to_string(static_cast<int>(result));
+
+            DestroyColorSwapchains();
+            return false;
+        }
+
+        // Store handle immediately so cleanup can
+        // release it if enumeration fails.
+        eyeSwapchains_.push_back(std::move(swapchain));
+
+        auto &created = eyeSwapchains_.back();
+
+        uint32_t imageCount = 0;
+
+        result = xrEnumerateSwapchainImages(
+            created.handle,
+            0,
+            &imageCount,
+            nullptr);
+
+        if (XR_FAILED(result) || imageCount == 0)
+        {
+            status_ = "Swapchain image count failed";
+            DestroyColorSwapchains();
+            return false;
+        }
+
+        created.images.resize(imageCount);
+
+        for (auto &image : created.images)
+        {
+            image.type = XR_TYPE_SWAPCHAIN_IMAGE_OPENGL_KHR;
+            image.next = nullptr;
+        }
+
+        result = xrEnumerateSwapchainImages(
+            created.handle,
+            imageCount,
+            &imageCount,
+            reinterpret_cast<
+                XrSwapchainImageBaseHeader*>(
+                    created.images.data()));
+
+        if (XR_FAILED(result))
+        {
+            status_ = "Swapchain image enumeration failed";
+            DestroyColorSwapchains();
+            return false;
+        }
+
+        std::cout
+            << "[XRRuntime] Eye " << eye
+            << " | Resolution: "
+            << created.width << "x"
+            << created.height
+            << " | Image count: "
+            << imageCount
+            << " | Format: 0x"
+            << std::hex << selectedFormat
+            << std::dec << std::endl;
+
+        for (uint32_t i = 0; i < imageCount; ++i)
+        {
+            std::cout
+                << "  Image[" << i << "] GL Texture ID: "
+                << created.images[i].image
+                << std::endl;
+        }
+    }
+
+    swapchainsReady_ = true;
+
+    std::cout
+        << "[XRRuntime] Stereo Swapchains Ready"
+        << std::endl;
+
+    return true;
+}
+
+void XRRuntime::DestroyColorSwapchains()
+{
+    for (auto &eye : eyeSwapchains_)
+    {
+        if (eye.handle != XR_NULL_HANDLE)
+        {
+            xrDestroySwapchain(eye.handle);
+            eye.handle = XR_NULL_HANDLE;
+        }
+
+        eye.images.clear();
+    }
+
+    eyeSwapchains_.clear();
+    swapchainsReady_ = false;
+}
+
+bool XRRuntime::AreColorSwapchainsReady() const
+{
+    return swapchainsReady_;
+}

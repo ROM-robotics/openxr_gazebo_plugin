@@ -622,3 +622,54 @@ export XR_LOADER_DEBUG=error
 gz sim --force-version 8 -v 4 shapes.sdf
 ```
 
+Expected Log
+
+```
+[XRCamera] Stereo Cameras Created
+Left: xr_left_eye
+Right: xr_right_eye
+Resolution: 1024 x 1024 per eye
+Diagnostic IPD: 0.064 m
+[XRRuntime] View count: 2
+[XRRuntime] Eye 0 | Recommended: 2198x2302 | Maximum: 4396x4604 | Recommended samples: 1
+[XRRuntime] Eye 1 | Recommended: 2198x2302 | Maximum: 4396x4604 | Recommended samples: 1
+```
+
+### Step 22: OpenXR View Configuration အောင်မြင်ပါပြီ။ WiVRn Runtime က Meta Quest 3S အတွက် Stereo View နှစ်ခုရဲ့ Recommended Resolution ကို ပြန်ပေးနိုင်ပြီဖြစ်ပါတယ်။
+
+1. OpenXR View Configuration Result
+
+```
+Left Eye
+2198 × 2302
+Recommended
+
+Right Eye
+2198 × 2302
+Recommended
+
+
+
+Parameter	Value
+View Count	2
+Recommended Resolution	2198 × 2302 / eye
+Maximum Resolution	4396 × 4604 / eye
+Recommended Sample Count	1
+Current Gazebo Camera	1024 × 1024 / eye
+Diagnostic IPD	64 mm
+```
+```
+[XRRuntime] Supported OpenGL formats:
+  0x805b
+  0x881a
+  0x8c43
+  0x8058
+  0x8cac
+  0x81a5
+  0x88f0
+  0x8cad
+```
+
+ဒီမှာ အရေးကြီးတဲ့အချက်က Gazebo Camera Resolution နဲ့ OpenXR Recommended Resolution မတူသေးတာပါ။
+
+အခု Camera ကို 1024 × 1024 နဲ့ ဖန်တီးထားတာဟာ စမ်းသပ်ဖို့အတွက်ပါ။ နောက်ဆုံး Rendering မှာ Runtime ကပေးတဲ့ Resolution ကို အသုံးပြုသင့်ပါတယ်။

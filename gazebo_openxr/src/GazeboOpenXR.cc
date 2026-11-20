@@ -180,13 +180,23 @@ void GazeboOpenXR::OnRender()
         {
             PostStatus("VR Frame Loop Running");
         }
-        // Execute inside Gazebo's render event.
-        if (xrCamera_.FindScene())
-        {
-            xrCamera_.CreateStereoCameras();
-        }
 
         runtime_.InspectViewConfiguration();
+
+        // Swapchain creation happens before frame rendering.
+        if (!runtime_.AreColorSwapchainsReady())
+        {
+            if (!runtime_.CreateColorSwapchains())
+            {
+                PostStatus(QString::fromStdString(
+                    runtime_.GetStatus()));
+
+                // Stop cleanly rather than retrying
+                // swapchain creation every render event.
+                runtime_.RequestStop();
+                return;
+            }
+        }
 
         if (!runtime_.RenderFrame())
         {
