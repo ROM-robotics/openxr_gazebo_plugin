@@ -4,10 +4,10 @@
 
 ## $\color{red}{\text{Terminal မှတ်တမ်း}}$
 
-```text
+```bash
 cat /etc/os-release
-uname -m
-
+```
+```text
 PRETTY_NAME="Ubuntu 22.04.5 LTS"
 NAME="Ubuntu"
 VERSION_ID="22.04"
@@ -20,24 +20,42 @@ SUPPORT_URL="https://help.ubuntu.com/"
 BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
 PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
 UBUNTU_CODENAME=jammy
+```
+```bash
+uname -m
+```
+```text
 x86_64
 mr_robot
-
+```
 #############################################
+```bash
 lscpu | grep "Model name"
-free -h
-
+```
+```text
 Model name:                              11th Gen Intel(R) Core(TM) i7-11700 @ 2.50GHz
+```
+```bash
+free -h
+```
+```text
                total        used        free      shared  buff/cache   available
 Mem:            62Gi       5.9Gi        48Gi       109Mi       8.5Gi        55Gi
 Swap:           46Gi          0B        46Gi
-
+```
 #############################################
+```bash
 lspci | grep -iE 'vga|3d|display'
+```
+```text
 00:17.0 SATA controller: Intel Corporation Device 43d2 (rev 11)
 01:00.0 VGA compatible controller: NVIDIA Corporation GA106 [GeForce RTX 3060 Lite Hash Rate] (rev a1)
+```
 #############################################
+```bash
 nvidia-smi
+```
+```text
 Tue Nov 17 14:29:22 2026       
 +-----------------------------------------------------------------------------------------+
 | NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |
@@ -63,23 +81,18 @@ Tue Nov 17 14:29:22 2026
 |    0   N/A  N/A           20731      G   ...rack-uuid=3190708988185955192         79MiB |
 |    0   N/A  N/A           75173      G   ...7190/usr/bin/telegram-desktop         60MiB |
 +-----------------------------------------------------------------------------------------+
+```
 #############################################
-
-
-SetUP
-
+```bash
+# SetUP
 sudo apt update
 sudo apt install vulkan-tools mesa-utils -y
-
+```
 #############################################
-
+```bash
 vulkaninfo --summary
-
-#############################################
-
-glxinfo -B
-
-ulkaninfo --summary
+```
+```text
 WARNING: [Loader Message] Code 0 : terminator_CreateInstance: Failed to CreateInstance in ICD 2.  Skipping ICD.
 ==========
 VULKANINFO
@@ -147,10 +160,13 @@ GPU1:
 	conformanceVersion = 1.3.1.1
 	deviceUUID         = 6d657361-3233-2e32-2e31-2d3175627500
 	driverUUID         = 6c6c766d-7069-7065-5555-494400000000
+```
 
 #############################################
-
+```bash
 glxinfo -B
+```
+```text
 name of display: :1
 display: :1  screen: 0
 direct rendering: Yes
@@ -172,40 +188,47 @@ OpenGL profile mask: (none)
 
 OpenGL ES profile version string: OpenGL ES 3.2 NVIDIA 580.178.04
 OpenGL ES profile shading language version string: OpenGL ES GLSL ES 3.20
-
+```
 #############################################
-
- gz sim --versions
+```bash
+gz sim --versions
+```
+```text
 8.15.0
-
+```
 #############################################
-
+```bash
 dpkg -l | grep -i openxr
-
- dpkg -l | grep -i openxr
+```
+```text
 ii  libopenxr-dev:amd64                                               1.0.20~dfsg1-1build1                             amd64        OpenXR software development kit -- development headers
 ii  libopenxr-loader1:amd64                                           1.0.20~dfsg1-1build1                             amd64        OpenXR loader library
-
+```
 #############################################
-
+```bash
 echo "$XR_RUNTIME_JSON"
+```
+```text
 NO output
+```
 #############################################
-
+```bash
 ls -l ~/.config/openxr/1/
 ls -l /etc/xdg/openxr/1/
+```
+```text
 ls: cannot access '/home/mr_robot/.config/openxr/1/': No such file or directory
 ls: cannot access '/etc/xdg/openxr/1/': No such file or directory
-
+```
 #############################################
-
+```bash
 sudo apt install flatpak -y
-
+```
 #############################################
-
-flatpak remote-add --if-not-exists flathub \
-https://flathub.org/repo/flathub.flatpakrepo
-
+```bash
+flatpak remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+```
+```text
 Note that the directories 
 
 '/var/lib/flatpak/exports/share'
@@ -214,15 +237,16 @@ Note that the directories
 are not in the search path set by the XDG_DATA_DIRS environment
 variable, so applications installed by Flatpak may not appear on
 your desktop until the session is restarted.
-
+```
 #############################################
-
+```bash
 flatpak install flathub io.github.wivrn.wivrn -y
-
+```
 #############################################
-
+```bash
 flatpak update -y
-
+```
+```text
 Note that the directories 
 
 '/var/lib/flatpak/exports/share'
@@ -234,44 +258,53 @@ session is restarted.
 
 Looking for updates…
 Nothing to do.
-
+```
 #############################################
-
+```bash
 flatpak run io.github.wivrn.wivrn
-
+```
 #############################################
-
+```bash
 sudo apt install adb -y
 adb devices -l
-
+```
 #############################################
-
+```text
 adb reverse tcp:9757 tcp:9757
-
+```
 #############################################
-
+```bash
 adb devices -l
-
+```
 #############################################
-
+```text
 gsettings set org.gnome.mutter experimental-features "['kms-modifiers', 'headless-start']"
-
+```
 #############################################
+```bash
 adb shell am start \
   -a android.intent.action.VIEW \
   -d "wivrn+tcp://localhost" \
   org.meumeu.wivrn
-
+```
+```text
 Starting: Intent { act=android.intent.action.VIEW dat=wivrn+tcp://localhost/... pkg=org.meumeu.wivrn }
-
+```
 #############################################
 
+```bash
 ls -l ~/.config/openxr/1/
+```
+```text
 total 4
 lrwxrwxrwx 1 mr_robot mr_robot 160 Nov 17 15:46 active_runtime.json -> /var/lib/flatpak/app/io.github.wivrn.wivrn/x86_64/stable/61d58e18b177b19a34f4a0f3063c571bfc7585ef8a3145327a5beb8b5e268332/files/share/openxr/1/openxr_wivrn.json
+```
 
 #############################################
+```bash
 cat ~/.config/openxr/1/active_runtime.json
+```
+```cpp
 {
     "file_format_version": "1.0.0",
     "runtime": {
@@ -280,40 +313,60 @@ cat ~/.config/openxr/1/active_runtime.json
         "MND_libmonado_path": "../../../lib/wivrn/libmonado_wivrn.so"
     }
 }
+```
 
 ############################################
 
 
+```bash
 export XR_RUNTIME_JSON="$HOME/.config/openxr/1/active_runtime.json"
+```
+```text
 no output
+```
 
 ############################################
 
+```bash
 echo "$XR_RUNTIME_JSON"
+```
 
+```text
 /home/mr_robot/.config/openxr/1/active_runtime.json
+```
 
 ############################################
 
+```bash
 export XR_LOADER_DEBUG=all
+```
 
 ###############################################
 ############################################
 
+```bash
 export XR_RUNTIME_JSON="$(readlink -f "$HOME/.config/openxr/1/active_runtime.json")"
 
 echo "$XR_RUNTIME_JSON"
+```
+```text
 /var/lib/flatpak/app/io.github.wivrn.wivrn/x86_64/stable/61d58e18b177b19a34f4a0f3063c571bfc7585ef8a3145327a5beb8b5e268332/files/share/openxr/1/openxr_wivrn.json
+```
 
 ###############################################
 
+```bash
 XR_LIB="$(dirname "$XR_RUNTIME_JSON")/../../../lib/wivrn/libopenxr_wivrn.so"
 
 realpath "$XR_LIB"
 ldd "$XR_LIB"
+```
+```text
 /var/lib/flatpak/app/io.github.wivrn.wivrn/x86_64/stable/61d58e18b177b19a34f4a0f3063c571bfc7585ef8a3145327a5beb8b5e268332/files/lib/wivrn/libopenxr_wivrn.so
 	linux-vdso.so.1 (0x00007ffccc3ad000)
 	/usr/lib/x86_64-linux-gnu/libGLEW.so (0x000079befdde0000)
+```
+```cpp
 	libvulkan.so.1 => /lib/x86_64-linux-gnu/libvulkan.so.1 (0x000079befdd3a000)
 	libGLX.so.0 => /lib/x86_64-linux-gnu/libGLX.so.0 (0x000079befdd06000)
 	libstdc++.so.6 => /lib/x86_64-linux-gnu/libstdc++.so.6 (0x000079befda00000)
@@ -329,13 +382,17 @@ ldd "$XR_LIB"
 	libXdmcp.so.6 => /lib/x86_64-linux-gnu/libXdmcp.so.6 (0x000079befd853000)
 	libbsd.so.0 => /lib/x86_64-linux-gnu/libbsd.so.0 (0x000079befd83b000)
 	libmd.so.0 => /lib/x86_64-linux-gnu/libmd.so.0 (0x000079befd82e000)
+```
 
 
 ###############################################
+```bash
 ldd "$XR_LIB" | grep "not found"
+```
 
 ###############################################
 
+```bash
 sudo apt install -y \
   git \
   cmake \
@@ -355,44 +412,60 @@ sudo apt install -y \
   libxxf86vm-dev \
   libxrandr-dev \
   glslang-tools
+```
 
 
 ###############################################
 
+```bash
 mkdir -p ~/openxr_workspace
 cd ~/openxr_workspace
+```
 
 ###############################################
 
+```bash
 cd ~/openxr_workspace/OpenXR-SDK-Source
 
 cmake -S . -B build \
   -DCMAKE_BUILD_TYPE=Release \
   -DBUILD_TESTS=ON
+```
 
 ###############################################
 
+```bash
 cmake --build build --target hello_xr -j8
+```
 
 ###############################################
 
+```bash
 ls -l build/src/tests/hello_xr/hello_xr
+```
+```text
 -rwxrwxr-x 1 mr_robot mr_robot 303640 Nov 17 16:18 build/src/tests/hello_xr/hello_xr
+```
 
 ###############################################
 
+```bash
  export XR_RUNTIME_JSON="$(readlink -f "$HOME/.config/openxr/1/active_runtime.json")"
 export XR_LOADER_DEBUG=all
+```
 
 ###############################################
 
+```bash
 cd ~/openxr_workspace/OpenXR-SDK-Source
 
 ./build/src/tests/hello_xr/hello_xr -g Vulkan
+```
 
 ###############################################
 ###############################################
 
+```bash
 sudo apt update
 
 sudo apt install -y \
@@ -411,38 +484,48 @@ sudo apt install -y \
     qtbase5-dev \
     qtdeclarative5-dev \
     qtquickcontrols2-5-dev
+```
 
 ###############################################
 
+```bash
 pkg-config --list-all | grep -E 'gz-|openxr|sdformat'
+```
 
 ###############################################
 
+```bash
 pkg-config --modversion gz-sim8
 pkg-config --modversion gz-gui8
 pkg-config --modversion gz-rendering8
 pkg-config --modversion gz-transport13
 pkg-config --modversion gz-msgs10
 pkg-config --modversion openxr
+```
+```text
 8.15.0
 8.4.0
 8.3.0
 13.6.0
 10.4.0
 1.0
+```
 
 ###############################################
 
+```bash
 cd ~/openxr_workspace
 
 mkdir -p gazebo_openxr/{src,include,qml,worlds,config,build}
 
 cd gazebo_openxr
+```
 
 ###############################################
 
 10.1. Project Structure
 အောက်က Structure က တည်ဆောက်သွားမယ့် Project Design ဖြစ်ပါတယ်။
+```text
  openxr_workspace/
  OpenXR-SDK-Source/
 
@@ -480,12 +563,16 @@ xr_test_world.sdf
  config/
 
  build/
+```
  
  
 ###############################################
 
+```bash
 mr_robot@desktop:~/openxr_workspace/gazebo_openxr$ vim include/GazeboOpenXR.hh
+```
 
+```cpp
 #pragma once
 
 #include <QString>
@@ -519,11 +606,15 @@ private:
 
     void SetStatus(const QString &status);
 };
+```
 
 ###############################################
 
+```bash
 vim src/GazeboOpenXR.cc
+```
 
+```cpp
 #include "GazeboOpenXR.hh"
 
 #include <cstring>
@@ -658,12 +749,16 @@ GZ_ADD_PLUGIN(
     GazeboOpenXR,
     gz::gui::Plugin
 )
+```
 
 
 ###############################################
 
+```bash
 nano qml/GazeboOpenXR.qml
+```
 
+```qml
 import QtQuick 2.12
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.12
@@ -720,11 +815,15 @@ Rectangle {
         }
     }
 }
+```
 
 ###############################################
 
+```bash
 vim GazeboOpenXR.qrc
+```
 
+```xml
 <!DOCTYPE RCC>
 <RCC version="1.0">
     <qresource prefix="/GazeboOpenXR">
@@ -733,11 +832,15 @@ vim GazeboOpenXR.qrc
         </file>
     </qresource>
 </RCC>
+```
 
 ###############################################
 
+```bash
 vim CMakeLists.txt
+```
 
+```cmake
 cmake_minimum_required(VERSION 3.16)
 
 project(GazeboOpenXR LANGUAGES CXX)
@@ -783,68 +886,96 @@ set_target_properties(GazeboOpenXR PROPERTIES
     LIBRARY_OUTPUT_DIRECTORY
     "${CMAKE_BINARY_DIR}"
 )
+```
 
 
 ###############################################
 
+```bash
 cd ~/openxr_workspace/gazebo_openxr
 
 cmake -S . -B build \
     -DCMAKE_BUILD_TYPE=Release
+```
 
+```text
 Build files have been written to: /home/mr_robot/openxr_workspace/gazebo_openxr/build
+```
 
 ###############################################
 
+```bash
 cmake --build build -j8
 
 cmake --build build -j8
+```
+```text
 [ 16%] Automatic MOC for target GazeboOpenXR
 [ 16%] Built target GazeboOpenXR_autogen
 gmake[2]: *** No rule to make target '../            qml/GazeboOpenXR.qml', needed by 'GazeboOpenXR_autogen/EWIEGA46WW/qrc_GazeboOpenXR.cpp'.  Stop.
 gmake[1]: *** [CMakeFiles/Makefile2:83: CMakeFiles/GazeboOpenXR.dir/all] Error 2
 gmake: *** [Makefile:91: all] Error 2
+```
 
 ###############################################
 
+```bash
 ls -lh build/libGazeboOpenXR.so
+```
+```text
 ls: cannot access 'build/libGazeboOpenXR.so': No such file or directory
+```
 
 ###############################################
 
+```bash
 ldd build/libGazeboOpenXR.so | grep "not found"
+```
+```text
 ldd: build/libGazeboOpenXR.so: No such file or directory
+```
 
 ###############################################
 
 Error Analysis
+```text
 No rule to make target '../            qml/GazeboOpenXR.qml'
+```
 
 
 qml/ ရဲ့ အရှေ့မှာ Space တွေ ပါနေပါတယ်။ Qt Resource Compiler (RCC) က အဲဒီ Space တွေကို File Path ရဲ့ အစိတ်အပိုင်းအဖြစ် ယူလိုက်တဲ့အတွက် QML File ကို ရှာမတွေ့တာပါ။
 
 အရင်ပေးခဲ့တဲ့ QRC Code ထဲမှာ File Path ကို စာကြောင်းခွဲရေးထားတာကြောင့် ဖြစ်ပါတယ်။
 2. GazeboOpenXR.qrc ကို ပြင်ပါ
+```bash
 cd ~/openxr_workspace/gazebo_openxr
 
 vim GazeboOpenXR.qrc
+```
 
 
 အထဲက Code အားလုံးကို ဖျက်ပြီး အောက်က Code နဲ့ အစားထိုးပါ။
+```xml
 <!DOCTYPE RCC>
 <RCC version="1.0">
     <qresource prefix="/GazeboOpenXR">
         <file alias="GazeboOpenXR.qml">qml/GazeboOpenXR.qml</file>
     </qresource>
 </RCC>
+```
 
 ###############################################
 
+```bash
 ls -lh qml/GazeboOpenXR.qml
+```
+```text
 -rw-rw-r-- 1 mr_robot mr_robot 1.1K Nov 17 17:19 qml/GazeboOpenXR.qml
+```
 
 ###############################################
 
+```bash
 cd ~/openxr_workspace/gazebo_openxr
 
 rm -rf build
@@ -853,9 +984,11 @@ cmake -S . -B build \
     -DCMAKE_BUILD_TYPE=Release
 
 cmake --build build -j8
+```
 
 ###############################################
 
+```bash
 cd ~/openxr_workspace/gazebo_openxr
 
 export GZ_GUI_PLUGIN_PATH="$PWD/build${GZ_GUI_PLUGIN_PATH:+:$GZ_GUI_PLUGIN_PATH}"
@@ -863,37 +996,57 @@ export GZ_GUI_PLUGIN_PATH="$PWD/build${GZ_GUI_PLUGIN_PATH:+:$GZ_GUI_PLUGIN_PATH}
 export XR_RUNTIME_JSON="$(readlink -f "$HOME/.config/openxr/1/active_runtime.json")"
 
 export XR_LOADER_DEBUG=all
+```
 
 ###############################################
 
+```bash
 echo "$GZ_GUI_PLUGIN_PATH"
 echo "$XR_RUNTIME_JSON"
+```
+```text
 /home/mr_robot/openxr_workspace/gazebo_openxr/build
 /var/lib/flatpak/app/io.github.wivrn.wivrn/x86_64/stable/61d58e18b177b19a34f4a0f3063c571bfc7585ef8a3145327a5beb8b5e268332/files/share/openxr/1/openxr_wivrn.json
+```
 
 
 ###############################################
 
+```bash
 gz sim --force-version 8 -v 4 shapes.sdf
+```
 
+```text
 [GUI] [Err] [Application.cc:556] Failed to load plugin [GazeboOpenXR] : couldn't load library on path [/home/mr_robot/openxr_workspace/gazebo_openxr/build/libGazeboOpenXR.so].
+```
 
 ###############################################
 
+```bash
 cd ~/openxr_workspace/gazebo_openxr
 
 ldd -r build/libGazeboOpenXR.so 2>&1 | \
 grep -iE 'undefined|not found|error'
+```
+```text
 undefined symbol: _ZTI12GazeboOpenXR	(build/libGazeboOpenXR.so)
 undefined symbol: _ZTV12GazeboOpenXR	(build/libGazeboOpenXR.so)
 undefined symbol: _ZN12GazeboOpenXR13StatusChangedEv	(build/libGazeboOpenXR.so)
+```
+```bash
 mr_robot@desktop:~/openxr_workspace/gazebo_openxr$ nm -D build/libGazeboOpenXR.so | \
 grep -E 'GzPluginHook|IgnitionPluginHook'
+```
+```text
 0000000000005b10 T GzPluginHook
+```
+```bash
 mr_robot@desktop:~/openxr_workspace/gazebo_openxr$ vim CMakeLists.txt
+```
 
 ###############################################
 
+```cmake
 cmake_minimum_required(VERSION 3.16)
 
 project(GazeboOpenXR LANGUAGES CXX)
@@ -947,9 +1100,11 @@ set_target_properties(GazeboOpenXR PROPERTIES
     VISIBILITY_INLINES_HIDDEN OFF
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}"
 )
+```
 
 ###############################################
 
+```bash
 cd ~/openxr_workspace/gazebo_openxr
 
 rm -rf build
@@ -958,23 +1113,31 @@ cmake -S . -B build \
     -DCMAKE_BUILD_TYPE=Release
 
 cmake --build build -j8
+```
 
 ###############################################
 
+```bash
 cd ~/openxr_workspace/gazebo_openxr
 
 cat build/GazeboOpenXR_autogen/mocs_compilation.cpp
+```
 
 ###############################################
 
+```bash
 find build -name "moc_GazeboOpenXR.cpp"
+```
 
 ###############################################
 
+```bash
 vim CMakeLists.txt
+```
 
 ###############################################
 
+```cmake
 cmake_minimum_required(VERSION 3.16)
 
 project(GazeboOpenXR LANGUAGES CXX)
@@ -1042,9 +1205,11 @@ set_target_properties(GazeboOpenXR PROPERTIES
     VISIBILITY_INLINES_HIDDEN OFF
     LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}"
 )
+```
 
 ###############################################
 
+```bash
 cd ~/openxr_workspace/gazebo_openxr
 
 rm -rf build
@@ -1053,9 +1218,11 @@ cmake -S . -B build \
     -DCMAKE_BUILD_TYPE=Release
 
 cmake --build build -j8 2>&1 | tee build.log
+```
 
 ###############################################
 
+```bash
 ls -lh build/libGazeboOpenXR.so
 
 ldd -r build/libGazeboOpenXR.so 2>&1 | \
@@ -1063,13 +1230,17 @@ grep -iE 'undefined|not found'
 
 nm -DC build/libGazeboOpenXR.so | \
 grep -E 'typeinfo for GazeboOpenXR|vtable for GazeboOpenXR|GazeboOpenXR::staticMetaObject'
+```
 
+```text
 D GazeboOpenXR::staticMetaObject
 V typeinfo for GazeboOpenXR
 V vtable for GazeboOpenXR
+```
 
 ###############################################
 
+```bash
 export GZ_GUI_PLUGIN_PATH="$PWD/build"
 
 export XR_RUNTIME_JSON="$(readlink -f "$HOME/.config/openxr/1/active_runtime.json")"
@@ -1077,12 +1248,14 @@ export XR_RUNTIME_JSON="$(readlink -f "$HOME/.config/openxr/1/active_runtime.jso
 export XR_LOADER_DEBUG=all
 
 gz gui -v 4 -s GazeboOpenXR
+```
 
 ###############################################
 ###############################################
 
 OpenXR Session Creation
 
+```bash
 cd ~/openxr_workspace/gazebo_openxr
 
 echo "$XDG_SESSION_TYPE"
@@ -1091,19 +1264,25 @@ echo "$DISPLAY"
 pkg-config --modversion gl
 pkg-config --modversion glew
 pkg-config --modversion x11
+```
+```text
 x11
 :1
 1.2
 2.2.0
 1.7.5
+```
 
 ###############################################
 
+```bash
 mr_robot@desktop:~/openxr_workspace/gazebo_openxr$ cd ~/openxr_workspace/gazebo_openxr
 
 git init
 git add CMakeLists.txt GazeboOpenXR.qrc src include qml
 git commit -m "Phase 1: Working Gazebo OpenXR plugin"
+```
+```text
 hint: Using 'master' as the name for the initial branch. This default branch name
 hint: is subject to change. To configure the initial branch name to use in all
 hint: of your new repositories, which will suppress this warning, call:
@@ -1122,9 +1301,11 @@ Initialized empty Git repository in /home/mr_robot/openxr_workspace/gazebo_openx
  create mode 100644 include/GazeboOpenXR.hh
  create mode 100644 qml/GazeboOpenXR.qml
  create mode 100644 src/GazeboOpenXR.cc
+```
  
  ###############################################
  
+```bash
  mr_robot@desktop:~/openxr_workspace/gazebo_openxr$ touch include/XRRuntime.hh
 touch include/XRRenderer.hh
 touch include/XRCamera.hh
@@ -1134,10 +1315,12 @@ touch src/XRRuntime.cc
 touch src/XRRenderer.cc
 touch src/XRCamera.cc
 touch src/XRInput.cc
+```
 
  ###############################################
  
  Final Project Structure
+```text
 gazebo_openxr/
 ├── CMakeLists.txt
 ├── GazeboOpenXR.qrc
@@ -1158,19 +1341,25 @@ gazebo_openxr/
 ├── worlds/
 ├── config/
 └── build/
+```
 
  ###############################################
  
+```bash
  cd ~/openxr_workspace
 
 cp -a gazebo_openxr gazebo_openxr_phase1_backup
 
 cd gazebo_openxr
+```
 
  ###############################################
  
+```bash
  vim include/XRRuntime.hh
+```
  
+```cpp
  #pragma once
 
 #include <openxr/openxr.h>
@@ -1206,11 +1395,15 @@ private:
     bool Fail(const std::string& message,
               XrResult result);
 };
+```
 
   ###############################################
   
+```bash
   vim src/XRRuntime.cc
+```
  
+```cpp
  #include "XRRuntime.hh"
 
 #define XR_USE_GRAPHICS_API_OPENGL
@@ -1413,11 +1606,15 @@ std::string XRRuntime::GetStatus() const
 {
     return status_;
 }
+```
 
 #####################################################
 
+```bash
 vim include/GazeboOpenXR.hh
+```
 
+```cpp
 #pragma once
 
 #include <QString>
@@ -1455,11 +1652,15 @@ private:
 
     void SetStatus(const QString &status);
 };
+```
 
 #####################################################
 
+```bash
 vim src/GazeboOpenXR.cc
+```
 
+```cpp
 #include "GazeboOpenXR.hh"
 
 #include <iostream>
@@ -1505,30 +1706,36 @@ GZ_ADD_PLUGIN(
     GazeboOpenXR,
     gz::gui::Plugin
 )
+```
 
 #####################################################
 
 လက်ရှိ အလုပ်လုပ်နေတဲ့ CMakeLists.txt အားလုံးကို ပြန်ပြင်စရာမလိုပါဘူး။
 
 add_library() အပိုင်းကိုပဲ အောက်ပါအတိုင်း ပြောင်းပါ။
+```cmake
 add_library(GazeboOpenXR SHARED
     src/GazeboOpenXR.cc
     src/XRRuntime.cc
     ${MOC_SOURCES}
     ${QRC_SOURCES}
 )
+```
 
 #####################################################
 
+```bash
 cd ~/openxr_workspace/gazebo_openxr
 
 cmake -S . -B build \
     -DCMAKE_BUILD_TYPE=Release
 
 cmake --build build -j8
+```
 
 #####################################################
 
+```bash
 cd ~/openxr_workspace/gazebo_openxr
 
 cmake -S . -B build \
@@ -1538,9 +1745,11 @@ cmake --build build -j8
 
 ldd -r build/libGazeboOpenXR.so 2>&1 | \
 grep -iE 'undefined|not found'
+```
 
 #####################################################
 
+```bash
 export GZ_GUI_PLUGIN_PATH="$PWD/build"
 
 export XR_RUNTIME_JSON="$(readlink -f "$HOME/.config/openxr/1/active_runtime.json")"
@@ -1548,7 +1757,9 @@ export XR_RUNTIME_JSON="$(readlink -f "$HOME/.config/openxr/1/active_runtime.jso
 export XR_LOADER_DEBUG=all
 
 gz sim --force-version 8 -v 4 shapes.sdf
+```
 
+```text
 UI: Gazebo Open XR 
 Meta Quest | WiVRn Runtime
 OpenXR not initialized
@@ -1587,37 +1798,47 @@ Info [GENERAL |  | OpenXR-Loader] : RuntimeInterface being destroyed.
 Error [GENERAL | xrCreateInstance | OpenXR-Loader] : xrCreateInstance failed
 Error [GENERAL | xrCreateInstance | OpenXR-Loader] : xrCreateInstance failed
 [GazeboOpenXR] xrCreateInstance failed: -51
+```
 
 
 WivRn ဖွင့်ထားပြီး VR နဲ့  connect ဖြစ်နေဖို့လိုအပ်တယ်။
 ####################################
 
 
+```bash
 echo "$XDG_SESSION_TYPE"
 echo "$DISPLAY"
 
 pkg-config --modversion gl
 pkg-config --modversion glew
 pkg-config --modversion x11
+```
+```text
 x11
 :1
 1.2
 2.2.0
 1.7.5
+```
 
 ####################################
 
+```bash
 cd ~/openxr_workspace
 
 cp -a gazebo_openxr gazebo_openxr_phase2_1_backup
 
 cd gazebo_openxr
+```
 
 ####################################
 
+```bash
 vim include/XRRuntime.hh
+```
 
 public: အောက်မှာ အောက်ပါ Functions တွေ ထပ်ထည့်ပါ။
+```cpp
 bool ProbeGraphicsContext();
 
 bool CreateSessionFromCurrentContext();
@@ -1625,17 +1846,21 @@ bool CreateSessionFromCurrentContext();
 void DestroySession();
 
 XrSession GetSession() const;
+```
 
 
 private: အောက်မှာ အောက်ပါ Variables တွေ ထပ်ထည့်ပါ။
+```cpp
 XrSession session_ = XR_NULL_HANDLE;
 
 XrSpace localSpace_ = XR_NULL_HANDLE;
+```
 
 ####################################
 
 src/XRRuntime.cc ရဲ့ အပေါ်ဆုံး Include အပိုင်းကို အောက်ပါအတိုင်း ပြောင်းပါ။
 
+```cpp
 #include "XRRuntime.hh"
 
 #include <GL/gl.h>
@@ -1651,8 +1876,10 @@ src/XRRuntime.cc ရဲ့ အပေါ်ဆုံး Include အပိုင�
 #include <iostream>
 #include <sstream>
 #include <vector>
+```
 
 src/XRRuntime.cc ရဲ့ အောက်ဆုံးမှာ ဒီ Function ကို ထည့်ပါ။
+```cpp
 bool XRRuntime::ProbeGraphicsContext()
 {
     Display* display = glXGetCurrentDisplay();
@@ -1682,8 +1909,10 @@ bool XRRuntime::ProbeGraphicsContext()
 
     return true;
 }
+```
 
 အောက်ပါ Function ကိုလည်း ဆက်ထည့်ပါ။
+```cpp
 bool XRRuntime::CreateSessionFromCurrentContext()
 {
     if (session_ != XR_NULL_HANDLE)
@@ -1821,9 +2050,11 @@ XrSession XRRuntime::GetSession() const
 {
     return session_;
 }
+```
 
 ရှိပြီးသား Shutdown() Function ကိုလည်း Update လုပ်ပါ။
 
+```cpp
 void XRRuntime::Shutdown()
 {
     DestroySession();
@@ -1837,20 +2068,26 @@ void XRRuntime::Shutdown()
     systemId_ = XR_NULL_SYSTEM_ID;
     initialized_ = false;
 }
+```
 
 ####################################
 
+```bash
 cd ~/openxr_workspace
 
 cp -a gazebo_openxr gazebo_openxr_phase2_2_backup
 
 cd gazebo_openxr
+```
 
 
 ####################################
 
+```bash
 vim include/GazeboOpenXR.hh
+```
 
+```cpp
 #pragma once
 
 #include <QString>
@@ -1906,12 +2143,16 @@ private:
     void PostStatus(const QString &status);
     void OnRender();
 };
+```
 
 
 ####################################
 
+```bash
 vim src/GazeboOpenXR.cc
+```
 
+```cpp
 #include "GazeboOpenXR.hh"
 
 #include <iostream>
@@ -2075,11 +2316,15 @@ GZ_ADD_PLUGIN(
     GazeboOpenXR,
     gz::gui::Plugin
 )
+```
 
 ####################################
 
+```bash
 vim qml/GazeboOpenXR.qml
+```
 
+```qml
 import QtQuick 2.12
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.12
@@ -2148,31 +2393,45 @@ Rectangle {
         }
     }
 }
+```
 
 ####################################
 
+```bash
 cd ~/openxr_workspace/gazebo_openxr
 
 cmake -S . -B build \
     -DCMAKE_BUILD_TYPE=Release
 
 cmake --build build -j8
+```
 
 ####################################
 
+```bash
 ldd -r build/libGazeboOpenXR.so 2>&1 | \
 grep -iE 'undefined|not found'
+```
 
 ####################################
 
+```bash
 if [ -S "$XDG_RUNTIME_DIR/wivrn/comp_ipc" ]; then (17.8)
     echo "WiVRn IPC: READY"
+```
+```cpp
 else
+```
+```bash
     echo "WiVRn IPC: NOT READY"
+```
+```text
 fi
+```
 
 ####################################
 
+```bash
 cd ~/openxr_workspace/gazebo_openxr (17.9)
 
 export GZ_GUI_PLUGIN_PATH="$PWD/build"
@@ -2182,14 +2441,18 @@ export XR_RUNTIME_JSON="$(readlink -f "$HOME/.config/openxr/1/active_runtime.jso
 export XR_LOADER_DEBUG=all
 
 gz sim --force-version 8 -v 4 shapes.sdf
+```
 
 ####################################
 
 18.3 
+```bash
 vim include/XRRuntime.hh
+```
 
 public: အောက်မှာ ထပ်ထည့်ပါ။
 
+```cpp
 bool PollEvents();
 
 bool RequestStop();
@@ -2199,8 +2462,10 @@ bool IsSessionRunning() const;
 bool RenderFrame();
 
 XrSpace GetLocalSpace() const;
+```
 
 private: အောက်မှာ ထပ်ထည့်ပါ။
+```cpp
 XrSessionState sessionState_ =
     XR_SESSION_STATE_UNKNOWN;
 
@@ -2209,16 +2474,22 @@ bool sessionRunning_ = false;
 bool exitRequested_ = false;
 
 uint64_t frameCount_ = 0;
+```
 
 Header File အပေါ်ဆုံးမှာလည်း ထည့်ပါ။
+```cpp
 #include <cstdint>
+```
 
 ####################################
 
 18.4
 
+```bash
 vim src/XRRuntime.cc
+```
 
+```cpp
 bool XRRuntime::PollEvents()
 {
     if (instance_ == XR_NULL_HANDLE)
@@ -2364,10 +2635,12 @@ bool XRRuntime::PollEvents()
 
     return true;
 }
+```
 
 
 ##################################
 18.5
+```cpp
 bool XRRuntime::RequestStop()
 {
     if (session_ == XR_NULL_HANDLE)
@@ -2407,10 +2680,12 @@ XrSpace XRRuntime::GetLocalSpace() const
 {
     return localSpace_;
 }
+```
 
 ####################################################
 
 ရှိပြီးသား DestroySession() Function ကိုလည်း အောက်ပါအတိုင်း အစားထိုးပါ။
+```cpp
 void XRRuntime::DestroySession()
 {
     if (localSpace_ != XR_NULL_HANDLE)
@@ -2431,12 +2706,16 @@ void XRRuntime::DestroySession()
     exitRequested_ = false;
     frameCount_ = 0;
 }
+```
 
 #######################################################
 
+```text
 19.1
+```
 19.1. Frame Loop Implementation
 src/XRRuntime.cc ထဲမှာ အောက်ပါ Function ကို ဆက်ထည့်ပါ။
+```cpp
 bool XRRuntime::RenderFrame()
 {
     if (!sessionRunning_ ||
@@ -2526,9 +2805,13 @@ bool XRRuntime::RenderFrame()
 #########################################33
 
 19.2
+```
 
+```bash
 vim src/GazeboOpenXR.cc
+```
 
+```cpp
 void GazeboOpenXR::OnRender()
 {
     if (stopRequested_.exchange(false))
@@ -2629,29 +2912,37 @@ void GazeboOpenXR::OnRender()
         }
     }
 }
+```
 
 ###########################################################
 
 19.4. Rebuild Plugin
 
+```bash
 cd ~/openxr_workspace/gazebo_openxr
 
 cmake -S . -B build \
     -DCMAKE_BUILD_TYPE=Release
 
 cmake --build build -j8
+```
 
 ###########################################################
 
+```bash
 ldd -r build/libGazeboOpenXR.so 2>&1 | \
 grep -iE 'undefined|not found'
+```
 
 #############################################################
 
 19.5. Launch Gazebo
+```text
 mr_robot@desktop:~/openxr_workspace/openxr_gazebo_plugin/gazebo_openxr
+```
 
 
+```bash
 export GZ_GUI_PLUGIN_PATH="$PWD/build"
 
 export XR_RUNTIME_JSON="$(readlink -f "$HOME/.config/openxr/1/active_runtime.json")"
@@ -2659,14 +2950,18 @@ export XR_RUNTIME_JSON="$(readlink -f "$HOME/.config/openxr/1/active_runtime.jso
 export XR_LOADER_DEBUG=error
 
 gz sim --force-version 8 -v 4 shapes.sdf
+```
 
 
 #####################################################
 
 
 
+```bash
 vim include/GazeboOpenXR.hh
+```
 
+```cpp
 #pragma once
 
 #include <QString>
@@ -2722,11 +3017,15 @@ private:
     void PostStatus(const QString &status);
     void OnRender();
 };
+```
 
 ####################################
 
+```bash
 vim src/GazeboOpenXR.cc
+```
 
+```cpp
 #include "GazeboOpenXR.hh"
 
 #include <iostream>
@@ -2890,11 +3189,15 @@ GZ_ADD_PLUGIN(
     GazeboOpenXR,
     gz::gui::Plugin
 )
+```
 
 ####################################
 
+```bash
 vim src/GazeboOpenXR.cc
+```
 
+```cpp
 #include "GazeboOpenXR.hh"
 
 #include <iostream>
@@ -3058,11 +3361,15 @@ GZ_ADD_PLUGIN(
     GazeboOpenXR,
     gz::gui::Plugin
 )
+```
 
 ####################################
 
+```bash
 vim src/GazeboOpenXR.cc
+```
 
+```cpp
 #include "GazeboOpenXR.hh"
 
 #include <iostream>
@@ -3226,11 +3533,15 @@ GZ_ADD_PLUGIN(
     GazeboOpenXR,
     gz::gui::Plugin
 )
+```
 
 ####################################
 
+```bash
 vim qml/GazeboOpenXR.qml
+```
 
+```qml
 import QtQuick 2.12
 import QtQuick.Controls 2.5
 import QtQuick.Layouts 1.12
@@ -3299,8 +3610,6 @@ Rectangle {
         }
     }
 }
+```
 
 ####################################
-
-```
-```
