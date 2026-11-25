@@ -69,6 +69,8 @@ public:
 
     bool AreColorSwapchainsReady() const;
 
+    bool TestSwapchainImageCycle();
+
 private:
     XrInstance instance_ = XR_NULL_HANDLE;
     XrSystemId systemId_ = XR_NULL_SYSTEM_ID;

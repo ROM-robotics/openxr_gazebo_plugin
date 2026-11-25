@@ -617,6 +617,17 @@ bool XRRuntime::RenderFrame()
         return false;
     }
 
+    if (frameState.shouldRender && swapchainsReady_)
+    {
+        if (!TestSwapchainImageCycle())
+        {
+            std::cerr
+                << "[XRRuntime] Swapchain image cycle failed: "
+                << status_
+                << std::endl;
+        }
+    }
+    
     XrFrameEndInfo endInfo{
         XR_TYPE_FRAME_END_INFO
     };
@@ -1000,4 +1011,82 @@ void XRRuntime::DestroyColorSwapchains()
 bool XRRuntime::AreColorSwapchainsReady() const
 {
     return swapchainsReady_;
+}
+
+bool XRRuntime::TestSwapchainImageCycle()
+{
+    if (!swapchainsReady_ || eyeSwapchains_.size() != 2)
+        return false;
+
+    for (size_t eye = 0; eye < eyeSwapchains_.size(); ++eye)
+    {
+        auto &swapchain = eyeSwapchains_[eye];
+
+        XrSwapchainImageAcquireInfo acquireInfo{
+            XR_TYPE_SWAPCHAIN_IMAGE_ACQUIRE_INFO
+        };
+
+        uint32_t imageIndex = 0;
+
+        XrResult result = xrAcquireSwapchainImage(
+            swapchain.handle,
+            &acquireInfo,
+            &imageIndex);
+
+        if (XR_FAILED(result))
+        {
+            status_ = "Acquire failed for eye " +
+                std::to_string(eye);
+            return false;
+        }
+
+        XrSwapchainImageWaitInfo waitInfo{
+            XR_TYPE_SWAPCHAIN_IMAGE_WAIT_INFO
+        };
+
+        waitInfo.timeout = XR_INFINITE_DURATION;
+
+        result = xrWaitSwapchainImage(
+            swapchain.handle, &waitInfo);
+
+        if (XR_FAILED(result))
+        {
+            status_ = "Wait failed for eye " +
+                std::to_string(eye);
+
+            // A failed wait requires recovery before
+            // the acquired image can be safely reused.
+            return false;
+        }
+
+        const auto texture =
+            swapchain.images[imageIndex].image;
+
+        // Rendering into this texture comes later.
+
+        if (frameCount_ % 120 == 0)
+        {
+            std::cout
+                << "[XRRuntime] Eye " << eye
+                << " acquired image " << imageIndex
+                << " | Texture ID: " << texture
+                << std::endl;
+        }
+
+        XrSwapchainImageReleaseInfo releaseInfo{
+            XR_TYPE_SWAPCHAIN_IMAGE_RELEASE_INFO
+        };
+
+        result = xrReleaseSwapchainImage(
+            swapchain.handle, &releaseInfo);
+
+        if (XR_FAILED(result))
+        {
+            status_ = "Release failed for eye " +
+                std::to_string(eye);
+            return false;
+        }
+    }
+
+    return true;
 }
