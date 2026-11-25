@@ -5,8 +5,8 @@
 #include <gz/rendering/Visual.hh>
 #include <gz/math/Pose3.hh>
 #include <gz/math/Angle.hh> 
-
 #include <iostream>
+#include <GL/glew.h>
 
 bool XRCamera::FindScene()
 {
@@ -217,4 +217,88 @@ bool XRCamera::RenderStereoDiagnostic()
 bool XRCamera::IsStereoRenderReady() const
 {
     return stereoRenderReady_;
+}
+
+bool XRCamera::ValidateStereoTextures()
+{
+    if (!stereoRenderReady_)
+        return false;
+
+    if (textureValidationReported_)
+        return true;
+
+    const GLuint textures[2] = {
+        leftTextureId_,
+        rightTextureId_
+    };
+
+    const char* names[2] = {
+        "Left Eye",
+        "Right Eye"
+    };
+
+    GLint previousBinding = 0;
+
+    glGetIntegerv(
+        GL_TEXTURE_BINDING_2D,
+        &previousBinding
+    );
+
+    for (int eye = 0; eye < 2; ++eye)
+    {
+        const GLuint texture = textures[eye];
+
+        if (texture == 0 || glIsTexture(texture) != GL_TRUE)
+        {
+            std::cerr
+                << "[XRCamera] Invalid texture: "
+                << names[eye] << std::endl;
+
+            glBindTexture(GL_TEXTURE_2D, previousBinding);
+            return false;
+        }
+
+        glBindTexture(GL_TEXTURE_2D, texture);
+
+        GLint width = 0;
+        GLint height = 0;
+        GLint internalFormat = 0;
+
+        glGetTexLevelParameteriv(
+            GL_TEXTURE_2D, 0,
+            GL_TEXTURE_WIDTH, &width);
+
+        glGetTexLevelParameteriv(
+            GL_TEXTURE_2D, 0,
+            GL_TEXTURE_HEIGHT, &height);
+
+        glGetTexLevelParameteriv(
+            GL_TEXTURE_2D, 0,
+            GL_TEXTURE_INTERNAL_FORMAT,
+            &internalFormat);
+
+        std::cout
+            << "[XRCamera] " << names[eye]
+            << " | Texture: " << texture
+            << " | Size: " << width << "x" << height
+            << " | Format: 0x"
+            << std::hex << internalFormat
+            << std::dec << std::endl;
+
+        if (width <= 0 || height <= 0)
+        {
+            glBindTexture(GL_TEXTURE_2D, previousBinding);
+            return false;
+        }
+    }
+
+    glBindTexture(GL_TEXTURE_2D, previousBinding);
+
+    textureValidationReported_ = true;
+
+    std::cout
+        << "[XRCamera] Stereo Textures Validated"
+        << std::endl;
+
+    return true;
 }

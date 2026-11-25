@@ -4,6 +4,7 @@
 #include <gz/rendering/Camera.hh>
 #include <gz/rendering/RenderTypes.hh>
 
+
 class XRCamera
 {
 public:
@@ -15,6 +16,8 @@ public:
     bool RenderStereoDiagnostic();
 
     bool IsStereoRenderReady() const;
+
+    bool ValidateStereoTextures();
 
 private:
     gz::rendering::ScenePtr scene_;
@@ -32,4 +35,6 @@ private:
     unsigned int leftTextureId_ = 0;
     
     unsigned int rightTextureId_ = 0;
+
+    bool textureValidationReported_ = false;
 };
