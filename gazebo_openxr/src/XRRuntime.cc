@@ -621,22 +621,18 @@ bool XRRuntime::RenderFrame(unsigned int leftTexture,
         return false;
     }
 
-    if (frameState.shouldRender && swapchainsReady_)
-    {
-        bool copySuccess = true;
+    bool copySuccess = true;
 
-        if (frameState.shouldRender &&
-            swapchainsReady_ &&
-            leftTexture != 0 &&
-            rightTexture != 0)
-        {
+    if (frameState.shouldRender &&
+        swapchainsReady_ &&
+        leftTexture != 0 &&
+        rightTexture != 0)
+    {
         copySuccess = CopyStereoFrame(
             leftTexture,
             rightTexture);
-        }
-        
     }
-    
+
     XrFrameEndInfo endInfo{
         XR_TYPE_FRAME_END_INFO
     };
@@ -666,8 +662,6 @@ bool XRRuntime::RenderFrame(unsigned int leftTexture,
     {
         return false;
     }
-
-return true;
 
     ++frameCount_;
 

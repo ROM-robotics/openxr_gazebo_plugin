@@ -216,14 +216,21 @@ void GazeboOpenXR::OnRender()
                 }
             }
 
-            // STEP 24: OpenXR Frame Loop
-            if (!runtime_.RenderFrame())
+            // STEP 29: Copy Gazebo stereo textures into OpenXR.
+            const unsigned int leftTexture =
+                xrCamera_.GetLeftTextureId();
+
+            const unsigned int rightTexture =
+                xrCamera_.GetRightTextureId();
+
+            if (!runtime_.RenderFrame(leftTexture, rightTexture))
             {
                 PostStatus(QString::fromStdString(
                     runtime_.GetStatus()));
 
                 runtime_.DestroySession();
                 sessionCreated_.store(false);
+                return;
             }
         }
 }

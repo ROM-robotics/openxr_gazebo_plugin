@@ -225,6 +225,54 @@ src/XRCamera.cc.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/GazeboOpenXR.dir/build.make CMakeFiles/GazeboOpenXR.dir/src/XRCamera.cc.s
 .PHONY : src/XRCamera.cc.s
 
+src/XRInput.o: src/XRInput.cc.o
+.PHONY : src/XRInput.o
+
+# target to build an object file
+src/XRInput.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GazeboOpenXR.dir/build.make CMakeFiles/GazeboOpenXR.dir/src/XRInput.cc.o
+.PHONY : src/XRInput.cc.o
+
+src/XRInput.i: src/XRInput.cc.i
+.PHONY : src/XRInput.i
+
+# target to preprocess a source file
+src/XRInput.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GazeboOpenXR.dir/build.make CMakeFiles/GazeboOpenXR.dir/src/XRInput.cc.i
+.PHONY : src/XRInput.cc.i
+
+src/XRInput.s: src/XRInput.cc.s
+.PHONY : src/XRInput.s
+
+# target to generate assembly for a file
+src/XRInput.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GazeboOpenXR.dir/build.make CMakeFiles/GazeboOpenXR.dir/src/XRInput.cc.s
+.PHONY : src/XRInput.cc.s
+
+src/XRRenderer.o: src/XRRenderer.cc.o
+.PHONY : src/XRRenderer.o
+
+# target to build an object file
+src/XRRenderer.cc.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GazeboOpenXR.dir/build.make CMakeFiles/GazeboOpenXR.dir/src/XRRenderer.cc.o
+.PHONY : src/XRRenderer.cc.o
+
+src/XRRenderer.i: src/XRRenderer.cc.i
+.PHONY : src/XRRenderer.i
+
+# target to preprocess a source file
+src/XRRenderer.cc.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GazeboOpenXR.dir/build.make CMakeFiles/GazeboOpenXR.dir/src/XRRenderer.cc.i
+.PHONY : src/XRRenderer.cc.i
+
+src/XRRenderer.s: src/XRRenderer.cc.s
+.PHONY : src/XRRenderer.s
+
+# target to generate assembly for a file
+src/XRRenderer.cc.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/GazeboOpenXR.dir/build.make CMakeFiles/GazeboOpenXR.dir/src/XRRenderer.cc.s
+.PHONY : src/XRRenderer.cc.s
+
 src/XRRuntime.o: src/XRRuntime.cc.o
 .PHONY : src/XRRuntime.o
 
@@ -270,6 +318,12 @@ help:
 	@echo "... src/XRCamera.o"
 	@echo "... src/XRCamera.i"
 	@echo "... src/XRCamera.s"
+	@echo "... src/XRInput.o"
+	@echo "... src/XRInput.i"
+	@echo "... src/XRInput.s"
+	@echo "... src/XRRenderer.o"
+	@echo "... src/XRRenderer.i"
+	@echo "... src/XRRenderer.s"
 	@echo "... src/XRRuntime.o"
 	@echo "... src/XRRuntime.i"
 	@echo "... src/XRRuntime.s"

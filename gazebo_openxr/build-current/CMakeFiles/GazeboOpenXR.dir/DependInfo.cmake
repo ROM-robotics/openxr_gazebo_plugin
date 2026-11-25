@@ -12,6 +12,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/mr_robot/Desktop/openxr_gazebo_plugin/gazebo_openxr/build-current/qrc_GazeboOpenXR.cpp" "CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.o" "gcc" "CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.o.d"
   "/home/mr_robot/Desktop/openxr_gazebo_plugin/gazebo_openxr/src/GazeboOpenXR.cc" "CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o" "gcc" "CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o.d"
   "/home/mr_robot/Desktop/openxr_gazebo_plugin/gazebo_openxr/src/XRCamera.cc" "CMakeFiles/GazeboOpenXR.dir/src/XRCamera.cc.o" "gcc" "CMakeFiles/GazeboOpenXR.dir/src/XRCamera.cc.o.d"
+  "/home/mr_robot/Desktop/openxr_gazebo_plugin/gazebo_openxr/src/XRInput.cc" "CMakeFiles/GazeboOpenXR.dir/src/XRInput.cc.o" "gcc" "CMakeFiles/GazeboOpenXR.dir/src/XRInput.cc.o.d"
+  "/home/mr_robot/Desktop/openxr_gazebo_plugin/gazebo_openxr/src/XRRenderer.cc" "CMakeFiles/GazeboOpenXR.dir/src/XRRenderer.cc.o" "gcc" "CMakeFiles/GazeboOpenXR.dir/src/XRRenderer.cc.o.d"
   "/home/mr_robot/Desktop/openxr_gazebo_plugin/gazebo_openxr/src/XRRuntime.cc" "CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o" "gcc" "CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o.d"
   )
 
