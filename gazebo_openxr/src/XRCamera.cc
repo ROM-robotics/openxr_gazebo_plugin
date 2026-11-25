@@ -141,3 +141,80 @@ bool XRCamera::CreateStereoCameras()
 
     return true;
 }
+
+bool XRCamera::RenderStereoDiagnostic()
+{
+    if (stereoRenderReady_)
+        return true;
+
+    if (renderAttempted_)
+        return false;
+
+    if (!IsReady() || !leftEye_ || !rightEye_)
+        return false;
+
+    // Only one diagnostic attempt per scene.
+    renderAttempted_ = true;
+
+    std::cout
+        << "[XRCamera] Starting coordinated stereo render"
+        << std::endl;
+
+    // This method must run in the Gazebo rendering
+    // thread after MinimalScene's main camera Update().
+    //
+    // It starts a NEW, complete scene rendering cycle.
+
+    scene_->PreRender();
+
+    // Render both stereo cameras inside the same
+    // scene rendering cycle.
+    leftEye_->Render();
+    rightEye_->Render();
+
+    // Finalize both camera render passes.
+    leftEye_->PostRender();
+    rightEye_->PostRender();
+
+    // CRITICAL:
+    // Complete the scene rendering cycle.
+    // The previous implementation missed this call.
+    scene_->PostRender();
+
+    // Obtain Gazebo-owned OpenGL texture handles.
+    leftTextureId_ =
+        leftEye_->RenderTextureGLId();
+
+    rightTextureId_ =
+        rightEye_->RenderTextureGLId();
+
+    std::cout
+        << "[XRCamera] Left texture ID: "
+        << leftTextureId_
+        << "\n[XRCamera] Right texture ID: "
+        << rightTextureId_
+        << std::endl;
+
+    if (leftTextureId_ == 0 ||
+        rightTextureId_ == 0)
+    {
+        std::cerr
+            << "[XRCamera] Invalid stereo render texture"
+            << std::endl;
+
+        return false;
+    }
+
+    stereoRenderReady_ = true;
+
+    std::cout
+        << "[XRCamera] Coordinated Stereo Render SUCCESS"
+        << std::endl;
+
+    return true;
+}
+
+bool XRCamera::IsStereoRenderReady() const
+{
+    return stereoRenderReady_;
+}

@@ -12,6 +12,10 @@ public:
 
     bool CreateStereoCameras();
 
+    bool RenderStereoDiagnostic();
+
+    bool IsStereoRenderReady() const;
+
 private:
     gz::rendering::ScenePtr scene_;
 
@@ -20,4 +24,12 @@ private:
 
     bool reported_ = false;
     bool stereoReported_ = false;
+
+    bool stereoRenderReady_ = false;
+
+    bool renderAttempted_ = false;
+
+    unsigned int leftTextureId_ = 0;
+    
+    unsigned int rightTextureId_ = 0;
 };

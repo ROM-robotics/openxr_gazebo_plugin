@@ -174,39 +174,54 @@ void GazeboOpenXR::OnRender()
         return;
     }
 
-    if (runtime_.IsSessionRunning())
-    {
-        if (!wasRunning)
+        if (runtime_.IsSessionRunning())
         {
-            PostStatus("VR Frame Loop Running");
-        }
+            if (!wasRunning)
+            {
+                PostStatus("VR Frame Loop Running");
+            }
 
-        runtime_.InspectViewConfiguration();
+            runtime_.InspectViewConfiguration();
 
-        // Swapchain creation happens before frame rendering.
-        if (!runtime_.AreColorSwapchainsReady())
-        {
-            if (!runtime_.CreateColorSwapchains())
+            
+            // STEP 26: Coordinated stereo rendering diagnostic
+            if (xrCamera_.FindScene())
+            {
+                if (xrCamera_.CreateStereoCameras())
+                {
+                    if (!xrCamera_.IsStereoRenderReady())
+                    {
+                        xrCamera_.RenderStereoDiagnostic();
+                    }
+                }
+            }
+
+
+            // // STEP 23: OpenXR Swapchain Creation
+            if (!runtime_.AreColorSwapchainsReady())
+            {
+                if (!runtime_.CreateColorSwapchains())
+                {
+                    PostStatus(QString::fromStdString(
+                        runtime_.GetStatus()));
+
+                    // Stop cleanly rather than retrying
+                    // swapchain creation every render event.
+                    runtime_.RequestStop();
+                    return;
+                }
+            }
+
+            // STEP 24: OpenXR Frame Loop
+            if (!runtime_.RenderFrame())
             {
                 PostStatus(QString::fromStdString(
                     runtime_.GetStatus()));
 
-                // Stop cleanly rather than retrying
-                // swapchain creation every render event.
-                runtime_.RequestStop();
-                return;
+                runtime_.DestroySession();
+                sessionCreated_.store(false);
             }
         }
-
-        if (!runtime_.RenderFrame())
-        {
-            PostStatus(QString::fromStdString(
-                runtime_.GetStatus()));
-
-            runtime_.DestroySession();
-            sessionCreated_.store(false);
-        }
-    }
 }
 
 
@@ -214,3 +229,4 @@ GZ_ADD_PLUGIN(
     GazeboOpenXR,
     gz::gui::Plugin
 )
+
