@@ -21,6 +21,10 @@ public:
 
     bool TestFramebufferBlit();
 
+    unsigned int GetLeftTextureId() const;
+    
+    unsigned int GetRightTextureId() const;
+
 private:
     gz::rendering::ScenePtr scene_;
 

@@ -39,6 +39,8 @@ add_library(GazeboOpenXR SHARED
     src/GazeboOpenXR.cc
     src/XRRuntime.cc
     src/XRCamera.cc
+    src/XRRenderer.cc
+    src/XRInput.cc
     ${MOC_SOURCES}
     ${QRC_SOURCES}
 )

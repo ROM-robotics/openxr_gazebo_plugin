@@ -481,3 +481,13 @@ static bool InitializeGLFunctions()
 
     return true;
 }
+
+unsigned int XRCamera::GetLeftTextureId() const
+{
+    return stereoRenderReady_ ? leftTextureId_ : 0;
+}
+
+unsigned int XRCamera::GetRightTextureId() const
+{
+    return stereoRenderReady_ ? rightTextureId_ : 0;
+}

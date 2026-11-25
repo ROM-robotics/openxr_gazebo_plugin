@@ -1,3 +1,6 @@
+#include "XRRenderer.hh"
+#include <GL/glew.h>
+#include <iostream>
 #include "XRRuntime.hh"
 
 #include <cstring>
@@ -573,7 +576,8 @@ XrSpace XRRuntime::GetLocalSpace() const
     return localSpace_;
 }
 
-bool XRRuntime::RenderFrame()
+bool XRRuntime::RenderFrame(unsigned int leftTexture,
+    unsigned int rightTexture)
 {
     if (!sessionRunning_ ||
         session_ == XR_NULL_HANDLE)
@@ -619,13 +623,18 @@ bool XRRuntime::RenderFrame()
 
     if (frameState.shouldRender && swapchainsReady_)
     {
-        if (!TestSwapchainImageCycle())
+        bool copySuccess = true;
+
+        if (frameState.shouldRender &&
+            swapchainsReady_ &&
+            leftTexture != 0 &&
+            rightTexture != 0)
         {
-            std::cerr
-                << "[XRRuntime] Swapchain image cycle failed: "
-                << status_
-                << std::endl;
+        copySuccess = CopyStereoFrame(
+            leftTexture,
+            rightTexture);
         }
+        
     }
     
     XrFrameEndInfo endInfo{
@@ -652,6 +661,13 @@ bool XRRuntime::RenderFrame()
 
         return false;
     }
+    
+    if (!copySuccess)
+    {
+        return false;
+    }
+
+return true;
 
     ++frameCount_;
 
@@ -1085,6 +1101,130 @@ bool XRRuntime::TestSwapchainImageCycle()
             status_ = "Release failed for eye " +
                 std::to_string(eye);
             return false;
+        }
+    }
+
+    return true;
+}
+
+bool XRRuntime::CopyStereoFrame(
+    unsigned int leftTexture,
+    unsigned int rightTexture)
+{
+    if (!swapchainsReady_ || eyeSwapchains_.size() != 2)
+    {
+        status_ = "Stereo swapchains are not ready";
+        return false;
+    }
+
+    const unsigned int sourceTextures[2] = {
+        leftTexture,
+        rightTexture
+    };
+
+    if (!sourceTextures[0] || !sourceTextures[1])
+    {
+        status_ = "Gazebo camera textures are not ready";
+        return false;
+    }
+
+    // Current diagnostic camera resolution.
+    constexpr int sourceWidth = 1024;
+    constexpr int sourceHeight = 1024;
+
+    for (size_t eye = 0; eye < 2; ++eye)
+    {
+        auto &swapchain = eyeSwapchains_[eye];
+
+        XrSwapchainImageAcquireInfo acquireInfo{
+            XR_TYPE_SWAPCHAIN_IMAGE_ACQUIRE_INFO
+        };
+
+        uint32_t imageIndex = 0;
+
+        XrResult result = xrAcquireSwapchainImage(
+            swapchain.handle,
+            &acquireInfo,
+            &imageIndex);
+
+        if (XR_FAILED(result))
+        {
+            status_ = "xrAcquireSwapchainImage failed";
+            return false;
+        }
+
+        XrSwapchainImageWaitInfo waitInfo{
+            XR_TYPE_SWAPCHAIN_IMAGE_WAIT_INFO
+        };
+
+        waitInfo.timeout = XR_INFINITE_DURATION;
+
+        result = xrWaitSwapchainImage(
+            swapchain.handle,
+            &waitInfo);
+
+        // XR_TIMEOUT_EXPIRED is a positive status code.
+        // Only XR_SUCCESS means the image is ready.
+        if (result != XR_SUCCESS)
+        {
+            status_ = "xrWaitSwapchainImage did not succeed";
+            return false;
+        }
+
+        if (imageIndex >= swapchain.images.size())
+        {
+            status_ = "Invalid OpenXR image index";
+            return false;
+        }
+
+        const unsigned int destinationTexture =
+            swapchain.images[imageIndex].image;
+
+        bool copied = XRRenderer::BlitTexture(
+            sourceTextures[eye],
+            destinationTexture,
+            sourceWidth,
+            sourceHeight,
+            static_cast<int>(swapchain.width),
+            static_cast<int>(swapchain.height));
+
+        if (copied)
+        {
+            // Conservative GPU synchronization for testing.
+            // Replace with an optimized approach later.
+            glFinish();
+        }
+
+        XrSwapchainImageReleaseInfo releaseInfo{
+            XR_TYPE_SWAPCHAIN_IMAGE_RELEASE_INFO
+        };
+
+        result = xrReleaseSwapchainImage(
+            swapchain.handle,
+            &releaseInfo);
+
+        if (XR_FAILED(result))
+        {
+            status_ = "xrReleaseSwapchainImage failed";
+            return false;
+        }
+
+        if (!copied)
+        {
+            status_ = "OpenGL framebuffer copy failed";
+            return false;
+        }
+
+        if (frameCount_ % 120 == 0)
+        {
+            std::cout
+                << "[XRRuntime] Eye " << eye
+                << " | Source Texture: "
+                << sourceTextures[eye]
+                << " | XR Texture: "
+                << destinationTexture
+                << " | Copy SUCCESS"
+                << std::endl;
         }
     }
 

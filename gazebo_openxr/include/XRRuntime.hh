@@ -57,7 +57,9 @@ public:
 
     bool IsSessionRunning() const;
 
-    bool RenderFrame();
+    bool RenderFrame(
+        unsigned int leftTexture,
+        unsigned int rightTexture);
 
     XrSpace GetLocalSpace() const;
 
@@ -109,5 +111,9 @@ private:
     std::vector<EyeSwapchain> eyeSwapchains_;
 
     bool swapchainsReady_ = false;
+
+    bool CopyStereoFrame(
+        unsigned int leftTexture,
+        unsigned int rightTexture);
 };
 
