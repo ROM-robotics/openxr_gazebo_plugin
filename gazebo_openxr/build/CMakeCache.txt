@@ -22,7 +22,7 @@ CMAKE_AR:FILEPATH=/usr/bin/ar
 
 //Choose the type of build, options are: None Debug Release RelWithDebInfo
 // MinSizeRel ...
-CMAKE_BUILD_TYPE:STRING=Release
+CMAKE_BUILD_TYPE:STRING=Debug
 
 //Enable/Disable color output during build.
 CMAKE_COLOR_MAKEFILE:BOOL=ON
@@ -212,6 +212,24 @@ Fontconfig_INCLUDE_DIR:PATH=/usr/include
 
 //Path to a library.
 Fontconfig_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libfontconfig.so
+
+//The directory containing a CMake configuration file for GLEW.
+GLEW_DIR:PATH=GLEW_DIR-NOTFOUND
+
+//Path to a file.
+GLEW_INCLUDE_DIR:PATH=/usr/include
+
+//Path to a library.
+GLEW_SHARED_LIBRARY_DEBUG:FILEPATH=GLEW_SHARED_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+GLEW_SHARED_LIBRARY_RELEASE:FILEPATH=/usr/lib/x86_64-linux-gnu/libGLEW.so
+
+//Path to a library.
+GLEW_STATIC_LIBRARY_DEBUG:FILEPATH=GLEW_STATIC_LIBRARY_DEBUG-NOTFOUND
+
+//Path to a library.
+GLEW_STATIC_LIBRARY_RELEASE:FILEPATH=/usr/lib/x86_64-linux-gnu/libGLEW.a
 
 //Compile with a sanitizer. Options are: Address, Memory, MemoryWithOrigins,
 // Undefined, Thread, Leak, 'Address;Undefined', CFI
@@ -790,6 +808,8 @@ DL_INCLUDE_DIRS-ADVANCED:INTERNAL=1
 DL_LIBRARIES-ADVANCED:INTERNAL=1
 //Details about finding DL
 FIND_PACKAGE_MESSAGE_DETAILS_DL:INTERNAL=[true][v()]
+//Details about finding GLEW
+FIND_PACKAGE_MESSAGE_DETAILS_GLEW:INTERNAL=[/usr/include][/usr/lib/x86_64-linux-gnu/libGLEW.so][v2.2.0()]
 //Details about finding GzAssimp
 FIND_PACKAGE_MESSAGE_DETAILS_GzAssimp:INTERNAL=[1][v5.2.0()]
 //Details about finding OpenGL
@@ -818,6 +838,16 @@ FREETYPE_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 Fontconfig_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: Fontconfig_LIBRARY
 Fontconfig_LIBRARY-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GLEW_INCLUDE_DIR
+GLEW_INCLUDE_DIR-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GLEW_SHARED_LIBRARY_DEBUG
+GLEW_SHARED_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GLEW_SHARED_LIBRARY_RELEASE
+GLEW_SHARED_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GLEW_STATIC_LIBRARY_DEBUG
+GLEW_STATIC_LIBRARY_DEBUG-ADVANCED:INTERNAL=1
+//ADVANCED property for variable: GLEW_STATIC_LIBRARY_RELEASE
+GLEW_STATIC_LIBRARY_RELEASE-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_EGL_INCLUDE_DIR
 OPENGL_EGL_INCLUDE_DIR-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: OPENGL_GLX_INCLUDE_DIR

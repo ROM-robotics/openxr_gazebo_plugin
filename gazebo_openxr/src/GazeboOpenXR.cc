@@ -192,7 +192,10 @@ void GazeboOpenXR::OnRender()
                     if (!xrCamera_.IsStereoRenderReady())
                     {
                         xrCamera_.RenderStereoDiagnostic();
-                        xrCamera_.ValidateStereoTextures();
+                        if (xrCamera_.ValidateStereoTextures())
+                        {
+                            xrCamera_.TestFramebufferBlit();
+                        }
                     }
                 }
             }

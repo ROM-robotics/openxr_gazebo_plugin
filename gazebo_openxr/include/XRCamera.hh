@@ -19,6 +19,8 @@ public:
 
     bool ValidateStereoTextures();
 
+    bool TestFramebufferBlit();
+
 private:
     gz::rendering::ScenePtr scene_;
 
@@ -37,4 +39,6 @@ private:
     unsigned int rightTextureId_ = 0;
 
     bool textureValidationReported_ = false;
+
+    bool blitTestAttempted_ = false;
 };

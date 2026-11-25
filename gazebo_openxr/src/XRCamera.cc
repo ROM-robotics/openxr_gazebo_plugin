@@ -1,3 +1,6 @@
+
+#include <GL/glew.h>
+#include <GL/glx.h>
 #include "XRCamera.hh"
 
 #include <gz/rendering/RenderingIface.hh>
@@ -6,7 +9,8 @@
 #include <gz/math/Pose3.hh>
 #include <gz/math/Angle.hh> 
 #include <iostream>
-#include <GL/glew.h>
+
+static bool InitializeGLFunctions();
 
 bool XRCamera::FindScene()
 {
@@ -298,6 +302,181 @@ bool XRCamera::ValidateStereoTextures()
 
     std::cout
         << "[XRCamera] Stereo Textures Validated"
+        << std::endl;
+
+    return true;
+}
+
+bool XRCamera::TestFramebufferBlit()
+{
+    if (!stereoRenderReady_ || !textureValidationReported_)
+        return false;
+
+    if (blitTestAttempted_)
+        return false;
+
+    blitTestAttempted_ = true;
+
+    if (!InitializeGLFunctions())
+    {
+        std::cerr
+            << "[XRCamera] OpenGL function loading failed"
+            << std::endl;
+        return false;
+    }
+    GLint oldReadFbo = 0;
+    GLint oldDrawFbo = 0;
+    GLint oldTexture = 0;
+    GLint oldReadBuffer = 0;
+    GLint oldDrawBuffer = 0;
+
+    glGetIntegerv(GL_READ_FRAMEBUFFER_BINDING, &oldReadFbo);
+    glGetIntegerv(GL_DRAW_FRAMEBUFFER_BINDING, &oldDrawFbo);
+    glGetIntegerv(GL_TEXTURE_BINDING_2D, &oldTexture);
+    glGetIntegerv(GL_READ_BUFFER, &oldReadBuffer);
+    glGetIntegerv(GL_DRAW_BUFFER, &oldDrawBuffer);
+
+    GLuint readFbo = 0;
+    GLuint drawFbo = 0;
+    GLuint testTexture = 0;
+
+    bool success = true;
+
+    glGenFramebuffers(1, &readFbo);
+    glGenFramebuffers(1, &drawFbo);
+    glGenTextures(1, &testTexture);
+
+    glBindTexture(GL_TEXTURE_2D, testTexture);
+
+    constexpr GLint dstWidth = 512;
+    constexpr GLint dstHeight = 512;
+
+    glTexImage2D(
+        GL_TEXTURE_2D, 0, GL_RGBA8,
+        dstWidth, dstHeight, 0,
+        GL_RGBA, GL_UNSIGNED_BYTE, nullptr);
+
+    glBindFramebuffer(GL_DRAW_FRAMEBUFFER, drawFbo);
+
+    glFramebufferTexture2D(
+        GL_DRAW_FRAMEBUFFER,
+        GL_COLOR_ATTACHMENT0,
+        GL_TEXTURE_2D,
+        testTexture, 0);
+
+    glDrawBuffer(GL_COLOR_ATTACHMENT0);
+
+    if (glCheckFramebufferStatus(GL_DRAW_FRAMEBUFFER)
+        != GL_FRAMEBUFFER_COMPLETE)
+    {
+        std::cerr << "[XRCamera] Draw FBO incomplete\n";
+        success = false;
+    }
+
+    if (success)
+    {
+        glBindFramebuffer(GL_READ_FRAMEBUFFER, readFbo);
+
+        glFramebufferTexture2D(
+            GL_READ_FRAMEBUFFER,
+            GL_COLOR_ATTACHMENT0,
+            GL_TEXTURE_2D,
+            leftTextureId_, 0);
+
+        glReadBuffer(GL_COLOR_ATTACHMENT0);
+
+        if (glCheckFramebufferStatus(GL_READ_FRAMEBUFFER)
+            != GL_FRAMEBUFFER_COMPLETE)
+        {
+            std::cerr << "[XRCamera] Read FBO incomplete\n";
+            success = false;
+        }
+    }
+
+    if (success)
+    {
+        // 1024x1024 diagnostic source
+        // into a 512x512 temporary texture.
+        glBlitFramebuffer(
+            0, 0, 1024, 1024,
+            0, 0, dstWidth, dstHeight,
+            GL_COLOR_BUFFER_BIT, GL_LINEAR);
+
+        GLenum error = glGetError();
+
+        if (error != GL_NO_ERROR)
+        {
+            std::cerr << "[XRCamera] Blit GL error: 0x"
+                      << std::hex << error << std::dec
+                      << std::endl;
+            success = false;
+        }
+        else
+        {
+            glFinish(); // Diagnostic only
+            std::cout
+                << "[XRCamera] Framebuffer Blit SUCCESS"
+                << std::endl;
+        }
+    }
+
+    // Unbind test FBOs before deleting.
+    glBindFramebuffer(GL_READ_FRAMEBUFFER, oldReadFbo);
+    glBindFramebuffer(GL_DRAW_FRAMEBUFFER, oldDrawFbo);
+
+    glReadBuffer(oldReadBuffer);
+    glDrawBuffer(oldDrawBuffer);
+
+    glBindTexture(GL_TEXTURE_2D, oldTexture);
+
+    glDeleteFramebuffers(1, &readFbo);
+    glDeleteFramebuffers(1, &drawFbo);
+    glDeleteTextures(1, &testTexture);
+
+    return success;
+}
+
+static bool InitializeGLFunctions()
+{
+    if (glXGetCurrentContext() == nullptr)
+    {
+        std::cerr
+            << "[XRCamera] ERROR: No current GLX context\n";
+        return false;
+    }
+
+    glewExperimental = GL_TRUE;
+
+    GLenum result = glewInit();
+
+    if (result != GLEW_OK)
+    {
+        std::cerr
+            << "[XRCamera] GLEW initialization failed: "
+            << glewGetErrorString(result)
+            << std::endl;
+        return false;
+    }
+
+    // GLEW may leave GL_INVALID_ENUM on core profiles.
+    while (glGetError() != GL_NO_ERROR) {}
+
+    if (!glGenFramebuffers ||
+        !glBindFramebuffer ||
+        !glFramebufferTexture2D ||
+        !glCheckFramebufferStatus ||
+        !glBlitFramebuffer ||
+        !glDeleteFramebuffers)
+    {
+        std::cerr
+            << "[XRCamera] Missing OpenGL framebuffer functions\n";
+        return false;
+    }
+
+    std::cout
+        << "[XRCamera] GLEW Initialized: "
+        << glewGetString(GLEW_VERSION)
+        << "\n[XRCamera] Framebuffer functions available"
         << std::endl;
 
     return true;

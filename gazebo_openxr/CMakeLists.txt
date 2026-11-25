@@ -23,6 +23,7 @@ find_package(OpenXR REQUIRED)
 find_package(OpenGL REQUIRED)
 find_package(X11 REQUIRED)
 find_package(gz-rendering8 REQUIRED)
+find_package(GLEW REQUIRED)
 
 # Explicit Qt MOC generation
 qt5_wrap_cpp(MOC_SOURCES
@@ -64,6 +65,7 @@ target_link_libraries(GazeboOpenXR PRIVATE
     OpenGL::GLX
     X11::X11
     gz-rendering8::gz-rendering8
+    GLEW::GLEW
 )
 
 target_compile_options(GazeboOpenXR PRIVATE

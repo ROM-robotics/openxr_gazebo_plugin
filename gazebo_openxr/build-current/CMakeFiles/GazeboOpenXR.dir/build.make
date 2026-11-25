@@ -172,6 +172,7 @@ libGazeboOpenXR.so: /usr/lib/x86_64-linux-gnu/libQt5QuickControls2.so.5.15.3
 libGazeboOpenXR.so: /usr/lib/x86_64-linux-gnu/libGLX.so
 libGazeboOpenXR.so: /usr/lib/x86_64-linux-gnu/libX11.so
 libGazeboOpenXR.so: /usr/lib/x86_64-linux-gnu/libgz-rendering8.so.8.3.0
+libGazeboOpenXR.so: /usr/lib/x86_64-linux-gnu/libGLEW.so
 libGazeboOpenXR.so: /usr/lib/x86_64-linux-gnu/libQt5Quick.so.5.15.3
 libGazeboOpenXR.so: /usr/lib/x86_64-linux-gnu/libQt5QmlModels.so.5.15.3
 libGazeboOpenXR.so: /usr/lib/x86_64-linux-gnu/libQt5Qml.so.5.15.3
