@@ -621,17 +621,96 @@ bool XRRuntime::RenderFrame(unsigned int leftTexture,
         return false;
     }
 
+    // ==========================================
+    // STEP 30: Stereo Projection Layer
+    // ==========================================
+
+    XrView xrViews[2] = {
+        {XR_TYPE_VIEW},
+        {XR_TYPE_VIEW}
+    };
+
+    XrCompositionLayerProjectionView projectionViews[2] = {
+        {XR_TYPE_COMPOSITION_LAYER_PROJECTION_VIEW},
+        {XR_TYPE_COMPOSITION_LAYER_PROJECTION_VIEW}
+    };
+
+    XrCompositionLayerProjection projectionLayer{
+        XR_TYPE_COMPOSITION_LAYER_PROJECTION
+    };
+
+    const XrCompositionLayerBaseHeader* layers[1] = {
+        nullptr
+    };
+
+    uint32_t layerCount = 0;
+
     bool copySuccess = true;
 
-    if (frameState.shouldRender &&
-        swapchainsReady_ &&
-        leftTexture != 0 &&
-        rightTexture != 0)
+    if (frameState.shouldRender && swapchainsReady_)
     {
-        copySuccess = CopyStereoFrame(
-            leftTexture,
-            rightTexture);
+        const bool haveSourceTextures =
+            leftTexture != 0 &&
+            rightTexture != 0;
+
+        bool viewsValid = false;
+
+        if (haveSourceTextures)
+        {
+            viewsValid = LocateStereoViews(
+                frameState.predictedDisplayTime,
+                xrViews);
+        }
+
+        if (haveSourceTextures && viewsValid)
+        {
+            copySuccess = CopyStereoFrame(
+                leftTexture,
+                rightTexture);
+
+            if (copySuccess)
+            {
+                for (uint32_t eye = 0; eye < 2; ++eye)
+                {
+                    projectionViews[eye].pose =
+                        xrViews[eye].pose;
+
+                    projectionViews[eye].fov =
+                        xrViews[eye].fov;
+
+                    projectionViews[eye].subImage.swapchain =
+                        eyeSwapchains_[eye].handle;
+
+                    projectionViews[eye].subImage.imageRect.offset =
+                        {0, 0};
+
+                    projectionViews[eye].subImage.imageRect.extent = {
+                        static_cast<int32_t>(
+                            eyeSwapchains_[eye].width),
+                        static_cast<int32_t>(
+                            eyeSwapchains_[eye].height)
+                    };
+
+                    projectionViews[eye].subImage.imageArrayIndex = 0;
+                }
+
+                projectionLayer.space = localSpace_;
+                projectionLayer.viewCount = 2;
+                projectionLayer.views = projectionViews;
+
+                layers[0] =
+                    reinterpret_cast<
+                        const XrCompositionLayerBaseHeader*>(
+                            &projectionLayer);
+
+                layerCount = 1;
+            }
+        }
     }
+
+    // ==========================================
+    // STEP 30: End Frame
+    // ==========================================
 
     XrFrameEndInfo endInfo{
         XR_TYPE_FRAME_END_INFO
@@ -643,21 +722,24 @@ bool XRRuntime::RenderFrame(unsigned int leftTexture,
     endInfo.environmentBlendMode =
         XR_ENVIRONMENT_BLEND_MODE_OPAQUE;
 
-    // Diagnostic frame without composition layers
-    endInfo.layerCount = 0;
-    endInfo.layers = nullptr;
+    endInfo.layerCount = layerCount;
+    endInfo.layers = layerCount ? layers : nullptr;
 
-    result = xrEndFrame(
-        session_, &endInfo);
+    XrResult endResult = xrEndFrame(
+    session_,
+    &endInfo);
 
-    if (XR_FAILED(result))
+    if (XR_FAILED(endResult))
     {
-        status_ = "xrEndFrame failed: " +
-            std::to_string(static_cast<int>(result));
+        std::cerr
+            << "[XRRuntime] xrEndFrame failed: "
+            << endResult
+            << std::endl;
 
+        status_ = "xrEndFrame failed";
         return false;
     }
-    
+
     if (!copySuccess)
     {
         return false;
@@ -674,6 +756,13 @@ bool XRRuntime::RenderFrame(unsigned int leftTexture,
             << frameState.shouldRender
             << " | predictedDisplayTime: "
             << frameState.predictedDisplayTime
+            << " [XRRuntime] Submitted layers: " 
+            << layerCount
+            << std::endl;
+
+        std::cout
+            << "[XRRuntime] Submitted layers: "
+            << layerCount
             << std::endl;
     }
 
@@ -1218,6 +1307,93 @@ bool XRRuntime::CopyStereoFrame(
                 << " | XR Texture: "
                 << destinationTexture
                 << " | Copy SUCCESS"
+                << std::endl;
+        }
+    }
+
+    return true;
+}
+
+bool XRRuntime::LocateStereoViews(
+    XrTime displayTime,
+    XrView (&views)[2])
+{
+    if (session_ == XR_NULL_HANDLE ||
+        localSpace_ == XR_NULL_HANDLE)
+    {
+        status_ = "Session or reference space not ready";
+        return false;
+    }
+
+    for (auto &view : views)
+    {
+        view = {XR_TYPE_VIEW};
+    }
+
+    XrViewLocateInfo locateInfo{
+        XR_TYPE_VIEW_LOCATE_INFO
+    };
+
+    locateInfo.viewConfigurationType =
+        XR_VIEW_CONFIGURATION_TYPE_PRIMARY_STEREO;
+
+    locateInfo.displayTime = displayTime;
+    locateInfo.space = localSpace_;
+
+    XrViewState viewState{
+        XR_TYPE_VIEW_STATE
+    };
+
+    uint32_t viewCount = 0;
+
+    XrResult result = xrLocateViews(
+        session_,
+        &locateInfo,
+        &viewState,
+        2,
+        &viewCount,
+        views);
+
+    if (XR_FAILED(result))
+    {
+        status_ = "xrLocateViews failed";
+        return false;
+    }
+
+    if (viewCount != 2)
+    {
+        status_ = "Unexpected OpenXR view count";
+        return false;
+    }
+
+    constexpr XrViewStateFlags requiredFlags =
+        XR_VIEW_STATE_POSITION_VALID_BIT |
+        XR_VIEW_STATE_ORIENTATION_VALID_BIT;
+
+    if ((viewState.viewStateFlags & requiredFlags)
+        != requiredFlags)
+    {
+        // Tracking is not valid for this display time.
+        // Skip the projection layer for this frame.
+        return false;
+    }
+
+    if (frameCount_ % 120 == 0)
+    {
+        std::cout
+            << "[XRRuntime] Stereo Views Located"
+            << std::endl;
+
+        for (uint32_t eye = 0; eye < 2; ++eye)
+        {
+            const auto &p = views[eye].pose.position;
+
+            std::cout
+                << "[XRRuntime] View " << eye
+                << " | Position: "
+                << p.x << ", "
+                << p.y << ", "
+                << p.z
                 << std::endl;
         }
     }

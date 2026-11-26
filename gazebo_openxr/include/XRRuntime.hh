@@ -115,5 +115,9 @@ private:
     bool CopyStereoFrame(
         unsigned int leftTexture,
         unsigned int rightTexture);
+
+    bool LocateStereoViews(
+        XrTime displayTime,
+        XrView (&views)[2]);
 };
 
