@@ -491,3 +491,80 @@ unsigned int XRCamera::GetRightTextureId() const
 {
     return stereoRenderReady_ ? rightTextureId_ : 0;
 }
+
+bool XRCamera::UpdateStereoFrame()
+{
+    if (!stereoRenderReady_ ||
+        !scene_ ||
+        !leftEye_ ||
+        !rightEye_)
+    {
+        return false;
+    }
+
+    using Clock = std::chrono::steady_clock;
+
+    const auto now = Clock::now();
+
+    // Diagnostic: limit stereo camera rendering to 10 FPS.
+    constexpr auto renderInterval =
+        std::chrono::milliseconds(100);
+
+    if (lastStereoRender_ != Clock::time_point{} &&
+        now - lastStereoRender_ < renderInterval)
+    {
+        // No new rendering needed.
+        // Previously rendered textures remain available.
+        return true;
+    }
+
+    // Must execute on Gazebo's rendering thread.
+    //
+    // Start a complete, balanced OGRE2 scene cycle.
+    scene_->PreRender();
+
+    // Render both eyes within one scene cycle.
+    leftEye_->Render();
+    rightEye_->Render();
+
+    // Finalize both camera render passes.
+    leftEye_->PostRender();
+    rightEye_->PostRender();
+
+    // Required to finish the scene cycle.
+    scene_->PostRender();
+
+    // Fetch the current camera texture handles.
+    const unsigned int leftId =
+        leftEye_->RenderTextureGLId();
+
+    const unsigned int rightId =
+        rightEye_->RenderTextureGLId();
+
+    if (leftId == 0 || rightId == 0)
+    {
+        std::cerr
+            << "[XRCamera] Stereo texture unavailable"
+            << std::endl;
+
+        return false;
+    }
+
+    leftTextureId_ = leftId;
+    rightTextureId_ = rightId;
+
+    lastStereoRender_ = Clock::now();
+    ++stereoFrameCount_;
+
+    if (stereoFrameCount_ % 60 == 0)
+    {
+        std::cout
+            << "[XRCamera] Continuous Stereo Frame: "
+            << stereoFrameCount_
+            << " | Left: " << leftTextureId_
+            << " | Right: " << rightTextureId_
+            << std::endl;
+    }
+
+    return true;
+}

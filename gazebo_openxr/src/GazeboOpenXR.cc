@@ -184,22 +184,28 @@ void GazeboOpenXR::OnRender()
             runtime_.InspectViewConfiguration();
 
             
-            // STEP 26: Coordinated stereo rendering diagnostic
+            // STEP 31: Continuous Gazebo stereo rendering
             if (xrCamera_.FindScene())
             {
                 if (xrCamera_.CreateStereoCameras())
                 {
+                    // First frame: initialize camera render targets.
                     if (!xrCamera_.IsStereoRenderReady())
                     {
                         xrCamera_.RenderStereoDiagnostic();
-                        if (xrCamera_.ValidateStereoTextures())
+                    }
+                    else
+                    {
+                        // Subsequent frames: update both stereo cameras.
+                        if (!xrCamera_.UpdateStereoFrame())
                         {
-                            xrCamera_.TestFramebufferBlit();
+                            std::cerr
+                                << "[GazeboOpenXR] Stereo frame update failed"
+                                << std::endl;
                         }
                     }
                 }
             }
-
 
             // // STEP 23: OpenXR Swapchain Creation
             if (!runtime_.AreColorSwapchainsReady())

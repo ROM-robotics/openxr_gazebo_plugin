@@ -251,8 +251,12 @@ CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o: include/moc_GazeboOp
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs_impl.h \
   ../include/XRCamera.hh \
-  /usr/include/gz/rendering8/gz/rendering/Scene.hh \
+  /usr/include/c++/11/chrono \
+  /usr/include/c++/11/ratio \
   /usr/include/c++/11/limits \
+  /usr/include/c++/11/ctime \
+  /usr/include/c++/11/bits/parse_numbers.h \
+  /usr/include/gz/rendering8/gz/rendering/Scene.hh \
   /usr/include/gz/common5/gz/common/Material.hh \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
@@ -271,10 +275,6 @@ CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o: include/moc_GazeboOp
   /usr/include/c++/11/bits/istream.tcc \
   /usr/include/gz/math7/gz/math/Color.hh \
   /usr/include/gz/math7/gz/math/Helpers.hh \
-  /usr/include/c++/11/chrono \
-  /usr/include/c++/11/ratio \
-  /usr/include/c++/11/ctime \
-  /usr/include/c++/11/bits/parse_numbers.h \
   /usr/include/c++/11/cmath \
   /usr/include/math.h \
   /usr/include/x86_64-linux-gnu/bits/math-vector.h \
@@ -1038,8 +1038,12 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: ../src/GazeboOpenXR.cc \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs.h \
   /usr/include/x86_64-linux-gnu/qt5/QtCore/qobjectdefs_impl.h \
   ../include/XRCamera.hh \
-  /usr/include/gz/rendering8/gz/rendering/Scene.hh \
+  /usr/include/c++/11/chrono \
+  /usr/include/c++/11/ratio \
   /usr/include/c++/11/limits \
+  /usr/include/c++/11/ctime \
+  /usr/include/c++/11/bits/parse_numbers.h \
+  /usr/include/gz/rendering8/gz/rendering/Scene.hh \
   /usr/include/gz/common5/gz/common/Material.hh \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
@@ -1070,10 +1074,6 @@ CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o: ../src/GazeboOpenXR.cc \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   /usr/include/gz/math7/gz/math/Color.hh \
   /usr/include/gz/math7/gz/math/Helpers.hh \
-  /usr/include/c++/11/chrono \
-  /usr/include/c++/11/ratio \
-  /usr/include/c++/11/ctime \
-  /usr/include/c++/11/bits/parse_numbers.h \
   /usr/include/c++/11/cmath \
   /usr/include/math.h \
   /usr/include/x86_64-linux-gnu/bits/math-vector.h \
@@ -1781,20 +1781,32 @@ CMakeFiles/GazeboOpenXR.dir/src/XRCamera.cc.o: ../src/XRCamera.cc \
   /usr/include/GL/glxext.h \
   /usr/include/inttypes.h \
   ../include/XRCamera.hh \
+  /usr/include/c++/11/chrono \
+  /usr/include/c++/11/ratio \
+  /usr/include/c++/11/type_traits \
+  /usr/include/c++/11/limits \
+  /usr/include/c++/11/ctime \
+  /usr/include/time.h \
+  /usr/include/x86_64-linux-gnu/bits/time.h \
+  /usr/include/x86_64-linux-gnu/bits/timex.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
+  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
+  /usr/include/c++/11/bits/parse_numbers.h \
+  /usr/include/c++/11/ext/numeric_traits.h \
+  /usr/include/c++/11/bits/cpp_type_traits.h \
+  /usr/include/c++/11/ext/type_traits.h \
   /usr/include/gz/rendering8/gz/rendering/Scene.hh \
   /usr/include/c++/11/array \
   /usr/include/c++/11/utility \
   /usr/include/c++/11/bits/stl_relops.h \
   /usr/include/c++/11/bits/stl_pair.h \
   /usr/include/c++/11/bits/move.h \
-  /usr/include/c++/11/type_traits \
   /usr/include/c++/11/initializer_list \
   /usr/include/c++/11/bits/functexcept.h \
   /usr/include/c++/11/bits/exception_defines.h \
   /usr/include/c++/11/bits/stl_algobase.h \
-  /usr/include/c++/11/bits/cpp_type_traits.h \
-  /usr/include/c++/11/ext/type_traits.h \
-  /usr/include/c++/11/ext/numeric_traits.h \
   /usr/include/c++/11/bits/stl_iterator_base_types.h \
   /usr/include/c++/11/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/11/bits/concept_check.h \
@@ -1819,8 +1831,6 @@ CMakeFiles/GazeboOpenXR.dir/src/XRCamera.cc.o: ../src/XRCamera.cc \
   /usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__FILE.h \
   /usr/include/x86_64-linux-gnu/bits/types/FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/types/locale_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h \
   /usr/include/c++/11/bits/allocator.h \
   /usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h \
   /usr/include/c++/11/ext/new_allocator.h \
@@ -1847,11 +1857,6 @@ CMakeFiles/GazeboOpenXR.dir/src/XRCamera.cc.o: ../src/XRCamera.cc \
   /usr/include/x86_64-linux-gnu/bits/sched.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
-  /usr/include/time.h \
-  /usr/include/x86_64-linux-gnu/bits/time.h \
-  /usr/include/x86_64-linux-gnu/bits/timex.h \
-  /usr/include/x86_64-linux-gnu/bits/types/struct_tm.h \
-  /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h \
   /usr/include/x86_64-linux-gnu/bits/setjmp.h \
   /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
@@ -1889,7 +1894,6 @@ CMakeFiles/GazeboOpenXR.dir/src/XRCamera.cc.o: ../src/XRCamera.cc \
   /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
   /usr/include/c++/11/bits/charconv.h \
   /usr/include/c++/11/bits/basic_string.tcc \
-  /usr/include/c++/11/limits \
   /usr/include/gz/common5/gz/common/Material.hh \
   /usr/include/c++/11/iostream \
   /usr/include/c++/11/ostream \
@@ -1963,10 +1967,6 @@ CMakeFiles/GazeboOpenXR.dir/src/XRCamera.cc.o: ../src/XRCamera.cc \
   /usr/include/c++/11/bits/stl_vector.h \
   /usr/include/c++/11/bits/stl_bvector.h \
   /usr/include/c++/11/bits/vector.tcc \
-  /usr/include/c++/11/chrono \
-  /usr/include/c++/11/ratio \
-  /usr/include/c++/11/ctime \
-  /usr/include/c++/11/bits/parse_numbers.h \
   /usr/include/c++/11/cmath \
   /usr/include/math.h \
   /usr/include/x86_64-linux-gnu/bits/math-vector.h \
@@ -2881,13 +2881,9 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qsocketnotifier.h:
 
-/usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h:
-
-/usr/include/c++/11/bits/basic_ios.h:
-
-/usr/include/c++/11/bits/uniform_int_dist.h:
-
 /usr/include/c++/11/limits:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qcoreevent.h:
 
@@ -2938,6 +2934,12 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 /usr/include/stdio.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qabstractanimation.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigthread.h:
+
+/usr/include/c++/11/chrono:
+
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
 /usr/include/c++/11/cstdio:
 
@@ -3147,6 +3149,10 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/c++/11/bits/atomic_lockfree_defines.h:
 
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qfileinfo.h:
+
+/usr/include/c++/11/bits/parse_numbers.h:
+
 /usr/include/asm-generic/param.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qopengl.h:
@@ -3241,10 +3247,6 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qlist.h:
 
-/usr/include/c++/11/ostream:
-
-/usr/include/gz/common5/gz/common/graphics/Types.hh:
-
 /usr/include/c++/11/bits/unique_ptr.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qversionnumber.h:
@@ -3270,12 +3272,6 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 /usr/include/c++/11/debug/assertions.h:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qsharedpointer.h:
-
-/usr/include/x86_64-linux-gnu/bits/wordsize.h:
-
-/usr/include/x86_64-linux-gnu/bits/sigthread.h:
-
-/usr/include/c++/11/chrono:
 
 /usr/include/x86_64-linux-gnu/qt5/QtGui/qquaternion.h:
 
@@ -3387,6 +3383,10 @@ CMakeFiles/GazeboOpenXR.dir/src/XRRuntime.cc.o: ../src/XRRuntime.cc \
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/QtCoreDepends:
 
+/usr/include/c++/11/thread:
+
+/usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainertools_impl.h:
+
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
 /usr/include/c++/11/tr1/gamma.tcc:
@@ -3450,10 +3450,6 @@ include/moc_GazeboOpenXR.cpp:
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qstorageinfo.h:
 
 /usr/include/c++/11/bits/memoryfwd.h:
-
-/usr/include/c++/11/bits/node_handle.h:
-
-/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
 
 /usr/include/c++/11/algorithm:
 
@@ -3522,6 +3518,10 @@ include/moc_GazeboOpenXR.cpp:
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qsemaphore.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
+
+/usr/include/c++/11/bits/node_handle.h:
+
+/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/time_t.h:
 
@@ -3619,13 +3619,13 @@ include/moc_GazeboOpenXR.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qresource.h:
 
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qarraydata.h:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qcontainertools_impl.h:
-
-/usr/include/c++/11/thread:
-
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
+
+/usr/include/c++/11/bits/uniform_int_dist.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/messages_members.h:
+
+/usr/include/c++/11/bits/basic_ios.h:
 
 /usr/include/google/protobuf/stubs/strutil.h:
 
@@ -3689,6 +3689,10 @@ include/moc_GazeboOpenXR.cpp:
 
 /usr/include/x86_64-linux-gnu/qt5/QtCore/qmetatype.h:
 
+/usr/include/c++/11/ostream:
+
+/usr/include/gz/common5/gz/common/graphics/Types.hh:
+
 /usr/include/c++/11/cwctype:
 
 /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
@@ -3716,10 +3720,6 @@ include/moc_GazeboOpenXR.cpp:
 /usr/include/c++/11/bits/istream.tcc:
 
 /usr/include/gz/gui8/gz/gui/Plugin.hh:
-
-/usr/include/x86_64-linux-gnu/qt5/QtCore/qfileinfo.h:
-
-/usr/include/c++/11/bits/parse_numbers.h:
 
 /usr/include/x86_64-linux-gnu/bits/math-vector.h:
 

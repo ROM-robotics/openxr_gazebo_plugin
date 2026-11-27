@@ -5,6 +5,76 @@
 
 #include <iostream>
 
+namespace
+{
+bool EnsureGLEWInitialized()
+{
+    const GLXContext currentContext =
+        glXGetCurrentContext();
+
+    if (!currentContext)
+    {
+        std::cerr
+            << "[XRRenderer] No current GLX context\n";
+        return false;
+    }
+
+    // Diagnostic: track the last initialized GL context
+    // on this rendering thread.
+    static thread_local GLXContext initializedContext =
+        nullptr;
+
+    if (initializedContext == currentContext)
+        return true;
+
+    glewExperimental = GL_TRUE;
+
+    const GLenum result = glewInit();
+
+    if (result != GLEW_OK)
+    {
+        std::cerr
+            << "[XRRenderer] GLEW initialization failed: "
+            << reinterpret_cast<const char*>(
+                   glewGetErrorString(result))
+            << std::endl;
+
+        return false;
+    }
+
+    // Clear a possible GLEW initialization error.
+    (void)glGetError();
+
+    if (!glGenFramebuffers ||
+        !glBindFramebuffer ||
+        !glFramebufferTexture2D ||
+        !glCheckFramebufferStatus ||
+        !glBlitFramebuffer ||
+        !glDeleteFramebuffers)
+    {
+        std::cerr
+            << "[XRRenderer] Required FBO functions missing\n";
+
+        return false;
+    }
+
+    initializedContext = currentContext;
+
+    std::cout
+        << "[XRRenderer] GLEW Initialized: "
+        << reinterpret_cast<const char*>(
+               glewGetString(GLEW_VERSION))
+        << std::endl;
+
+    std::cout
+        << "[XRRenderer] OpenGL FBO functions ready"
+        << std::endl;
+
+    return true;
+}
+}
+
+
 bool XRRenderer::BlitTexture(
     unsigned int sourceTexture,
     unsigned int destinationTexture,
@@ -12,7 +82,15 @@ bool XRRenderer::BlitTexture(
     int sourceHeight,
     int destinationWidth,
     int destinationHeight)
-{
+{   
+    
+    if (!EnsureGLEWInitialized())
+    {
+        std::cerr
+            << "[XRRenderer] OpenGL initialization failed\n";
+        return false;
+    }
+
     if (!glXGetCurrentContext())
     {
         std::cerr

@@ -1,5 +1,7 @@
 #pragma once
 
+#include <chrono>
+#include <cstdint>
 #include <gz/rendering/Scene.hh>
 #include <gz/rendering/Camera.hh>
 #include <gz/rendering/RenderTypes.hh>
@@ -25,6 +27,8 @@ public:
     
     unsigned int GetRightTextureId() const;
 
+    bool UpdateStereoFrame();
+
 private:
     gz::rendering::ScenePtr scene_;
 
@@ -45,4 +49,8 @@ private:
     bool textureValidationReported_ = false;
 
     bool blitTestAttempted_ = false;
+
+    std::chrono::steady_clock::time_point lastStereoRender_{};
+
+    std::uint64_t stereoFrameCount_ = 0;
 };
