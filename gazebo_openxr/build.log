@@ -1,7 +1,0 @@
-[ 33%] Generating include/moc_GazeboOpenXR.cpp
-[ 33%] Generating qrc_GazeboOpenXR.cpp
-[ 83%] Building CXX object CMakeFiles/GazeboOpenXR.dir/include/moc_GazeboOpenXR.cpp.o
-[ 83%] Building CXX object CMakeFiles/GazeboOpenXR.dir/qrc_GazeboOpenXR.cpp.o
-[ 83%] Building CXX object CMakeFiles/GazeboOpenXR.dir/src/GazeboOpenXR.cc.o
-[100%] Linking CXX shared library libGazeboOpenXR.so
-[100%] Built target GazeboOpenXR
